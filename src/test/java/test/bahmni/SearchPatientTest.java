@@ -1,13 +1,11 @@
 package test.bahmni;
 
-import static org.junit.Assert.*;
-import junit.framework.TestCase;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.support.PageFactory;
 
 public class SearchPatientTest {
@@ -18,8 +16,7 @@ public class SearchPatientTest {
 	@Before
 	public void setup() throws InterruptedException{
 		app = new Common();
-		driver = app.getChromeDriver();
-		app.launchApp();
+		driver = app.launchApp();
 	}
 	
 	@Test
@@ -27,11 +24,10 @@ public class SearchPatientTest {
 		
 		LoginPage login_page = PageFactory.initElements(driver,LoginPage.class);
 		login_page.login("superman", "Admin123", "OPD-1");
-		
 		app.waitForObject(driver);
 		
 		HomePage homepage = PageFactory.initElements(driver,HomePage.class);
-		homepage.clickModule("Registration");
+		homepage.clickRegistrationApp();
 		
 		app.waitForObject(driver);
 		

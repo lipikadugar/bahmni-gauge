@@ -1,6 +1,6 @@
 package test.bahmni;
 
-import static org.junit.Assert.assertNotNull;
+import java.io.IOException;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -31,6 +31,11 @@ public class Registration_Page1 {
 	@FindBy(how= How.CSS, using = "strong > span")
 	public WebElement new_patient;
 	
+	@FindBy(how= How.CSS, using = ".split-button")
+	public WebElement visit_btn;
+	
+	Common app = new Common();
+	
 	public void enterFirstName(String Firstname) throws InterruptedException {
 		patientName.sendKeys(Firstname);
 	}
@@ -56,13 +61,18 @@ public class Registration_Page1 {
 		save.click();
 	}
 	
-	public void createNewPatient(String Firstname,String Lastname, String gen, String year, String vill) throws InterruptedException{
-		enterFirstName(Firstname);
-		enterLastName(Lastname);
-		enterGender(gen);
-		enterAgeYears(year); 
-		enterVillage(vill);
+	public void startVisit(){
+		visit_btn.click();
+	}
+	
+	public void createNewPatient(String filename) throws InterruptedException, IOException{
+		enterFirstName(app.getJsonKeyValue("patient","FirstName"));
+		enterLastName(app.getJsonKeyValue("patient","LastName"));
+		enterGender(app.getJsonKeyValue("patient","Gender"));
+		enterAgeYears(app.getJsonKeyValue("patient","Age")); 
+		enterVillage(app.getJsonKeyValue("patient","Village"));
 		clickSave();
+		startVisit();
 	}
 
 }
