@@ -26,32 +26,25 @@ public class ProgramEnrollmentTest {
 	@Before
 	public void setup() throws InterruptedException{
 		app = new Common();
-		driver = app.launchApp();
+		driver = Common.launchApp();
 		
 		LoginPage login_page = PageFactory.initElements(driver,LoginPage.class);
 		login_page.login("superman", "Admin123","OPD-1");
-		app.waitForObject(driver);
+		
+		HomePage homepage = PageFactory.initElements(driver,HomePage.class);
+		homepage.clickProgramsApp();
 	}
 	
 	@Test
 	public void testA() throws InterruptedException, IOException {
 		
-		HomePage homepage = PageFactory.initElements(driver,HomePage.class);
-		homepage.clickProgramsApp();		
-		app.waitForObject(driver);
-		
 		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
 		patients_page.searchSelectPatientFromTabs("All", app.getJsonKeyValue("patient", "ID"));
 		
-		app.waitForObject(driver);
-		
 		ProgramManagamentPage prog_page = PageFactory.initElements(driver,ProgramManagamentPage.class);
 		prog_page.expandProgramEnrollment();
-		app.waitForObject(driver);
 		
 		prog_page.enrollToProgram();
-		app.waitForObject(driver);
-		
 		assertTrue(prog_page.active_progs.getText().toString().contains(app.getJsonKeyValue("patient/Programs/Program", "Name")));
 		
 	}
@@ -59,18 +52,24 @@ public class ProgramEnrollmentTest {
 	@Test
 	public void testB() throws InterruptedException, IOException {
 		
-		HomePage homepage = PageFactory.initElements(driver,HomePage.class);
-		homepage.clickProgramsApp();
+		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
+		patients_page.searchSelectPatientFromTabs("All", app.getJsonKeyValue("patient", "ID"));
 		
-		app.waitForObject(driver);
+		ProgramManagamentPage program_page = PageFactory.initElements(driver,ProgramManagamentPage.class);
+		program_page.editProgramEnrolled();
+		
+		assertTrue(program_page.active_progs.getText().toString().contains("E1111"));
+		
+	}
+	
+	@Test
+	public void testC() throws InterruptedException, IOException {
 		
 		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
 		patients_page.searchSelectPatientFromTabs("All", app.getJsonKeyValue("patient", "ID"));
-		app.waitForObject(driver);
 		
 		ProgramManagamentPage program_page = PageFactory.initElements(driver,ProgramManagamentPage.class);
 		program_page.endProgramEnrollment("Cured");
-		app.waitForObject(driver);
 		
 		assertTrue(program_page.inactive_progs.getText().toString().contains(app.getJsonKeyValue("patient/Programs/Program", "Name")));
 		

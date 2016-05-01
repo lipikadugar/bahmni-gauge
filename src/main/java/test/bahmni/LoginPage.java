@@ -5,12 +5,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 
-public class LoginPage {
+public class LoginPage extends Common {
 	
-	@FindBy(how= How.ID, using = "username")
+	@FindBy(how= How.CSS, using = "#username")
     public WebElement username_txt;
 
-    @FindBy(how= How.ID, using = "password")
+    @FindBy(how= How.CSS, using = "#password")
     public WebElement pass_txt;
     
     @FindBy(how= How.CSS, using = "#location")
@@ -45,15 +45,20 @@ public class LoginPage {
     }
     
     public void login(String user, String pass, String loc, String locale) throws InterruptedException  {
+    	
+    	Common.waitUntilAppReady(Common.Webdriver);
+    	
     	enterUsername(user);
     	enterPassword(pass);
     	selectLocation(loc);
     	selectLocale(locale);
-    	
     	signin_btn.click();
     }
     
     public void login(String user, String pass, String loc) throws InterruptedException  {
+    	
+    	Common.waitUntilAppReady(Common.Webdriver);
+    	
     	enterUsername(user);
     	enterPassword(pass);
     	selectLocation(loc);

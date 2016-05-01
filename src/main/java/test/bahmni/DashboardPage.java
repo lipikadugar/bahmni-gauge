@@ -10,6 +10,7 @@ public class DashboardPage {
     public WebElement clinical;
 
     public void clickClinical() throws InterruptedException {
+    	Common.waitUntilAppReady(Common.Webdriver);
     	clinical.click();
     }
 

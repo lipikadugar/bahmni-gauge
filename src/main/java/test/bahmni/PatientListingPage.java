@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class PatientListingPage {
+public class PatientListingPage extends Common {
 
 	@FindBy(how= How.CSS, using = ".tabs .tab-item")
     public List<WebElement> tab;
@@ -57,7 +57,8 @@ public class PatientListingPage {
     	patient.click();
     }
     
-    public void searchSelectPatientFromTabs(String Tab, String PatientID) throws IOException{
+    public void searchSelectPatientFromTabs(String Tab, String PatientID) throws IOException, InterruptedException{
+    	Common.waitUntilAppReady(Common.Webdriver);
     	clickTab(Tab);
     	enterPatientIDOrName(app.getJsonKeyValue("patient", "ID"));
     	clickSearch();

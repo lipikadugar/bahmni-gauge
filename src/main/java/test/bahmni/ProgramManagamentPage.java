@@ -46,8 +46,8 @@ public class ProgramManagamentPage {
     @FindBy(how= How.CSS, using = "[value='Edit']")
     public WebElement edit_btn;
     
-    @FindBy(how= How.LINK_TEXT, using = ".active-program-tiles #[id='Facility Name']")
-    public WebElement activ_facilityname;
+    @FindBy(how= How.CSS, using = ".active-program-tiles #Enrollment")
+    public WebElement activ_enrollmentID;
     
     @FindBy(how= How.CSS, using = ".active-program-tiles select.ng-pristine")
     public List<WebElement> outcome;
@@ -55,28 +55,34 @@ public class ProgramManagamentPage {
     Common app = new Common();
     
     public void expandProgramEnrollment() throws InterruptedException {
+    	Common.waitUntilAppReady(Common.Webdriver);
     	expand.click();
 	}
     
     public void selectProgram(String prog) throws InterruptedException {
+    	Common.waitUntilAppReady(Common.Webdriver);
     	Select program_name = new Select(program);
     	program_name.selectByVisibleText(prog);
 	}
 	
 	public void enterStartDate(String Date) throws InterruptedException {
-		Thread.sleep(2000);
+		Common.waitUntilAppReady(Common.Webdriver);
+		Thread.sleep(1000);
 		start_date.sendKeys(Date);
 	}
 	
 	public void enterFacilityName(String Facility) throws InterruptedException {
+		Common.waitUntilAppReady(Common.Webdriver);
 		facility_name.sendKeys(Facility);
 	}
 	
 	public void enterFacilityID(String FacilityID) throws InterruptedException {
+		Common.waitUntilAppReady(Common.Webdriver);
 		facility_id.sendKeys(FacilityID);
 	}
 	
 	public void enterDoctorName(String Doctor) throws InterruptedException {
+		Common.waitUntilAppReady(Common.Webdriver);
 		doctor.sendKeys(Doctor);
 	}
 	
@@ -85,23 +91,30 @@ public class ProgramManagamentPage {
 	}
 	
 	public void clickEnroll() throws InterruptedException {
+		Common.waitUntilAppReady(Common.Webdriver);
 		enroll_btn.click();
 	}
 	
 	public void clickEdit() throws InterruptedException {
+		Common.waitUntilAppReady(Common.Webdriver);
+		Thread.sleep(1000);
 		edit_btn.click();
 	}
 	
 	public void clickSave() throws InterruptedException {
+		Common.waitUntilAppReady(Common.Webdriver);
 		save_btn.click();
 	}
 	
-	public void editFacilityName(String FacilityName){
-		activ_facilityname.sendKeys(FacilityName);
+	public void editEnrollmentID(String EnrollmentID) throws InterruptedException{
+		Common.waitUntilAppReady(Common.Webdriver);
+		activ_enrollmentID.clear();
+		activ_enrollmentID.sendKeys(EnrollmentID);
 	}
 	
 	public void selectOutcome(String Outcome) throws InterruptedException {
-    	
+		
+		Common.waitUntilAppReady(Common.Webdriver);
 		for(int i=0;i<=outcome.size()-1;i++){
 			
 			if(outcome.get(i).getAttribute("ng-model").toString().contains("outcome")){
@@ -114,6 +127,7 @@ public class ProgramManagamentPage {
 	
 	
 	public void enrollToProgram() throws InterruptedException, IOException {
+		Common.waitUntilAppReady(Common.Webdriver);
 		selectProgram(app.getJsonKeyValue("patient/Programs/Program", "Name"));
 		enterStartDate(app.getJsonKeyValue("patient/Programs/Program", "StartDate"));
 		enterFacilityName(app.getJsonKeyValue("patient/Programs/Program", "FacilityName"));
@@ -121,16 +135,23 @@ public class ProgramManagamentPage {
 		enterDoctorName(app.getJsonKeyValue("patient/Programs/Program", "Doctor"));
 		enterEnrollmentID(app.getJsonKeyValue("patient/Programs/Program", "EnrollmentID"));
 		enroll_btn.click();
+		Common.waitUntilAppReady(Common.Webdriver);
 	}
 	
-	public void editProgramAttributes(){
-		
+	public void editProgramEnrolled() throws InterruptedException, IOException {
+		Common.waitUntilAppReady(Common.Webdriver);
+		clickEdit();
+		editEnrollmentID("E1111");
+		clickSave();
+		Common.waitUntilAppReady(Common.Webdriver);
 	}
 	
 	public void endProgramEnrollment(String Outcome) throws InterruptedException{
+		Common.waitUntilAppReady(Common.Webdriver);
 		clickEdit();
 		selectOutcome(Outcome);
 		clickSave();
+		Common.waitUntilAppReady(Common.Webdriver);
 	}
 	
 }

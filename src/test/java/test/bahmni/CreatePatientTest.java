@@ -1,6 +1,6 @@
 package test.bahmni;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 
@@ -13,42 +13,52 @@ import org.openqa.selenium.support.PageFactory;
 public class CreatePatientTest {
 	
 	ChromeDriver driver;
-	public Common app;
+	public Common commonTasks;
+	HomePage homepage;
+	RegistrationSearch registration_search;
+	Registration_Page1 registration_page;
 		
 	@Before
-	public void setup() throws InterruptedException{
-		app = new Common();
-		driver = app.launchApp();
+	public void setup() throws InterruptedException {
 		
+		//Objects Initialization
+		commonTasks = new Common();
+		driver = Common.launchApp();
+		//Login to the App
 		LoginPage login_page = PageFactory.initElements(driver,LoginPage.class);
-		login_page.login("superman", "Admin123","OPD-1");
-		app.waitForObject(driver);
+		login_page.login("superman", "Admin123", "OPD-1");
+		
+		homepage = PageFactory.initElements(driver,HomePage.class);
+		homepage.clickRegistrationApp();
 	}
 	
 	@Test
-	public void test() throws InterruptedException, IOException{
-		
-		HomePage homepage = PageFactory.initElements(driver,HomePage.class);
-		homepage.clickRegistrationApp();
-		app.waitForObject(driver);
-		
-		RegistrationSearch registration_search = PageFactory.initElements(driver, RegistrationSearch.class);
+	public void testA_createPatient() throws InterruptedException, IOException{
+	
+		registration_search = PageFactory.initElements(driver, RegistrationSearch.class);
 		registration_search.clickCreateNew();
-		app.waitForObject(driver);
-		
-		Registration_Page1 registration_page = PageFactory.initElements(driver, Registration_Page1.class);
+			
+		registration_page = PageFactory.initElements(driver, Registration_Page1.class);
 		registration_page.createNewPatient("..//bahmni//PatientProfile.json");
-		app.waitForObject(driver);
-		
+			
 		assertNotNull(registration_page.new_patient);
+	}
+	
+	@Test
+	public void testB_searchAndOpenVisit() throws InterruptedException, IOException{
+	
+		Common.navigateToSearchPage();
+		
+		registration_search = PageFactory.initElements(driver, RegistrationSearch.class);
+		registration_search.searchPatientWithID("GAN", commonTasks.getJsonKeyValue("patient", "ID").substring(3,commonTasks.getJsonKeyValue("patient", "ID").length()));
+		
+		registration_page = PageFactory.initElements(driver, Registration_Page1.class);
+		registration_page.startVisit();
 	}
 	
 	@After
 	public void shutDown(){
 		driver.quit();
-		
 	}
-	
-	
 
 }

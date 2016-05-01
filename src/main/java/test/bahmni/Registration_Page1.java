@@ -1,6 +1,7 @@
 package test.bahmni;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -19,6 +20,9 @@ public class Registration_Page1 {
 	@FindBy(how= How.CSS, using = "#gender")
 	public WebElement gender;
 	
+	@FindBy(how= How.CSS, using = "#address4")
+	public WebElement purusava;
+	
 	@FindBy(how= How.CSS, using = "#ageYears")
 	public WebElement ageYears;
 	
@@ -28,11 +32,14 @@ public class Registration_Page1 {
 	@FindBy(how= How.CSS, using = ".submit-btn")
 	public WebElement save;
 	
+	@FindBy(how= How.CSS, using = "#address1")
+	public WebElement addr_line;
+	
 	@FindBy(how= How.CSS, using = "strong > span")
 	public WebElement new_patient;
 	
-	@FindBy(how= How.CSS, using = ".split-button")
-	public WebElement visit_btn;
+	@FindBy(how= How.CSS, using = ".buttonClass")
+	public List<WebElement> visit_btn;
 	
 	Common app = new Common();
 	
@@ -57,22 +64,35 @@ public class Registration_Page1 {
 		village.sendKeys(vill+Keys.ARROW_DOWN);
 	}
 	
+	public void enterAddress(String vill) throws InterruptedException {
+		//purusava.sendKeys(vill+Keys.ARROW_DOWN);
+		//purusava.clear();
+		addr_line.sendKeys("TestDemo");
+	}
+	
 	public void clickSave() throws InterruptedException {
+		Common.waitUntilAppReady(Common.Webdriver);
 		save.click();
 	}
 	
-	public void startVisit(){
-		visit_btn.click();
+	public void startVisit() throws InterruptedException {
+		Common.waitUntilAppReady(Common.Webdriver);
+		for(int i=0;i<visit_btn.size()-1;i++)
+		{
+			if(visit_btn.get(i).getText().toString().contains("Start OPD visit"))
+				visit_btn.get(i).click();
+		}
 	}
 	
 	public void createNewPatient(String filename) throws InterruptedException, IOException{
+		Common.waitUntilAppReady(Common.Webdriver);
 		enterFirstName(app.getJsonKeyValue("patient","FirstName"));
 		enterLastName(app.getJsonKeyValue("patient","LastName"));
 		enterGender(app.getJsonKeyValue("patient","Gender"));
 		enterAgeYears(app.getJsonKeyValue("patient","Age")); 
-		enterVillage(app.getJsonKeyValue("patient","Village"));
+		//enterVillage(app.getJsonKeyValue("patient","Village"));
+		enterAddress(app.getJsonKeyValue("patient","Village"));
 		clickSave();
-		startVisit();
 	}
 
 }

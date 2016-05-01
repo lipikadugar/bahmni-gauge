@@ -33,14 +33,17 @@ public class RegistrationSearch {
 	
 
     public void clickSearch() throws InterruptedException {
+    	Common.waitUntilAppReady(Common.Webdriver);
     	search.click();
     }
     
     public void clickHome() throws InterruptedException {
+    	Common.waitUntilAppReady(Common.Webdriver);
     	home.click();
     }
     
     public void clickCreateNew() throws InterruptedException {
+    	Common.waitUntilAppReady(Common.Webdriver);
     	create_new.click();
     }
     
@@ -58,10 +61,12 @@ public class RegistrationSearch {
     }
     
     public void clickIdentiferSearch() throws InterruptedException {
+    	Common.waitUntilAppReady(Common.Webdriver);
     	identifer_search_btn.click();
     }
     
     public void searchPatientWithID(String Prefix, String ID) throws InterruptedException {
+    	Common.waitUntilAppReady(Common.Webdriver);
     	selectIdentifier(Prefix);
     	enterRegistrationNo(ID);
     	clickIdentiferSearch();

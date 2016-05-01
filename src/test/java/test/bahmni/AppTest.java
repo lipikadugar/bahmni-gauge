@@ -1,6 +1,7 @@
 package test.bahmni;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -38,6 +39,6 @@ public class AppTest
      */
     public void testApp() throws InterruptedException
     {	
-        //assertTrue( true );
+   
     }
 }
