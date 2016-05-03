@@ -5,11 +5,17 @@ import java.util.List;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class Registration_Page1 {
+	
+	public Registration_Page1(ChromeDriver driver){
+		PageFactory.initElements(driver,this);
+	}
 	
 	@FindBy(how= How.CSS, using = "#givenName")
 	public WebElement patientName;

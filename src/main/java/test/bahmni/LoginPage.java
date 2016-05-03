@@ -1,11 +1,17 @@
 package test.bahmni;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage extends Common {
+	
+	public LoginPage(ChromeDriver driver) {
+    	PageFactory.initElements(driver,this);
+	}
 	
 	@FindBy(how= How.CSS, using = "#username")
     public WebElement username_txt;
@@ -22,7 +28,8 @@ public class LoginPage extends Common {
     @FindBy(how= How.CSS, using = ".confirm")
     public WebElement signin_btn;
 
-    public void enterUsername(String user) throws InterruptedException {
+    
+	public void enterUsername(String user) throws InterruptedException {
         username_txt.sendKeys(user);
     }
     

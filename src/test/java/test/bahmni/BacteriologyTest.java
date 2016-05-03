@@ -15,7 +15,7 @@ public class BacteriologyTest {
 	ChromeDriver driver;
 	public Common commonTasks;
 	HomePage homepage;
-	RegistrationSearch registration_search;
+	RegistrationSearchPage registration_search;
 	Registration_Page1 registration_page;
 		
 	@Before
@@ -25,13 +25,13 @@ public class BacteriologyTest {
 		commonTasks = new Common();
 		driver = Common.launchApp();
 		//Login to the App
-		LoginPage login_page = PageFactory.initElements(driver,LoginPage.class);
+		LoginPage login_page = new LoginPage(driver);
 		login_page.login("superman", "Admin123", "OPD-1");
 		
 		searchAndOpenVisit();
 		Common.navigateToDashboard();
 		
-		homepage = PageFactory.initElements(driver,HomePage.class);
+		HomePage homepage = new HomePage(driver);
 		homepage.clickClinicalApp();
 	}
 	
@@ -96,7 +96,7 @@ public class BacteriologyTest {
 	
 		Common.navigateToSearchPage();
 		
-		registration_search = PageFactory.initElements(driver, RegistrationSearch.class);
+		registration_search = PageFactory.initElements(driver, RegistrationSearchPage.class);
 		registration_search.searchPatientWithID("GAN", commonTasks.getJsonKeyValue("patient", "ID").substring(3,commonTasks.getJsonKeyValue("patient", "ID").length()));
 		
 		registration_page = PageFactory.initElements(driver, Registration_Page1.class);

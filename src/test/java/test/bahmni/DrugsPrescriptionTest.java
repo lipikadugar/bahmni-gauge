@@ -17,7 +17,7 @@ public class DrugsPrescriptionTest {
 	@SuppressWarnings("rawtypes")
 	Hashtable patient,drug1,drug2,drug3,drug4;
 	public Common commonTasks;
-	RegistrationSearch registration_search;
+	RegistrationSearchPage registration_search;
 	Registration_Page1 registration_page;
 		
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -57,7 +57,7 @@ public class DrugsPrescriptionTest {
 		
 		Common.navigateToSearchPage();
 		
-		registration_search = PageFactory.initElements(driver, RegistrationSearch.class);
+		registration_search = PageFactory.initElements(driver, RegistrationSearchPage.class);
 		registration_search.searchPatientWithID("GAN", commonTasks.getJsonKeyValue("patient", "ID").substring(3,commonTasks.getJsonKeyValue("patient", "ID").length()));
 		
 		registration_page = PageFactory.initElements(driver, Registration_Page1.class);

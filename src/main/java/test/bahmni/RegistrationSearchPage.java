@@ -1,11 +1,17 @@
 package test.bahmni;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class RegistrationSearch {
+public class RegistrationSearchPage {
+	
+	public RegistrationSearchPage(ChromeDriver driver){
+		PageFactory.initElements(driver,this);
+	}
 
 	@FindBy(how= How.CSS, using = ".fa-home")
     public WebElement home;

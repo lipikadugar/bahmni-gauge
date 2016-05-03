@@ -4,10 +4,16 @@ import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
 public class PatientListingPage extends Common {
+	
+	public PatientListingPage(ChromeDriver driver){
+		PageFactory.initElements(driver,this);
+	}
 
 	@FindBy(how= How.CSS, using = ".tabs .tab-item")
     public List<WebElement> tab;

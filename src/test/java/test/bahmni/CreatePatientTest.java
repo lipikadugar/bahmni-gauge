@@ -15,7 +15,7 @@ public class CreatePatientTest {
 	ChromeDriver driver;
 	public Common commonTasks;
 	HomePage homepage;
-	RegistrationSearch registration_search;
+	RegistrationSearchPage registration_search;
 	Registration_Page1 registration_page;
 		
 	@Before
@@ -35,7 +35,7 @@ public class CreatePatientTest {
 	@Test
 	public void testA_createPatient() throws InterruptedException, IOException{
 	
-		registration_search = PageFactory.initElements(driver, RegistrationSearch.class);
+		registration_search = PageFactory.initElements(driver, RegistrationSearchPage.class);
 		registration_search.clickCreateNew();
 			
 		registration_page = PageFactory.initElements(driver, Registration_Page1.class);
@@ -49,7 +49,7 @@ public class CreatePatientTest {
 	
 		Common.navigateToSearchPage();
 		
-		registration_search = PageFactory.initElements(driver, RegistrationSearch.class);
+		registration_search = PageFactory.initElements(driver, RegistrationSearchPage.class);
 		registration_search.searchPatientWithID("GAN", commonTasks.getJsonKeyValue("patient", "ID").substring(3,commonTasks.getJsonKeyValue("patient", "ID").length()));
 		
 		registration_page = PageFactory.initElements(driver, Registration_Page1.class);

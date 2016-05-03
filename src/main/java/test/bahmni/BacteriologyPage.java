@@ -3,11 +3,16 @@ package test.bahmni;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 public class BacteriologyPage {
+	
+	public BacteriologyPage(ChromeDriver driver){
+		PageFactory.initElements(driver,this);
+	}
 	
 	@FindBy(how= How.CSS, using = "#sample-date")
     public WebElement sample_date;
