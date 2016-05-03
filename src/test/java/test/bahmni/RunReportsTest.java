@@ -22,17 +22,17 @@ public class RunReportsTest {
 		app = new Common();
 		driver = Common.launchApp();
 		
-		LoginPage login_page = PageFactory.initElements(driver,LoginPage.class);
+		LoginPage login_page = new LoginPage(driver);
 		login_page.login("superman", "Admin123","Registration Desk");
 		
-		HomePage homepage = PageFactory.initElements(driver,HomePage.class);
+		HomePage homepage = new HomePage(driver);
 		homepage.clickReportsApp();	
 	}
 	
 	@Test
 	public void test() throws InterruptedException, IOException {
 		
-		ReportsPage reports = PageFactory.initElements(driver, ReportsPage.class);
+		ReportsPage reports = new ReportsPage(driver);
 		reports.selectAndRunReport("Chief Complaint Report","01/01/2016", "04/01/2016", "HTML");
 		
 		//assertNotNull(registration_search.search_results);

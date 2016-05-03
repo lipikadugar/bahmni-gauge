@@ -17,8 +17,6 @@ public class DrugsPrescriptionTest {
 	@SuppressWarnings("rawtypes")
 	Hashtable patient,drug1,drug2,drug3,drug4;
 	public Common commonTasks;
-	RegistrationSearchPage registration_search;
-	Registration_Page1 registration_page;
 		
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Before
@@ -26,26 +24,26 @@ public class DrugsPrescriptionTest {
 		commonTasks = new Common();
 		driver = Common.launchApp();
 		
-		LoginPage login_page = PageFactory.initElements(driver,LoginPage.class);
+		LoginPage login_page = new LoginPage(driver);
 		login_page.login("superman", "Admin123","OPD-1");
 		
-		HomePage homepage = PageFactory.initElements(driver,HomePage.class);
+		HomePage homepage = new HomePage(driver);
 		homepage.clickClinicalApp();
 		
 	}
 	@Test
 	public void testA() throws InterruptedException, IOException {
 		
-		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
+		PatientListingPage patients_page = new PatientListingPage(driver);
 		patients_page.searchSelectPatientFromTabs("All", commonTasks.getJsonKeyValue("patient", "ID"));
 		
-		DashboardPage dashboard = PageFactory.initElements(driver,DashboardPage.class);
+		DashboardPage dashboard = new DashboardPage(driver);
 		dashboard.clickClinical();
 		
-		ConsultationPage consultation_page = PageFactory.initElements(driver,ConsultationPage.class);
+		ConsultationPage consultation_page = new ConsultationPage(driver);
 		consultation_page.clickTab("Medications");
 		
-		TreatmentPage treatment_page = PageFactory.initElements(driver, TreatmentPage.class);
+		TreatmentPage treatment_page = new TreatmentPage(driver);
 		treatment_page.prescribeDrugToPatient("Drug1");treatment_page.prescribeDrugToPatient("Drug2");
 		treatment_page.prescribeDrugToPatient("Drug3");treatment_page.prescribeFreeTextDrugToPatient("Drug4");
 		treatment_page.savePrecription();
@@ -57,10 +55,10 @@ public class DrugsPrescriptionTest {
 		
 		Common.navigateToSearchPage();
 		
-		registration_search = PageFactory.initElements(driver, RegistrationSearchPage.class);
+		RegistrationSearchPage registration_search = new RegistrationSearchPage(driver);
 		registration_search.searchPatientWithID("GAN", commonTasks.getJsonKeyValue("patient", "ID").substring(3,commonTasks.getJsonKeyValue("patient", "ID").length()));
 		
-		registration_page = PageFactory.initElements(driver, Registration_Page1.class);
+		Registration_Page1 registration_page = new Registration_Page1(driver);
 		registration_page.startVisit();
 	}
 	

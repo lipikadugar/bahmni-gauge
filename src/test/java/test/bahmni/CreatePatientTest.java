@@ -14,9 +14,6 @@ public class CreatePatientTest {
 	
 	ChromeDriver driver;
 	public Common commonTasks;
-	HomePage homepage;
-	RegistrationSearchPage registration_search;
-	Registration_Page1 registration_page;
 		
 	@Before
 	public void setup() throws InterruptedException {
@@ -25,20 +22,20 @@ public class CreatePatientTest {
 		commonTasks = new Common();
 		driver = Common.launchApp();
 		//Login to the App
-		LoginPage login_page = PageFactory.initElements(driver,LoginPage.class);
+		LoginPage login_page = new LoginPage(driver);
 		login_page.login("superman", "Admin123", "OPD-1");
 		
-		homepage = PageFactory.initElements(driver,HomePage.class);
+		HomePage homepage = new HomePage(driver);
 		homepage.clickRegistrationApp();
 	}
 	
 	@Test
 	public void testA_createPatient() throws InterruptedException, IOException{
 	
-		registration_search = PageFactory.initElements(driver, RegistrationSearchPage.class);
+		RegistrationSearchPage registration_search = new RegistrationSearchPage(driver);
 		registration_search.clickCreateNew();
 			
-		registration_page = PageFactory.initElements(driver, Registration_Page1.class);
+		Registration_Page1 registration_page = new Registration_Page1(driver);
 		registration_page.createNewPatient("..//bahmni//PatientProfile.json");
 			
 		assertNotNull(registration_page.new_patient);
@@ -49,10 +46,10 @@ public class CreatePatientTest {
 	
 		Common.navigateToSearchPage();
 		
-		registration_search = PageFactory.initElements(driver, RegistrationSearchPage.class);
+		RegistrationSearchPage registration_search = new RegistrationSearchPage(driver);
 		registration_search.searchPatientWithID("GAN", commonTasks.getJsonKeyValue("patient", "ID").substring(3,commonTasks.getJsonKeyValue("patient", "ID").length()));
 		
-		registration_page = PageFactory.initElements(driver, Registration_Page1.class);
+		Registration_Page1 registration_page = new Registration_Page1(driver);
 		registration_page.startVisit();
 	}
 	

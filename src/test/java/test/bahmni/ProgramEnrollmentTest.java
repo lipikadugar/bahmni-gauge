@@ -28,20 +28,20 @@ public class ProgramEnrollmentTest {
 		app = new Common();
 		driver = Common.launchApp();
 		
-		LoginPage login_page = PageFactory.initElements(driver,LoginPage.class);
+		LoginPage login_page = new LoginPage(driver);
 		login_page.login("superman", "Admin123","OPD-1");
 		
-		HomePage homepage = PageFactory.initElements(driver,HomePage.class);
+		HomePage homepage = new HomePage(driver);
 		homepage.clickProgramsApp();
 	}
 	
 	@Test
 	public void testA() throws InterruptedException, IOException {
 		
-		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
+		PatientListingPage patients_page = new PatientListingPage(driver);
 		patients_page.searchSelectPatientFromTabs("All", app.getJsonKeyValue("patient", "ID"));
 		
-		ProgramManagamentPage prog_page = PageFactory.initElements(driver,ProgramManagamentPage.class);
+		ProgramManagamentPage prog_page = new ProgramManagamentPage(driver);
 		prog_page.expandProgramEnrollment();
 		
 		prog_page.enrollToProgram();
@@ -52,10 +52,10 @@ public class ProgramEnrollmentTest {
 	@Test
 	public void testB() throws InterruptedException, IOException {
 		
-		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
+		PatientListingPage patients_page = new PatientListingPage(driver);
 		patients_page.searchSelectPatientFromTabs("All", app.getJsonKeyValue("patient", "ID"));
 		
-		ProgramManagamentPage program_page = PageFactory.initElements(driver,ProgramManagamentPage.class);
+		ProgramManagamentPage program_page = new ProgramManagamentPage(driver);
 		program_page.editProgramEnrolled();
 		
 		assertTrue(program_page.active_progs.getText().toString().contains("E1111"));
@@ -65,10 +65,10 @@ public class ProgramEnrollmentTest {
 	@Test
 	public void testC() throws InterruptedException, IOException {
 		
-		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
+		PatientListingPage patients_page = new PatientListingPage(driver);
 		patients_page.searchSelectPatientFromTabs("All", app.getJsonKeyValue("patient", "ID"));
 		
-		ProgramManagamentPage program_page = PageFactory.initElements(driver,ProgramManagamentPage.class);
+		ProgramManagamentPage program_page = new ProgramManagamentPage(driver);
 		program_page.endProgramEnrollment("Cured");
 		
 		assertTrue(program_page.inactive_progs.getText().toString().contains(app.getJsonKeyValue("patient/Programs/Program", "Name")));

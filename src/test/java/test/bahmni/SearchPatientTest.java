@@ -21,7 +21,7 @@ public class SearchPatientTest {
 		LoginPage login_page = new LoginPage(driver);
 		login_page.login("superman", "Admin123", "OPD-1");
 		
-		HomePage homepage = PageFactory.initElements(driver,HomePage.class);
+		HomePage homepage = new HomePage(driver);
 		homepage.clickRegistrationApp();
 		
 	}
@@ -29,7 +29,7 @@ public class SearchPatientTest {
 	@Test
 	public void run() throws InterruptedException{
 		
-		RegistrationSearchPage registration_search = PageFactory.initElements(driver, RegistrationSearchPage.class);
+		RegistrationSearchPage registration_search = new RegistrationSearchPage(driver);
 		registration_search.searchPatientWithID("GAN", "200");
 		
 		assertNotNull(registration_search.search_results);	

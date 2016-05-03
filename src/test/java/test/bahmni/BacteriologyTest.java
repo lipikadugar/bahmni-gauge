@@ -14,9 +14,6 @@ public class BacteriologyTest {
 
 	ChromeDriver driver;
 	public Common commonTasks;
-	HomePage homepage;
-	RegistrationSearchPage registration_search;
-	Registration_Page1 registration_page;
 		
 	@Before
 	public void setup() throws InterruptedException, IOException{
@@ -38,16 +35,16 @@ public class BacteriologyTest {
 	@Test
 	public void createBacteriologySample() throws InterruptedException, IOException{
 		
-		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
+		PatientListingPage patients_page = new  PatientListingPage(driver);
 		patients_page.searchSelectPatientFromTabs("All", commonTasks.getJsonKeyValue("patient", "ID"));
 		
-		DashboardPage dashboard = PageFactory.initElements(driver,DashboardPage.class);
+		DashboardPage dashboard = new DashboardPage(driver);
 		dashboard.clickClinical();
 		
-		ConsultationPage consultation_page = PageFactory.initElements(driver,ConsultationPage.class);
+		ConsultationPage consultation_page = new ConsultationPage(driver);
 		consultation_page.clickTab("Bacteriology");
 		
-		BacteriologyPage bacteriologyPage = PageFactory.initElements(driver,BacteriologyPage.class);
+		BacteriologyPage bacteriologyPage = new BacteriologyPage(driver);
 		bacteriologyPage.createSample("04/20/2016", "Sputum", "12345");
 		
 		assertTrue(bacteriologyPage.isSampleExists("Sputum", "12345"));
@@ -57,16 +54,16 @@ public class BacteriologyTest {
 	@Test
 	public void editBacteriologySample() throws InterruptedException, IOException{
 		
-		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
+		PatientListingPage patients_page = new  PatientListingPage(driver);
 		patients_page.searchSelectPatientFromTabs("All", commonTasks.getJsonKeyValue("patient", "ID"));
 		
-		DashboardPage dashboard = PageFactory.initElements(driver,DashboardPage.class);
+		DashboardPage dashboard = new DashboardPage(driver);
 		dashboard.clickClinical();
 		
-		ConsultationPage consultation_page = PageFactory.initElements(driver,ConsultationPage.class);
+		ConsultationPage consultation_page = new ConsultationPage(driver);
 		consultation_page.clickTab("Bacteriology");
 		
-		BacteriologyPage bacteriologyPage = PageFactory.initElements(driver,BacteriologyPage.class);
+		BacteriologyPage bacteriologyPage = new BacteriologyPage(driver);
 		bacteriologyPage.editSample("04/20/2016", "Sputum", "12345");
 		
 		assertTrue(bacteriologyPage.isSampleExists("Sputum", "12345"));
@@ -76,16 +73,16 @@ public class BacteriologyTest {
 	@Test
 	public void deleteBacteriologySample() throws InterruptedException, IOException{
 		
-		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
+		PatientListingPage patients_page = new PatientListingPage(driver);
 		patients_page.searchSelectPatientFromTabs("All", commonTasks.getJsonKeyValue("patient", "ID"));
 		
-		DashboardPage dashboard = PageFactory.initElements(driver,DashboardPage.class);
+		DashboardPage dashboard = new DashboardPage(driver);
 		dashboard.clickClinical();
 		
-		ConsultationPage consultation_page = PageFactory.initElements(driver,ConsultationPage.class);
+		ConsultationPage consultation_page = new ConsultationPage(driver);
 		consultation_page.clickTab("Bacteriology");
 		
-		BacteriologyPage bacteriologyPage = PageFactory.initElements(driver,BacteriologyPage.class);
+		BacteriologyPage bacteriologyPage = new BacteriologyPage(driver);
 		bacteriologyPage.deleteSample("04/20/2016", "Sputum", "12345");
 		
 		assertTrue(bacteriologyPage.isSampleExists("Sputum", "12345"));
@@ -96,10 +93,10 @@ public class BacteriologyTest {
 	
 		Common.navigateToSearchPage();
 		
-		registration_search = PageFactory.initElements(driver, RegistrationSearchPage.class);
+		RegistrationSearchPage registration_search = new RegistrationSearchPage(driver);
 		registration_search.searchPatientWithID("GAN", commonTasks.getJsonKeyValue("patient", "ID").substring(3,commonTasks.getJsonKeyValue("patient", "ID").length()));
 		
-		registration_page = PageFactory.initElements(driver, Registration_Page1.class);
+		Registration_Page1 registration_page = new Registration_Page1(driver);
 		registration_page.startVisit();
 	}
 	
