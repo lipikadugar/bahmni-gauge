@@ -28,15 +28,28 @@ public class ObservationPage {
 	
 	public void fillObsTemplate(String name) throws InterruptedException{
 		this.templateName = name.replace(" ", "_");
-		addTemplate(this.templateName);
-		expandSection(this.templateName);	
+		if (templatePresent(this.templateName)){expandSection(this.templateName);}else{addTemplate(this.templateName);}
+	
+	
+		String temp = String.format("div[auto-scroll='%s']", this.templateName);
+		System.out.println(temp);
+		this.templateElement = Common.Webdriver.findElement(By.cssSelector(temp));
+		
 		fillTemplate();
 		
 	}
 	
+	private boolean templatePresent(String name) {
+		List<WebElement> elements = Common.Webdriver.findElements(By.cssSelector("concept-set-group>div"));
+		for (WebElement each: elements){
+			if (each.getAttribute("auto-scroll").contains(name)){return true;}
+		}
+		return false;
+	}
+
 	private void fillTemplate() throws InterruptedException {
 		//dataarray = ["Systolic"];
-		Common.waitUntilAppReady(Common.Webdriver);
+		
 		List<WebElement> allFields = this.templateElement.findElements(By.cssSelector(".leaf-observation-node"));
 		System.out.println(allFields);
 		
@@ -55,13 +68,14 @@ public class ObservationPage {
 
 	private void addTemplate(String name) throws InterruptedException {
 		add_template.click();		
-		Common.Webdriver.findElement(By.id(templateName)).click();
+		Common.Webdriver.findElement(By.id(name)).click();
 	}
 
 	private void expandSection(String templateName) throws InterruptedException {
 		String divTemplateName = "div#"+templateName+" h2.section-title i.fa-caret-right";
 		WebElement temp = Common.Webdriver.findElement(By.cssSelector(divTemplateName));
-		if (temp.isDisplayed()){Common.Webdriver.findElement(By.cssSelector(templateName)).click();}
+		temp.click();
+		//if (temp.isDisplayed()){Common.Webdriver.findElement(By.cssSelector(templateName)).click();}
 		Common.waitUntilAppReady(Common.Webdriver);	
 	}
 }

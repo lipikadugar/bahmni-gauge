@@ -39,8 +39,8 @@ public class ObsTest {
 		consultation_page.clickTab("Observations");
 		
 		ObservationPage obsPage = new ObservationPage(driver);
-		//obsPage.fillObsTemplate(("Second Vitals"));
-		obsPage.fillObsTemplate(("History and Examination"));
+		obsPage.fillObsTemplate(("Vitals"));
+		//obsPage.fillObsTemplate(("History and Examination"));
 	}
 
 }
