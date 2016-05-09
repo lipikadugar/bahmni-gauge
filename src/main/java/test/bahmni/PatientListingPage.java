@@ -66,7 +66,11 @@ public class PatientListingPage extends Common {
     public void searchSelectPatientFromTabs(String Tab, String PatientID) throws IOException, InterruptedException{
     	Common.waitUntilAppReady(Common.Webdriver);
     	clickTab(Tab);
+    	try{
     	enterPatientIDOrName(app.getJsonKeyValue("patient", "ID"));
+    	} catch(Exception e) {
+    		enterPatientIDOrName(PatientID);
+    	}
     	clickSearch();
     	//clickPatient(PatientID);	
     }

@@ -67,15 +67,24 @@ public class ObservationPage {
 	}
 
 	private void addTemplate(String name) throws InterruptedException {
+		Common.waitUntilAppReady(Common.Webdriver);
 		add_template.click();		
 		Common.Webdriver.findElement(By.id(name)).click();
 	}
 
-	private void expandSection(String templateName) throws InterruptedException {
-		String divTemplateName = "div#"+templateName+" h2.section-title i.fa-caret-right";
+	public void expandSection(String templateName) throws InterruptedException {
+		Common.waitUntilAppReady(Common.Webdriver);
+		String xpath = "//*[contains(@id, '"+templateName+"')]";
+		String id = Common.Webdriver.findElement(By.xpath(xpath)).getAttribute("id");
+		String divTemplateName = "div#"+id+" h2.section-title i.fa-caret-right";
 		WebElement temp = Common.Webdriver.findElement(By.cssSelector(divTemplateName));
 		temp.click();
 		//if (temp.isDisplayed()){Common.Webdriver.findElement(By.cssSelector(templateName)).click();}
-		Common.waitUntilAppReady(Common.Webdriver);	
+	}
+
+	public void fillBaselineTemplate() {
+		
+		
+		
 	}
 }

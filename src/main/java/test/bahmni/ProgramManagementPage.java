@@ -10,9 +10,9 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class ProgramManagamentPage {
+public class ProgramManagementPage {
 	
-	public ProgramManagamentPage(ChromeDriver driver){
+	public ProgramManagementPage(ChromeDriver driver){
 		PageFactory.initElements(driver,this);
 	}
     
@@ -57,6 +57,10 @@ public class ProgramManagamentPage {
     
     @FindBy(how= How.CSS, using = ".active-program-tiles select.ng-pristine")
     public List<WebElement> outcome;
+    
+    @FindBy(how= How.CSS, using = ".proggram-dashboard-text span")
+    public List<WebElement> dashboardLinks;
+    
     
     Common app = new Common();
     
@@ -127,6 +131,17 @@ public class ProgramManagamentPage {
 				
 				Select out_come = new Select(outcome.get(i));
 				out_come.selectByVisibleText(Outcome);
+			}
+		}
+	}
+	
+	public void gotoDashboard(String program) throws InterruptedException{
+		Common.waitUntilAppReady(Common.Webdriver);
+		for (WebElement each: dashboardLinks){
+			System.out.println(each.getText());
+			if (each.getText().contains(program)){
+				each.click();
+				break;
 			}
 		}
 	}

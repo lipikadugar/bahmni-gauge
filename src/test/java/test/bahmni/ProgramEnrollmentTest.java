@@ -41,7 +41,7 @@ public class ProgramEnrollmentTest {
 		PatientListingPage patients_page = new PatientListingPage(driver);
 		patients_page.searchSelectPatientFromTabs("All", app.getJsonKeyValue("patient", "ID"));
 		
-		ProgramManagamentPage prog_page = new ProgramManagamentPage(driver);
+		ProgramManagementPage prog_page = new ProgramManagementPage(driver);
 		prog_page.expandProgramEnrollment();
 		
 		prog_page.enrollToProgram();
@@ -55,7 +55,7 @@ public class ProgramEnrollmentTest {
 		PatientListingPage patients_page = new PatientListingPage(driver);
 		patients_page.searchSelectPatientFromTabs("All", app.getJsonKeyValue("patient", "ID"));
 		
-		ProgramManagamentPage program_page = new ProgramManagamentPage(driver);
+		ProgramManagementPage program_page = new ProgramManagementPage(driver);
 		program_page.editProgramEnrolled();
 		
 		assertTrue(program_page.active_progs.getText().toString().contains("E1111"));
@@ -68,7 +68,7 @@ public class ProgramEnrollmentTest {
 		PatientListingPage patients_page = new PatientListingPage(driver);
 		patients_page.searchSelectPatientFromTabs("All", app.getJsonKeyValue("patient", "ID"));
 		
-		ProgramManagamentPage program_page = new ProgramManagamentPage(driver);
+		ProgramManagementPage program_page = new ProgramManagementPage(driver);
 		program_page.endProgramEnrollment("Cured");
 		
 		assertTrue(program_page.inactive_progs.getText().toString().contains(app.getJsonKeyValue("patient/Programs/Program", "Name")));

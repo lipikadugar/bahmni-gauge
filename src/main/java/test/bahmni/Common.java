@@ -36,6 +36,15 @@ public class Common {
 
 		return Webdriver;
 	}
+	
+	public static ChromeDriver launchAppWithURL(String URL) throws InterruptedException {
+		Webdriver = new ChromeDriver();
+		Webdriver.manage().window().setSize(new Dimension(1440, 900));
+		Webdriver.get(URL);
+		Thread.sleep(1000);
+
+		return Webdriver;
+	}
 
 	public static void navigateToDashboard() throws InterruptedException {
 		waitUntilAppReady(Webdriver);

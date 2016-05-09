@@ -1,5 +1,6 @@
 package test.bahmni;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
@@ -42,6 +43,11 @@ public class HomePage {
     public void clickReportsApp() throws InterruptedException {
     	Common.waitUntilAppReady(Common.Webdriver);
     	reports.click();
+    }
+    
+    public void clickOnCustomApp(String app) throws InterruptedException{
+    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.Webdriver.findElement(By.linkText(app)).click();
     }
     
 }
