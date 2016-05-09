@@ -73,8 +73,9 @@ public class ObservationPage {
 	}
 
 	public void expandSection(String templateName) throws InterruptedException {
+		this.templateName = templateName.replace(" ", "_");
 		Common.waitUntilAppReady(Common.Webdriver);
-		String xpath = "//*[contains(@id, '"+templateName+"')]";
+		String xpath = "//*[contains(@id, '"+this.templateName+"')]";
 		String id = Common.Webdriver.findElement(By.xpath(xpath)).getAttribute("id");
 		String divTemplateName = "div#"+id+" h2.section-title i.fa-caret-right";
 		WebElement temp = Common.Webdriver.findElement(By.cssSelector(divTemplateName));
