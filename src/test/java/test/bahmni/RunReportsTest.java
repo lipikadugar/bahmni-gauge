@@ -35,17 +35,11 @@ public class RunReportsTest {
 		homepage.clickReportsApp();	
 		reports.selectAndRunReport("Chief Complaint Report","01/01/2016", "04/01/2016", "HTML");
 		assertTrue(reports.report_name.getText().contains("Chief Complaint Report"));
-		/*URL url = new URL(Common.getEnvDetails("QA", "URL")+"/bahmnireports/report?name=Chief%20Complaint%20Report&startDate=2016-01-01&endDate=2016-04-01&responseType=text/html&paperSize=A3");
-		System.out.println(url);
-		HttpURLConnection http = (HttpURLConnection)url.openConnection();
-		http.setRequestMethod("GET");
-		System.out.println(http.getResponseCode());
-		//http.connect();*/
 	}
 	
-	/*@After
+	@After
 	public void shutDown(){
 		driver.quit();
-	}*/
+	}
 
 }
