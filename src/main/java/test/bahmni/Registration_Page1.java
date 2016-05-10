@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class Registration_Page1 {
@@ -40,6 +41,10 @@ public class Registration_Page1 {
 	
 	@FindBy(how= How.CSS, using = ".buttonClass")
 	public List<WebElement> visit_btn;
+	
+	public Registration_Page1(){
+		PageFactory.initElements(Common.Webdriver, this);
+	}
 	
 	Common app = new Common();
 	
@@ -84,15 +89,16 @@ public class Registration_Page1 {
 		}
 	}
 	
-	public void createNewPatient(String filename) throws InterruptedException, IOException{
+	public void createNewPatient() throws InterruptedException, IOException{
 		Common.waitUntilAppReady(Common.Webdriver);
 		enterFirstName(app.getJsonKeyValue("patient","FirstName"));
 		enterLastName(app.getJsonKeyValue("patient","LastName"));
 		enterGender(app.getJsonKeyValue("patient","Gender"));
 		enterAgeYears(app.getJsonKeyValue("patient","Age")); 
-		//enterVillage(app.getJsonKeyValue("patient","Village"));
-		enterAddress(app.getJsonKeyValue("patient","Village"));
+		enterVillage(app.getJsonKeyValue("patient","Village"));
+		//enterAddress(app.getJsonKeyValue("patient","Village"));
 		clickSave();
+		Common.waitUntilAppReady(Common.Webdriver);
 	}
 
 }

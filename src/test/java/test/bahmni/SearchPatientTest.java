@@ -2,33 +2,36 @@ package test.bahmni;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 
 public class SearchPatientTest {
 	
 	ChromeDriver driver;
-	public Common app;
+	RegistrationSearch registration_search;
+	LoginPage login_page;
+	HomePage homepage;
+	
+	Common app;
 	
 	@Before
-	public void setup() throws InterruptedException{
+	public void setup() throws InterruptedException, IOException{
 		app = new Common();
 		driver = Common.launchApp();
-		LoginPage login_page = PageFactory.initElements(driver,LoginPage.class);
-		login_page.login("superman", "Admin123", "OPD-1");
 		
-		HomePage homepage = PageFactory.initElements(driver,HomePage.class);
-		homepage.clickRegistrationApp();
-		
+		login_page = new LoginPage();
+		homepage = new HomePage();
+		registration_search = new RegistrationSearch();
 	}
 	
 	@Test
-	public void run() throws InterruptedException{
-		
-		RegistrationSearch registration_search = PageFactory.initElements(driver, RegistrationSearch.class);
+	public void searchPatientWithIDPrefix() throws InterruptedException, IOException{
+		login_page.login();
+		homepage.clickRegistrationApp();
 		registration_search.searchPatientWithID("GAN", "200");
 		
 		assertNotNull(registration_search.search_results);	

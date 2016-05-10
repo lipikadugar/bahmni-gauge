@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
 public class PatientListingPage extends Common {
 
@@ -22,6 +23,10 @@ public class PatientListingPage extends Common {
     public WebElement patient;
     
     Common app = new Common();
+    
+    public PatientListingPage(){
+    	PageFactory.initElements(Common.Webdriver,this);
+    }
     
     public WebElement findTab(String Tab){
     	for(int i=0;i<=tab.size();i++)
@@ -60,6 +65,14 @@ public class PatientListingPage extends Common {
     public void searchSelectPatientFromTabs(String Tab, String PatientID) throws IOException, InterruptedException{
     	Common.waitUntilAppReady(Common.Webdriver);
     	clickTab(Tab);
+    	enterPatientIDOrName(app.getJsonKeyValue("patient", "ID"));
+    	clickSearch();
+    	//clickPatient(PatientID);	
+    }
+    
+    public void searchSelectPatientFromAllTabs() throws IOException, InterruptedException{
+    	Common.waitUntilAppReady(Common.Webdriver);
+    	clickTab("All");
     	enterPatientIDOrName(app.getJsonKeyValue("patient", "ID"));
     	clickSearch();
     	//clickPatient(PatientID);	

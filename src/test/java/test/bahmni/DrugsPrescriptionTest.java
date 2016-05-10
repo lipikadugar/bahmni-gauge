@@ -3,67 +3,62 @@ package test.bahmni;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.util.Hashtable;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
+
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class DrugsPrescriptionTest {
 
 	ChromeDriver driver;
-	@SuppressWarnings("rawtypes")
-	Hashtable patient,drug1,drug2,drug3,drug4;
-	public Common commonTasks;
+	Common commonTasks;
 	RegistrationSearch registration_search;
 	Registration_Page1 registration_page;
+	PatientListingPage patients_page;
+	DashboardPage dashboard;
+	ConsultationPage consultation_page;
+	TreatmentPage treatment_page;
 		
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Before
-	public void setup() throws InterruptedException{
+	public void setup() throws InterruptedException, IOException{
 		commonTasks = new Common();
 		driver = Common.launchApp();
 		
-		LoginPage login_page = PageFactory.initElements(driver,LoginPage.class);
-		login_page.login("superman", "Admin123","OPD-1");
+		LoginPage login_page = new LoginPage();
+		HomePage homepage = new HomePage();
+		registration_search = new RegistrationSearch();
+		patients_page = new PatientListingPage();
+		dashboard = new DashboardPage();
+		consultation_page = new ConsultationPage();
+		treatment_page = new TreatmentPage();
 		
-		HomePage homepage = PageFactory.initElements(driver,HomePage.class);
+		login_page.login();
+		commonTasks.searchAndOpenVisit();
+		Common.navigateToDashboard();
 		homepage.clickClinicalApp();
 		
 	}
 	@Test
-	public void testA() throws InterruptedException, IOException {
+	public void prescribeDrugsToPatient() throws InterruptedException, IOException {
 		
-		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
-		patients_page.searchSelectPatientFromTabs("All", commonTasks.getJsonKeyValue("patient", "ID"));
-		
-		DashboardPage dashboard = PageFactory.initElements(driver,DashboardPage.class);
+		patients_page.searchSelectPatientFromAllTabs();
 		dashboard.clickClinical();
-		
-		ConsultationPage consultation_page = PageFactory.initElements(driver,ConsultationPage.class);
 		consultation_page.clickTab("Medications");
-		
-		TreatmentPage treatment_page = PageFactory.initElements(driver, TreatmentPage.class);
-		treatment_page.prescribeDrugToPatient("Drug1");treatment_page.prescribeDrugToPatient("Drug2");
-		treatment_page.prescribeDrugToPatient("Drug3");treatment_page.prescribeFreeTextDrugToPatient("Drug4");
+		treatment_page.prescribeDrugToPatient("Drug1");
+		treatment_page.prescribeDrugToPatient("Drug2");
+		treatment_page.prescribeDrugToPatient("Drug3");
+		treatment_page.prescribeFreeTextDrugToPatient("Drug4");
 		treatment_page.savePrecription();
 		
 		assertTrue(treatment_page.hasText(commonTasks.getJsonKeyValue("patient/Treatment/Drug1","Name")));
 	}
-	
-	public void searchAndOpenVisit() throws InterruptedException, IOException{
-		
-		Common.navigateToSearchPage();
-		
-		registration_search = PageFactory.initElements(driver, RegistrationSearch.class);
-		registration_search.searchPatientWithID("GAN", commonTasks.getJsonKeyValue("patient", "ID").substring(3,commonTasks.getJsonKeyValue("patient", "ID").length()));
-		
-		registration_page = PageFactory.initElements(driver, Registration_Page1.class);
-		registration_page.startVisit();
-	}
-	
+
 	@After
 	public void shutDown(){
 		driver.quit();	

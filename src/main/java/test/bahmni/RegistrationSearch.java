@@ -3,6 +3,7 @@ package test.bahmni;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class RegistrationSearch {
@@ -31,6 +32,9 @@ public class RegistrationSearch {
 	@FindBy(how= How.CSS, using = ".registraition-search-results-container > table")
     public WebElement search_results;
 	
+	public RegistrationSearch(){
+		PageFactory.initElements(Common.Webdriver, this);
+	}
 
     public void clickSearch() throws InterruptedException {
     	Common.waitUntilAppReady(Common.Webdriver);

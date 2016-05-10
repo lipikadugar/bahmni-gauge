@@ -1,11 +1,13 @@
 package test.bahmni;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class ReportsPage {
@@ -21,6 +23,13 @@ public class ReportsPage {
 	
 	@FindBy(how= How.CSS, using = ".reports-format .ng-pristine")
     public WebElement format;
+	
+	@FindBy(how= How.CSS, using = "td > span")
+    public WebElement report_name;
+	
+	public ReportsPage(){
+    	PageFactory.initElements(Common.Webdriver,this);
+    }
 
     public void setStartDate(String start) throws InterruptedException {
     	start_date.sendKeys(start);
@@ -54,6 +63,10 @@ public class ReportsPage {
     	setStopDate(StopDate);
     	setReportFormat(Format);
     	selectAndRun(Report);
+    	
+    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.getCurrentTab();
+    	Common.Webdriver.navigate().refresh();//Common.getEnvDetails("QA", "URL")+"/bahmnireports/report?name=Chief%20Complaint%20Report&startDate=2016-01-01&endDate=2016-04-01&responseType=text/html&paperSize=A3");
     }
 
 }

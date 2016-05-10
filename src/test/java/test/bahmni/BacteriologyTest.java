@@ -1,6 +1,7 @@
 package test.bahmni;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 
@@ -17,7 +18,12 @@ public class BacteriologyTest {
 	HomePage homepage;
 	RegistrationSearch registration_search;
 	Registration_Page1 registration_page;
-		
+	PatientListingPage patients_page;
+	DashboardPage dashboard;
+	ConsultationPage consultation_page;
+	BacteriologyPage bacteriologyPage;
+	
+	
 	@Before
 	public void setup() throws InterruptedException, IOException{
 		
@@ -25,36 +31,36 @@ public class BacteriologyTest {
 		commonTasks = new Common();
 		driver = Common.launchApp();
 		//Login to the App
-		LoginPage login_page = PageFactory.initElements(driver,LoginPage.class);
-		login_page.login("superman", "Admin123", "OPD-1");
+		LoginPage login_page = new LoginPage();
+		HomePage homepage = new HomePage();
+		patients_page = new PatientListingPage();
+		dashboard = new DashboardPage();
+		consultation_page = new ConsultationPage();
+		bacteriologyPage = new BacteriologyPage();
 		
-		searchAndOpenVisit();
+		login_page.login();
+		commonTasks.searchAndOpenVisit();
 		Common.navigateToDashboard();
-		
-		homepage = PageFactory.initElements(driver,HomePage.class);
 		homepage.clickClinicalApp();
 	}
 	
-	@Test
+	//@Test
 	public void createBacteriologySample() throws InterruptedException, IOException{
 		
-		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
-		patients_page.searchSelectPatientFromTabs("All", commonTasks.getJsonKeyValue("patient", "ID"));
-		
-		DashboardPage dashboard = PageFactory.initElements(driver,DashboardPage.class);
-		dashboard.clickClinical();
-		
-		ConsultationPage consultation_page = PageFactory.initElements(driver,ConsultationPage.class);
+		patients_page.searchSelectPatientFromAllTabs();
+		dashboard.navigateToConsultation();
+		consultation_page.createBacteriologySample();
 		consultation_page.clickTab("Bacteriology");
-		
-		BacteriologyPage bacteriologyPage = PageFactory.initElements(driver,BacteriologyPage.class);
 		bacteriologyPage.createSample("04/20/2016", "Sputum", "12345");
-		
+		consultation_page.clickSave();
 		assertTrue(bacteriologyPage.isSampleExists("Sputum", "12345"));
+		
+		consultation_page.clickPatientProfile();
+		assertTrue(dashboard.bacteriology_results.getText().contains("12345"));
 	
 	}
 	
-	@Test
+	//@Test
 	public void editBacteriologySample() throws InterruptedException, IOException{
 		
 		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
@@ -65,11 +71,16 @@ public class BacteriologyTest {
 		
 		ConsultationPage consultation_page = PageFactory.initElements(driver,ConsultationPage.class);
 		consultation_page.clickTab("Bacteriology");
-		
+	
 		BacteriologyPage bacteriologyPage = PageFactory.initElements(driver,BacteriologyPage.class);
-		bacteriologyPage.editSample("04/20/2016", "Sputum", "12345");
+		bacteriologyPage.createSample("01/15/2016", "Sputum", "4444");
+		bacteriologyPage.editSample("02/18/2016", "Sputum", "1111");
 		
-		assertTrue(bacteriologyPage.isSampleExists("Sputum", "12345"));
+		consultation_page.clickSave();
+		assertTrue(bacteriologyPage.isSampleExists("Sputum", "1111"));
+		
+		consultation_page.clickPatientProfile();
+		assertTrue(dashboard.bacteriology_results.getText().contains("1111"));
 	
 	}
 	
@@ -86,21 +97,15 @@ public class BacteriologyTest {
 		consultation_page.clickTab("Bacteriology");
 		
 		BacteriologyPage bacteriologyPage = PageFactory.initElements(driver,BacteriologyPage.class);
-		bacteriologyPage.deleteSample("04/20/2016", "Sputum", "12345");
+		bacteriologyPage.createSample("02/20/2016", "Sputum", "5555");
+		bacteriologyPage.deleteSample("02/20/2016", "Sputum", "5555");
 		
-		assertTrue(bacteriologyPage.isSampleExists("Sputum", "12345"));
-	
-	}
-	
-	public void searchAndOpenVisit() throws InterruptedException, IOException{
-	
-		Common.navigateToSearchPage();
+		consultation_page.clickSave();
+		assertFalse(bacteriologyPage.isSampleExists("Sputum", "5555"));
 		
-		registration_search = PageFactory.initElements(driver, RegistrationSearch.class);
-		registration_search.searchPatientWithID("GAN", commonTasks.getJsonKeyValue("patient", "ID").substring(3,commonTasks.getJsonKeyValue("patient", "ID").length()));
-		
-		registration_page = PageFactory.initElements(driver, Registration_Page1.class);
-		registration_page.startVisit();
+		consultation_page.clickPatientProfile();
+		assertFalse(dashboard.bacteriology_results.getText().contains("5555"));
+	
 	}
 	
 	@After

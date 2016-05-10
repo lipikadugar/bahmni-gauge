@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class ProgramManagamentPage {
@@ -54,10 +55,14 @@ public class ProgramManagamentPage {
     
     Common app = new Common();
     
-    public void expandProgramEnrollment() throws InterruptedException {
+    public ProgramManagamentPage(){
+    	PageFactory.initElements(Common.Webdriver, this);
+    }
+    
+    /*public void expandProgramEnrollment() throws InterruptedException {
     	Common.waitUntilAppReady(Common.Webdriver);
     	expand.click();
-	}
+	}*/
     
     public void selectProgram(String prog) throws InterruptedException {
     	Common.waitUntilAppReady(Common.Webdriver);
@@ -128,6 +133,8 @@ public class ProgramManagamentPage {
 	
 	public void enrollToProgram() throws InterruptedException, IOException {
 		Common.waitUntilAppReady(Common.Webdriver);
+		expand.click();
+		Common.waitUntilAppReady(Common.Webdriver);
 		selectProgram(app.getJsonKeyValue("patient/Programs/Program", "Name"));
 		enterStartDate(app.getJsonKeyValue("patient/Programs/Program", "StartDate"));
 		enterFacilityName(app.getJsonKeyValue("patient/Programs/Program", "FacilityName"));
@@ -146,12 +153,33 @@ public class ProgramManagamentPage {
 		Common.waitUntilAppReady(Common.Webdriver);
 	}
 	
-	public void endProgramEnrollment(String Outcome) throws InterruptedException{
+	public void endProgramEnrolled() throws InterruptedException{
 		Common.waitUntilAppReady(Common.Webdriver);
 		clickEdit();
-		selectOutcome(Outcome);
+		selectOutcome("Cured");
 		clickSave();
 		Common.waitUntilAppReady(Common.Webdriver);
+	}
+	
+	public boolean hasEnrolledProgram() throws InterruptedException, IOException{
+		if(active_progs.getText().toString().contains(app.getJsonKeyValue("patient/Programs/Program", "Name")))
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean hasAttribute() throws InterruptedException, IOException{
+		if(active_progs.getText().toString().contains("E1111"))
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean hasEndedProgram() throws InterruptedException, IOException{
+		if(inactive_progs.getText().toString().contains(app.getJsonKeyValue("patient/Programs/Program", "Name")))
+			return true;
+		else
+			return false;
 	}
 	
 }

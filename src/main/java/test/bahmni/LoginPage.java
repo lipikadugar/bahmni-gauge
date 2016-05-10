@@ -1,8 +1,11 @@
 package test.bahmni;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage extends Common {
@@ -21,6 +24,10 @@ public class LoginPage extends Common {
     
     @FindBy(how= How.CSS, using = ".confirm")
     public WebElement signin_btn;
+    
+    public LoginPage(){
+    	PageFactory.initElements(Common.Webdriver, this);
+    }
 
     public void enterUsername(String user) throws InterruptedException {
         username_txt.sendKeys(user);
@@ -44,25 +51,20 @@ public class LoginPage extends Common {
     	signin_btn.click();
     }
     
-    public void login(String user, String pass, String loc, String locale) throws InterruptedException  {
-    	
+    public void login(String user, String pass, String loc, String locale) throws InterruptedException, IOException  {
     	Common.waitUntilAppReady(Common.Webdriver);
-    	
-    	enterUsername(user);
-    	enterPassword(pass);
-    	selectLocation(loc);
-    	selectLocale(locale);
+    	enterUsername(Common.getEnvDetails("QA","username"));
+    	enterPassword(Common.getEnvDetails("QA","password"));
+    	selectLocation(Common.getEnvDetails("QA","location"));
+    	selectLocale(Common.getEnvDetails("QA","locale"));
     	signin_btn.click();
     }
     
-    public void login(String user, String pass, String loc) throws InterruptedException  {
-    	
+    public void login() throws InterruptedException, IOException  {
     	Common.waitUntilAppReady(Common.Webdriver);
-    	
-    	enterUsername(user);
-    	enterPassword(pass);
-    	selectLocation(loc);
-
+    	enterUsername(Common.getEnvDetails("QA","username"));
+    	enterPassword(Common.getEnvDetails("QA","password"));
+    	selectLocation(Common.getEnvDetails("QA","location"));
     	signin_btn.click();
     }
 	

@@ -2,11 +2,10 @@ package test.bahmni;
 
 import java.io.IOException;
 
-import junit.framework.Assert;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class TreatmentPage {
@@ -66,6 +65,10 @@ public class TreatmentPage {
     public WebElement refill_drug_btn;
 	
 	Common app = new Common();
+	
+	public TreatmentPage(){
+    	PageFactory.initElements(Common.Webdriver,this);
+    }
 	
 	public void addDrug(String DrugName) throws InterruptedException {
 		Common.waitUntilAppReady(Common.Webdriver);

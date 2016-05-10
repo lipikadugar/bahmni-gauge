@@ -1,50 +1,51 @@
 package test.bahmni;
 
+import static org.junit.Assert.*;
+
 import java.io.IOException;
-import java.util.Hashtable;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 
 public class RunReportsTest {
 
 	ChromeDriver driver;
-	@SuppressWarnings("rawtypes")
-	Hashtable patient,program;
-	public Common app;
+	LoginPage login_page;
+	HomePage homepage;
+	ReportsPage reports;
+	Common app;
 		
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Before
-	public void setup() throws InterruptedException{
+	public void setup() throws InterruptedException, IOException{
 		app = new Common();
 		driver = Common.launchApp();
 		
-		LoginPage login_page = PageFactory.initElements(driver,LoginPage.class);
-		login_page.login("superman", "Admin123","Registration Desk");
-		
-		HomePage homepage = PageFactory.initElements(driver,HomePage.class);
-		homepage.clickReportsApp();	
+		login_page = new LoginPage();
+		homepage = new HomePage();
+		reports = new ReportsPage();
 	}
 	
 	@Test
 	public void test() throws InterruptedException, IOException {
-		
-		ReportsPage reports = PageFactory.initElements(driver, ReportsPage.class);
+		login_page.login();
+		homepage.clickReportsApp();	
 		reports.selectAndRunReport("Chief Complaint Report","01/01/2016", "04/01/2016", "HTML");
-		
-		//assertNotNull(registration_search.search_results);
-		/*URL url = new URL("https://172.18.2.10/bahmnireports/report?name=Chief%20Complaint%20Report&startDate=2016-01-01&endDate=2016-04-01&responseType=text/html&paperSize=A3");
+		assertTrue(reports.report_name.getText().contains("Chief Complaint Report"));
+		/*URL url = new URL(Common.getEnvDetails("QA", "URL")+"/bahmnireports/report?name=Chief%20Complaint%20Report&startDate=2016-01-01&endDate=2016-04-01&responseType=text/html&paperSize=A3");
+		System.out.println(url);
 		HttpURLConnection http = (HttpURLConnection)url.openConnection();
-		System.out.println(http.getResponseCode());*/
+		http.setRequestMethod("GET");
+		System.out.println(http.getResponseCode());
+		//http.connect();*/
 	}
 	
-	@After
+	/*@After
 	public void shutDown(){
 		driver.quit();
-		
-	}
+	}*/
 
 }
