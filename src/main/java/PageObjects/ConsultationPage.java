@@ -1,4 +1,4 @@
-package test.bahmni;
+package PageObjects;
 
 import java.util.List;
 
@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+
+import Library.Common;
 
 public class ConsultationPage {
 	
@@ -50,11 +52,11 @@ public class ConsultationPage {
     	}
     }
     
-    public void createBacteriologySample() throws InterruptedException{
+    public void createBacteriologySample(String Date, String Sample, String ID ) throws InterruptedException{
     	Common.waitUntilAppReady(Common.Webdriver);
-    	clickTab("Clinical");
+    	clickTab("Bacteriology");
     	BacteriologyPage bacteriologyPage = new BacteriologyPage();
-    	bacteriologyPage.createSample("04/20/2016", "Sputum", "12345");
+    	bacteriologyPage.createSample(Date, Sample, ID);
     	clickSave();
     	Common.waitUntilAppReady(Common.Webdriver);
     }

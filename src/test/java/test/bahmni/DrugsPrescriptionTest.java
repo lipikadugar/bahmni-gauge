@@ -11,6 +11,16 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import Library.Common;
+import PageObjects.ConsultationPage;
+import PageObjects.DashboardPage;
+import PageObjects.HomePage;
+import PageObjects.LoginPage;
+import PageObjects.PatientListingPage;
+import PageObjects.RegistrationSearch;
+import PageObjects.Registration_Page1;
+import PageObjects.TreatmentPage;
+
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 

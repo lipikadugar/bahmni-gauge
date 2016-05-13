@@ -9,6 +9,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import Library.Common;
+import PageObjects.HomePage;
+import PageObjects.LoginPage;
+import PageObjects.RegistrationSearch;
+
 public class SearchPatientTest {
 	
 	ChromeDriver driver;

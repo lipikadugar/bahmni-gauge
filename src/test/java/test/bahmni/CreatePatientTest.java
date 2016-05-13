@@ -11,6 +11,11 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import Library.Common;
+import PageObjects.HomePage;
+import PageObjects.LoginPage;
+import PageObjects.RegistrationSearch;
+import PageObjects.Registration_Page1;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
@@ -47,11 +52,11 @@ public class CreatePatientTest {
 		assertNotNull(registration_page.new_patient);
 	}
 	
-	@Test
+	/*@Test
 	public void searchAndOpenVisit() throws InterruptedException, IOException {
 		registration_search.searchPatientWithID("GAN", commonTasks.getJsonKeyValue("patient", "ID").substring(3,commonTasks.getJsonKeyValue("patient", "ID").length()));
 		registration_page.startVisit();
-	}
+	}*/
 	
 	@After
 	public void shutDown(){

@@ -8,6 +8,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import Library.Common;
+import PageObjects.ConsultationPage;
+import PageObjects.DashboardPage;
+import PageObjects.HomePage;
+import PageObjects.LoginPage;
+import PageObjects.PatientListingPage;
+import PageObjects.RegistrationSearch;
+import PageObjects.Registration_Page1;
+
 public class RecordObservationsTest {
 
 	ChromeDriver driver;

@@ -1,13 +1,9 @@
-package test.bahmni;
+package Library;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -21,27 +17,33 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import PageObjects.RegistrationSearch;
+import PageObjects.Registration_Page1;
+
 public class Common {
 
 	public static ChromeDriver Webdriver;
 	public static String URL;
 	
-
 	public static void waitUntilAppReady(ChromeDriver driver) throws InterruptedException {
 		Thread.sleep(1000);
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		Boolean elem_obj = wait.until(ExpectedConditions
 				.invisibilityOfElementLocated(By.cssSelector("#overlay")));
 	}
-
+	
 	public static ChromeDriver launchApp() throws InterruptedException, IOException {
-		Webdriver = new ChromeDriver();
-		Webdriver.manage().window().setSize(new Dimension(1440, 900));
+		/*DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
+		capabilities.setCapability("--ignore-ssl-errors", true);
+		capabilities = new DesiredCapabilities();
+		capabilities.setJavascriptEnabled(true);
+		capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, new String[] {"--web-security=no", "--ignore-ssl-errors=yes"});*/
+        Webdriver = new ChromeDriver();
 		URL = getEnvDetails("QA","URL");
 		Webdriver.get(URL+"/home");
-		//Webdriver.get("https://172.18.2.27/home");
 		Thread.sleep(1000);
-
+		Webdriver.manage().window().setSize(new Dimension(1440, 900));
+		
 		return Webdriver;
 	}
 

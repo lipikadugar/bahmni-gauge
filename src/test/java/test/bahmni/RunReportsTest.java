@@ -1,15 +1,18 @@
 package test.bahmni;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import Library.Common;
+import PageObjects.HomePage;
+import PageObjects.LoginPage;
+import PageObjects.ReportsPage;
 
 public class RunReportsTest {
 

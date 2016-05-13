@@ -1,4 +1,4 @@
-package test.bahmni;
+package PageObjects;
 
 import java.util.List;
 
@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+
+import Library.Common;
 
 public class BacteriologyPage {
 	
@@ -93,6 +95,10 @@ public class BacteriologyPage {
     	delete_item.click();
     	Thread.sleep(1000);
     	Common.Webdriver.switchTo().alert().accept();
+    	Common.waitUntilAppReady(Common.Webdriver);
+    	
+    	ConsultationPage consultationPage = PageFactory.initElements(Common.Webdriver,ConsultationPage.class);
+    	consultationPage.clickSave();
     	Common.waitUntilAppReady(Common.Webdriver);
     }
     

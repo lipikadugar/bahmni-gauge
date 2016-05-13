@@ -7,9 +7,23 @@ import java.io.IOException;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import Library.Common;
+import PageObjects.BacteriologyPage;
+import PageObjects.ConsultationPage;
+import PageObjects.DashboardPage;
+import PageObjects.HomePage;
+import PageObjects.LoginPage;
+import PageObjects.PatientListingPage;
+import PageObjects.RegistrationSearch;
+import PageObjects.Registration_Page1;
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class BacteriologyTest {
 
@@ -39,22 +53,18 @@ public class BacteriologyTest {
 		bacteriologyPage = new BacteriologyPage();
 		
 		login_page.login();
-		commonTasks.searchAndOpenVisit();
+		//commonTasks.searchAndOpenVisit();
 		Common.navigateToDashboard();
 		homepage.clickClinicalApp();
 	}
 	
-	//@Test
+	@Test
 	public void createBacteriologySample() throws InterruptedException, IOException{
 		
 		patients_page.searchSelectPatientFromAllTabs();
 		dashboard.navigateToConsultation();
-		consultation_page.createBacteriologySample();
-		consultation_page.clickTab("Bacteriology");
-		bacteriologyPage.createSample("04/20/2016", "Sputum", "12345");
-		consultation_page.clickSave();
+		consultation_page.createBacteriologySample("04/20/2016", "Sputum", "12345");
 		assertTrue(bacteriologyPage.isSampleExists("Sputum", "12345"));
-		
 		consultation_page.clickPatientProfile();
 		assertTrue(dashboard.bacteriology_results.getText().contains("12345"));
 	
@@ -63,22 +73,11 @@ public class BacteriologyTest {
 	//@Test
 	public void editBacteriologySample() throws InterruptedException, IOException{
 		
-		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
-		patients_page.searchSelectPatientFromTabs("All", commonTasks.getJsonKeyValue("patient", "ID"));
-		
-		DashboardPage dashboard = PageFactory.initElements(driver,DashboardPage.class);
-		dashboard.clickClinical();
-		
-		ConsultationPage consultation_page = PageFactory.initElements(driver,ConsultationPage.class);
-		consultation_page.clickTab("Bacteriology");
-	
-		BacteriologyPage bacteriologyPage = PageFactory.initElements(driver,BacteriologyPage.class);
-		bacteriologyPage.createSample("01/15/2016", "Sputum", "4444");
+		patients_page.searchSelectPatientFromAllTabs();
+		dashboard.navigateToConsultation();
+		consultation_page.createBacteriologySample("01/15/2016", "Sputum", "4444");
 		bacteriologyPage.editSample("02/18/2016", "Sputum", "1111");
-		
-		consultation_page.clickSave();
 		assertTrue(bacteriologyPage.isSampleExists("Sputum", "1111"));
-		
 		consultation_page.clickPatientProfile();
 		assertTrue(dashboard.bacteriology_results.getText().contains("1111"));
 	
@@ -87,22 +86,11 @@ public class BacteriologyTest {
 	@Test
 	public void deleteBacteriologySample() throws InterruptedException, IOException{
 		
-		PatientListingPage patients_page = PageFactory.initElements(driver,PatientListingPage.class);
-		patients_page.searchSelectPatientFromTabs("All", commonTasks.getJsonKeyValue("patient", "ID"));
-		
-		DashboardPage dashboard = PageFactory.initElements(driver,DashboardPage.class);
-		dashboard.clickClinical();
-		
-		ConsultationPage consultation_page = PageFactory.initElements(driver,ConsultationPage.class);
-		consultation_page.clickTab("Bacteriology");
-		
-		BacteriologyPage bacteriologyPage = PageFactory.initElements(driver,BacteriologyPage.class);
-		bacteriologyPage.createSample("02/20/2016", "Sputum", "5555");
+		patients_page.searchSelectPatientFromAllTabs();
+		dashboard.navigateToConsultation();
+		consultation_page.createBacteriologySample("02/20/2016", "Sputum", "5555");
 		bacteriologyPage.deleteSample("02/20/2016", "Sputum", "5555");
-		
-		consultation_page.clickSave();
 		assertFalse(bacteriologyPage.isSampleExists("Sputum", "5555"));
-		
 		consultation_page.clickPatientProfile();
 		assertFalse(dashboard.bacteriology_results.getText().contains("5555"));
 	

@@ -54,6 +54,15 @@
           "Duration": "10",
           "StartDate": "05/20/2016"
         }
+      },
+      "Observations":{
+        "Baseline":{
+          "Date baseline assessment": "",
+          "xyz":  ""
+        },
+        "Treatment Initiation":{
+          "xyz":  ""
+        }
       }
     }
   }]
