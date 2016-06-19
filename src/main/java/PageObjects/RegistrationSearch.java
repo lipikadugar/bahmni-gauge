@@ -73,7 +73,6 @@ public class RegistrationSearch {
     
     public void searchPatientWithID(String Prefix, String ID) throws InterruptedException {
     	Common.waitUntilAppReady(Common.Webdriver);
-    	selectIdentifier(Prefix);
     	enterRegistrationNo(ID);
     	clickIdentiferSearch();
     }

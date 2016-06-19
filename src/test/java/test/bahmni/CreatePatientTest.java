@@ -52,15 +52,9 @@ public class CreatePatientTest {
 		assertNotNull(registration_page.new_patient);
 	}
 	
-	/*@Test
-	public void searchAndOpenVisit() throws InterruptedException, IOException {
-		registration_search.searchPatientWithID("GAN", commonTasks.getJsonKeyValue("patient", "ID").substring(3,commonTasks.getJsonKeyValue("patient", "ID").length()));
-		registration_page.startVisit();
-	}*/
-	
-	@After
+	/*@After
 	public void shutDown(){
 		driver.quit();
-	}
+	}*/
 
 }

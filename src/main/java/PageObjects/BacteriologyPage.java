@@ -64,11 +64,10 @@ public class BacteriologyPage {
     
     public void createSample(String date, String type, String sample) throws InterruptedException {
     	Common.waitUntilAppReady(Common.Webdriver);
-    	sample_date.sendKeys(date);
-    	Thread.sleep(1000);
     	clickButton(type);
     	sample_id.sendKeys(sample);
-    	
+    	sample_date.sendKeys(date);
+    	Thread.sleep(1000);
     	ConsultationPage consultationPage = PageFactory.initElements(Common.Webdriver,ConsultationPage.class);
     	consultationPage.clickSave();
     	Common.waitUntilAppReady(Common.Webdriver);

@@ -3,6 +3,8 @@ package PageObjects;
 import java.io.IOException;
 import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -22,38 +24,26 @@ public class ProgramManagamentPage {
     @FindBy(how= How.CSS, using = "input.ng-valid-max")
     public WebElement start_date;
     
-    @FindBy(how= How.CSS, using = "[id='Facility Name']")
-    public WebElement facility_name;
+    @FindBy(how= How.CSS, using = "[id='Registration Number']")
+    public WebElement registration_number;
     
-    @FindBy(how= How.CSS, using = "[id='Sample attribute3']")
-    public WebElement facility_id;
-    
-    @FindBy(how= How.CSS, using = "#Doctor")
-    public WebElement doctor;
-    
-    @FindBy(how= How.CSS, using = "#Enrollment")
-    public WebElement Enrollment_id;
+    @FindBy(how= How.CSS, using = "[id='Registration Facility']")
+    public WebElement registration_facility;
     
     @FindBy(how= How.CSS, using = ".fr")
     public WebElement enroll_btn;
     
     @FindBy(how= How.CSS, using = ".active-program-tiles")
-    public WebElement active_progs;
+    public List<WebElement> active_progs;
     
     @FindBy(how= How.CSS, using = ".inactive-program-tiles")
-    public WebElement inactive_progs;
+    public List<WebElement> inactive_progs;
     
-    @FindBy(how= How.CSS, using = "[value='Save']")
-    public WebElement save_btn;
+    @FindBy(how= How.CSS, using = "[ng-model='patientProgram.outcomeData']")
+    public WebElement treatment_status;
     
-    @FindBy(how= How.CSS, using = "[value='Edit']")
-    public WebElement edit_btn;
-    
-    @FindBy(how= How.CSS, using = ".active-program-tiles #Enrollment")
-    public WebElement activ_enrollmentID;
-    
-    @FindBy(how= How.CSS, using = ".active-program-tiles select.ng-pristine")
-    public List<WebElement> outcome;
+    @FindBy(how= How.CSS, using = "#dashboard-link")
+    public List<WebElement> treatment_dashboard;
     
     Common app = new Common();
     
@@ -78,23 +68,15 @@ public class ProgramManagamentPage {
 		start_date.sendKeys(Date);
 	}
 	
-	public void enterFacilityName(String Facility) throws InterruptedException {
+	public void enterRegistrationNumber(String Facility) throws InterruptedException {
 		Common.waitUntilAppReady(Common.Webdriver);
-		facility_name.sendKeys(Facility);
+		registration_number.sendKeys(Facility);
 	}
 	
-	public void enterFacilityID(String FacilityID) throws InterruptedException {
+	public void enterRegistrationFacility(String FacilityName) throws InterruptedException {
 		Common.waitUntilAppReady(Common.Webdriver);
-		facility_id.sendKeys(FacilityID);
-	}
-	
-	public void enterDoctorName(String Doctor) throws InterruptedException {
-		Common.waitUntilAppReady(Common.Webdriver);
-		doctor.sendKeys(Doctor);
-	}
-	
-	public void enterEnrollmentID(String EnrollmentID) throws InterruptedException {
-		Enrollment_id.sendKeys(EnrollmentID);
+    	Select facility_name = new Select(registration_facility);
+    	facility_name.selectByVisibleText(FacilityName);
 	}
 	
 	public void clickEnroll() throws InterruptedException {
@@ -102,32 +84,53 @@ public class ProgramManagamentPage {
 		enroll_btn.click();
 	}
 	
-	public void clickEdit() throws InterruptedException {
+	public void editProgram(String ProgramName) throws InterruptedException {
 		Common.waitUntilAppReady(Common.Webdriver);
-		Thread.sleep(1000);
-		edit_btn.click();
+		for(int i=0;i<=active_progs.size()-1;i++){
+			if(active_progs.get(i).getText().contains(ProgramName)){
+				active_progs.get(i).findElement(By.cssSelector("[value='Edit']")).click();
+			}
+		}
 	}
 	
-	public void clickSave() throws InterruptedException {
-		Common.waitUntilAppReady(Common.Webdriver);
-		save_btn.click();
+	public void saveProgram(String ProgramName) throws InterruptedException {
+		Common.waitUntilAppReady(Common.Webdriver);	
+		for(int i=0;i<=active_progs.size()-1;i++){
+			if(active_progs.get(i).getText().contains(ProgramName)){
+				active_progs.get(i).findElement(By.cssSelector("[value='Save']")).click();
+			}
+		}
 	}
 	
-	public void editEnrollmentID(String EnrollmentID) throws InterruptedException{
+	public void editRegistrationNumber(String ProgramName, String RegistrationNo) throws InterruptedException{
 		Common.waitUntilAppReady(Common.Webdriver);
-		activ_enrollmentID.clear();
-		activ_enrollmentID.sendKeys(EnrollmentID);
+		for(int i=0;i<=active_progs.size()-1;i++){
+			if(active_progs.get(i).getText().contains(ProgramName)){
+				WebElement reg_no = active_progs.get(i).findElement(By.cssSelector("[id='Registration Number']"));
+				reg_no.clear();
+				reg_no.sendKeys(RegistrationNo);
+			}
+		}
 	}
 	
-	public void selectOutcome(String Outcome) throws InterruptedException {
-		
+	public void selectTreatmentStatus(String ProgramName, String Outcome) throws InterruptedException {
 		Common.waitUntilAppReady(Common.Webdriver);
-		for(int i=0;i<=outcome.size()-1;i++){
-			
-			if(outcome.get(i).getAttribute("ng-model").toString().contains("outcome")){
-				
-				Select out_come = new Select(outcome.get(i));
-				out_come.selectByVisibleText(Outcome);
+		WebElement outcome = null;
+		for(int i=0;i<=active_progs.size()-1;i++){
+			if(active_progs.get(i).getText().contains(ProgramName)){
+				outcome = active_progs.get(i).findElement(By.cssSelector("[ng-model='patientProgram.outcomeData']"));
+			}
+		}
+		Select out_come = new Select(outcome);
+		out_come.selectByVisibleText(Outcome);
+	}
+	
+	public void clickTreatmentStatus(String ProgramName) throws InterruptedException {
+		Thread.sleep(2000);
+		Common.waitUntilAppReady(Common.Webdriver);
+		for(int i=0;i<=treatment_dashboard.size()-1;i++){
+			if(treatment_dashboard.get(i).getText().contains(ProgramName)){
+				treatment_dashboard.get(i).click();
 			}
 		}
 	}
@@ -139,46 +142,54 @@ public class ProgramManagamentPage {
 		Common.waitUntilAppReady(Common.Webdriver);
 		selectProgram(app.getJsonKeyValue("patient/Programs/Program", "Name"));
 		enterStartDate(app.getJsonKeyValue("patient/Programs/Program", "StartDate"));
-		enterFacilityName(app.getJsonKeyValue("patient/Programs/Program", "FacilityName"));
-		enterFacilityID(app.getJsonKeyValue("patient/Programs/Program", "FacilityID"));
-		enterDoctorName(app.getJsonKeyValue("patient/Programs/Program", "Doctor"));
-		enterEnrollmentID(app.getJsonKeyValue("patient/Programs/Program", "EnrollmentID"));
+		enterRegistrationNumber(app.getJsonKeyValue("patient/Programs/Program", "RegistrationNumber"));
+		enterRegistrationFacility(app.getJsonKeyValue("patient/Programs/Program", "RegistrationFacility"));
 		enroll_btn.click();
+		Common.waitUntilAppReady(Common.Webdriver);
+	}
+	
+	public void selectTreatmentDashboard() throws InterruptedException, IOException {
+		Common.waitUntilAppReady(Common.Webdriver);
+		clickTreatmentStatus(app.getJsonKeyValue("patient/Programs/Program", "Name"));
 		Common.waitUntilAppReady(Common.Webdriver);
 	}
 	
 	public void editProgramEnrolled() throws InterruptedException, IOException {
 		Common.waitUntilAppReady(Common.Webdriver);
-		clickEdit();
-		editEnrollmentID("E1111");
-		clickSave();
+		Thread.sleep(1000);
+		editProgram(app.getJsonKeyValue("patient/Programs/Program", "Name"));
+		editRegistrationNumber(app.getJsonKeyValue("patient/Programs/Program", "Name"),"E1111");
+		saveProgram(app.getJsonKeyValue("patient/Programs/Program", "Name"));
 		Common.waitUntilAppReady(Common.Webdriver);
 	}
 	
-	public void endProgramEnrolled() throws InterruptedException{
+	public void endProgramEnrolled() throws InterruptedException, IOException{
 		Common.waitUntilAppReady(Common.Webdriver);
-		clickEdit();
-		selectOutcome("Cured");
-		clickSave();
+		editProgram(app.getJsonKeyValue("patient/Programs/Program", "Name"));
+		selectTreatmentStatus(app.getJsonKeyValue("patient/Programs/Program", "Name"), "Non Active");
+		saveProgram(app.getJsonKeyValue("patient/Programs/Program", "Name"));
 		Common.waitUntilAppReady(Common.Webdriver);
 	}
 	
 	public boolean hasEnrolledProgram() throws InterruptedException, IOException{
-		if(active_progs.getText().toString().contains(app.getJsonKeyValue("patient/Programs/Program", "Name")))
+		if(Common.Webdriver.findElement(By.cssSelector(".active-program-container")).getText()
+				.toString().contains(app.getJsonKeyValue("patient/Programs/Program", "Name")))
 			return true;
 		else
 			return false;
 	}
 	
 	public boolean hasAttribute() throws InterruptedException, IOException{
-		if(active_progs.getText().toString().contains("E1111"))
+		if(Common.Webdriver.findElement(By.cssSelector(".active-program-container")).getText()
+				.toString().contains("E1111"))
 			return true;
 		else
 			return false;
 	}
 	
 	public boolean hasEndedProgram() throws InterruptedException, IOException{
-		if(inactive_progs.getText().toString().contains(app.getJsonKeyValue("patient/Programs/Program", "Name")))
+		if(Common.Webdriver.findElement(By.cssSelector(".inactive-program-container")).getText()
+				.toString().contains(app.getJsonKeyValue("patient/Programs/Program", "Name")))
 			return true;
 		else
 			return false;

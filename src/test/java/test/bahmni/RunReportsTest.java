@@ -35,14 +35,14 @@ public class RunReportsTest {
 	@Test
 	public void test() throws InterruptedException, IOException {
 		login_page.login();
-		homepage.clickReportsApp();	
-		reports.selectAndRunReport("Chief Complaint Report","01/01/2016", "04/01/2016", "HTML");
+		homepage.clickExportsApp();	
+		reports.selectAndRunReport("Treatment Initiation Data Export","01/01/2016", "04/01/2016", "CSV");
 		assertTrue(reports.report_name.getText().contains("Chief Complaint Report"));
 	}
 	
-	@After
+	/*@After
 	public void shutDown(){
 		driver.quit();
-	}
+	}*/
 
 }

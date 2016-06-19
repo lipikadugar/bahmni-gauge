@@ -13,7 +13,9 @@ import PageObjects.ConsultationPage;
 import PageObjects.DashboardPage;
 import PageObjects.HomePage;
 import PageObjects.LoginPage;
+import PageObjects.ObservationTemplatesPage;
 import PageObjects.PatientListingPage;
+import PageObjects.ProgramManagamentPage;
 import PageObjects.RegistrationSearch;
 import PageObjects.Registration_Page1;
 
@@ -28,6 +30,8 @@ public class RecordObservationsTest {
 	Registration_Page1 registration_page;
 	DashboardPage dashboard;
 	ConsultationPage consultation_page;
+	ProgramManagamentPage programManagement_page;
+	ObservationTemplatesPage observation_templates;
 	
 	@Before
 	public void setup() throws InterruptedException, IOException{
@@ -39,16 +43,24 @@ public class RecordObservationsTest {
 		consultation_page = new ConsultationPage();
 		dashboard = new DashboardPage();
 		patients_page = new PatientListingPage();
+		observation_templates = new ObservationTemplatesPage();
 		
 		login_page.login();
-		homepage.clickClinicalApp();
+		homepage.clickPatientRecords();
 	}
 	
 	@Test
 	public void recordObservationsForPatient() throws InterruptedException, IOException {
-		patients_page.searchSelectPatientFromAllTabs();
-		dashboard.clickClinical(); 
-		consultation_page.clickTab("Observations");
+		patients_page.searchSelectPatientFromTable();
+		programManagement_page.selectTreatmentDashboard();
+		dashboard.navigateToConsultation();
+		
+		observation_templates.addTemplate("Lab Results - Other Tests");
+		observation_templates.addTemplate("Audiometry");
+		observation_templates.fillTemplateData("Audiometry date","textbox","01/01/2015");
+		observation_templates.fillTemplateData("Type of assessment","button","Baseline");
+		observation_templates.fillTemplateData("Left Ear : dB at 250Hz","textbox","3");
+		observation_templates.fillTemplateData("Audio assessment comment","textarea","I Am A Bot");
 		
 	}
 	

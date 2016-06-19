@@ -37,7 +37,7 @@ public class SearchPatientTest {
 	public void searchPatientWithIDPrefix() throws InterruptedException, IOException{
 		login_page.login();
 		homepage.clickRegistrationApp();
-		registration_search.searchPatientWithID("GAN", "200");
+		registration_search.searchPatientWithID("EMR", "123");
 		
 		assertNotNull(registration_search.search_results);	
 	}

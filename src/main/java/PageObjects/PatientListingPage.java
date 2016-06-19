@@ -3,6 +3,7 @@ package PageObjects;
 import java.io.IOException;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -18,11 +19,11 @@ public class PatientListingPage extends Common {
     @FindBy(how= How.CSS, using = "#patientIdentifier")
     public WebElement searchbox_txt;
     
-    @FindBy(how= How.CSS, using = ".reg-srch-btn")
-    public WebElement search;
-    
     @FindBy(how= How.CSS, using = ".active-patient.patient-id")
     public WebElement patient;
+    
+    @FindBy(how= How.CSS, using = ".patient-list-table")
+    public WebElement patient_table;
     
     Common app = new Common();
     
@@ -48,35 +49,21 @@ public class PatientListingPage extends Common {
     	searchbox_txt.sendKeys(Patient);
     }
     
-    public void clickSearch(){
-    	search.click();
-    }
-    
-    /*public WebElement searchPatient(String Patient){
-    	for(int i=0;i<=patient.size()-1;i++){
-    		if(patient.get(i).getText().contains(Patient))
-    			return patient.get(i);
+    public void selectPatient(String Patient){
+    	
+    	List<WebElement> results = patient_table.findElements(By.cssSelector(".ng-binding"));
+    	for(int i=0;i<=results.size();i++){
+    		if(results.get(i).getText().contentEquals(Patient))
+    		{
+    			results.get(i).click();
+    			break;
+    		}
     	}
-    	return patient.get(patient.size()-1);
-    }*/
-    
-    public void clickPatient(String Patient){
-    	patient.click();
     }
-    
-    public void searchSelectPatientFromTabs(String Tab, String PatientID) throws IOException, InterruptedException{
+  
+    public void searchSelectPatientFromTable() throws IOException, InterruptedException{
     	Common.waitUntilAppReady(Common.Webdriver);
-    	clickTab(Tab);
     	enterPatientIDOrName(app.getJsonKeyValue("patient", "ID"));
-    	clickSearch();
-    	//clickPatient(PatientID);	
-    }
-    
-    public void searchSelectPatientFromAllTabs() throws IOException, InterruptedException{
-    	Common.waitUntilAppReady(Common.Webdriver);
-    	clickTab("All");
-    	enterPatientIDOrName(app.getJsonKeyValue("patient", "ID"));
-    	clickSearch();
-    	//clickPatient(PatientID);	
+    	selectPatient(app.getJsonKeyValue("patient", "ID"));	
     }
 }

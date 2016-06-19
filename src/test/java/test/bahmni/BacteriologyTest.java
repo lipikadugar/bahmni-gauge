@@ -11,7 +11,6 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 
 import Library.Common;
 import PageObjects.BacteriologyPage;
@@ -20,6 +19,7 @@ import PageObjects.DashboardPage;
 import PageObjects.HomePage;
 import PageObjects.LoginPage;
 import PageObjects.PatientListingPage;
+import PageObjects.ProgramManagamentPage;
 import PageObjects.RegistrationSearch;
 import PageObjects.Registration_Page1;
 
@@ -34,6 +34,7 @@ public class BacteriologyTest {
 	Registration_Page1 registration_page;
 	PatientListingPage patients_page;
 	DashboardPage dashboard;
+	ProgramManagamentPage programManagement_page;
 	ConsultationPage consultation_page;
 	BacteriologyPage bacteriologyPage;
 	
@@ -50,18 +51,20 @@ public class BacteriologyTest {
 		patients_page = new PatientListingPage();
 		dashboard = new DashboardPage();
 		consultation_page = new ConsultationPage();
+		programManagement_page = new ProgramManagamentPage();
 		bacteriologyPage = new BacteriologyPage();
 		
 		login_page.login();
 		//commonTasks.searchAndOpenVisit();
 		Common.navigateToDashboard();
-		homepage.clickClinicalApp();
+		homepage.clickPatientRecords();
 	}
 	
-	@Test
+	//@Test
 	public void createBacteriologySample() throws InterruptedException, IOException{
 		
-		patients_page.searchSelectPatientFromAllTabs();
+		patients_page.searchSelectPatientFromTable();
+		programManagement_page.selectTreatmentDashboard();
 		dashboard.navigateToConsultation();
 		consultation_page.createBacteriologySample("04/20/2016", "Sputum", "12345");
 		assertTrue(bacteriologyPage.isSampleExists("Sputum", "12345"));
@@ -73,7 +76,8 @@ public class BacteriologyTest {
 	//@Test
 	public void editBacteriologySample() throws InterruptedException, IOException{
 		
-		patients_page.searchSelectPatientFromAllTabs();
+		patients_page.searchSelectPatientFromTable();
+		programManagement_page.selectTreatmentDashboard();
 		dashboard.navigateToConsultation();
 		consultation_page.createBacteriologySample("01/15/2016", "Sputum", "4444");
 		bacteriologyPage.editSample("02/18/2016", "Sputum", "1111");
@@ -86,7 +90,8 @@ public class BacteriologyTest {
 	@Test
 	public void deleteBacteriologySample() throws InterruptedException, IOException{
 		
-		patients_page.searchSelectPatientFromAllTabs();
+		patients_page.searchSelectPatientFromTable();
+		programManagement_page.selectTreatmentDashboard();
 		dashboard.navigateToConsultation();
 		consultation_page.createBacteriologySample("02/20/2016", "Sputum", "5555");
 		bacteriologyPage.deleteSample("02/20/2016", "Sputum", "5555");

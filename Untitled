@@ -1,0 +1,21 @@
+,"givenNameLocal",
+
+ "address2" ,
+
+
+ "patientSearchResults": {
+"personAttributes": {
+"fields": ["landHolding", "education","caste","familyNameLocal", "occupation" ]
+},
+"address": {
+"fields" : ["address1", "address3"]
+}
+}
+
+
+,
+                	"programAttributes": {
+    "label": "Registration Number",
+    "placeholder": "Enter Reg Number",
+    "field": "Id_Number"
+  }

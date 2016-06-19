@@ -17,6 +17,7 @@ import PageObjects.DashboardPage;
 import PageObjects.HomePage;
 import PageObjects.LoginPage;
 import PageObjects.PatientListingPage;
+import PageObjects.ProgramManagamentPage;
 import PageObjects.RegistrationSearch;
 import PageObjects.Registration_Page1;
 import PageObjects.TreatmentPage;
@@ -32,6 +33,7 @@ public class DrugsPrescriptionTest {
 	Registration_Page1 registration_page;
 	PatientListingPage patients_page;
 	DashboardPage dashboard;
+	ProgramManagamentPage programManagement_page;
 	ConsultationPage consultation_page;
 	TreatmentPage treatment_page;
 		
@@ -49,17 +51,16 @@ public class DrugsPrescriptionTest {
 		treatment_page = new TreatmentPage();
 		
 		login_page.login();
-		commonTasks.searchAndOpenVisit();
-		Common.navigateToDashboard();
-		homepage.clickClinicalApp();
+		homepage.clickPatientRecords();
 		
 	}
 	@Test
 	public void prescribeDrugsToPatient() throws InterruptedException, IOException {
 		
-		patients_page.searchSelectPatientFromAllTabs();
-		dashboard.clickClinical();
-		consultation_page.clickTab("Medications");
+		patients_page.searchSelectPatientFromTable();
+		programManagement_page.selectTreatmentDashboard();
+		dashboard.navigateToConsultation();
+		consultation_page.clickTab("Non TB Drugs");
 		treatment_page.prescribeDrugToPatient("Drug1");
 		treatment_page.prescribeDrugToPatient("Drug2");
 		treatment_page.prescribeDrugToPatient("Drug3");
@@ -69,9 +70,9 @@ public class DrugsPrescriptionTest {
 		assertTrue(treatment_page.hasText(commonTasks.getJsonKeyValue("patient/Treatment/Drug1","Name")));
 	}
 
-	@After
+	/*@After
 	public void shutDown(){
 		driver.quit();	
-	}
+	}*/
 
 }

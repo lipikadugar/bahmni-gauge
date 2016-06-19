@@ -1,7 +1,7 @@
 {
  "patients":[{
     "patient":{
-      "ID": "GAN12345739",
+      "ID": "1234",
       "FirstName": "Automation",
       "LastName": "Tester",
       "Age": "32",
@@ -9,12 +9,11 @@
       "Village": "Bilaspur",
       "Programs": {
         "Program": {
-          "Name": "HIV Program",
-          "EnrollmentID": "E12345",
+          "Name": "Basic management unit TB register",
           "StartDate": "03/01/2016",
-          "FacilityName": "Test Location",
-          "FacilityID": "12345",
-          "Doctor": "Dr. Raman"
+          "RegistrationNumber": "1234",
+          "RegistrationFacility": "Facility1, City1, Country1",
+          "TreatmentStatus":"Non Active"
         }
       },
       "Treatment": {

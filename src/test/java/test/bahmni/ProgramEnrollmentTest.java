@@ -37,35 +37,35 @@ public class ProgramEnrollmentTest {
 		programManagement_page = new ProgramManagamentPage();
 		
 		login_page.login();
-		homepage.clickProgramsApp();
+		homepage.clickPatientRecords();
 		
 	}
 	
 	@Test
 	public void createProgramForPatient() throws InterruptedException, IOException {
-		patients_page.searchSelectPatientFromAllTabs();
+		patients_page.searchSelectPatientFromTable();
 		programManagement_page.enrollToProgram();
 		assertTrue(programManagement_page.hasEnrolledProgram());
 	}
 	
 	@Test
 	public void editPatientProgram() throws InterruptedException, IOException {
-		patients_page.searchSelectPatientFromAllTabs();
+		patients_page.searchSelectPatientFromTable();
 		programManagement_page.editProgramEnrolled();
 		assertTrue(programManagement_page.hasAttribute());
 	}
 	
 	@Test
 	public void endPatientProgram() throws InterruptedException, IOException {
-		patients_page.searchSelectPatientFromAllTabs();
+		patients_page.searchSelectPatientFromTable();
 		programManagement_page.endProgramEnrolled();
 		assertTrue(programManagement_page.hasEndedProgram());
 	}
 	
-	@After
+	/*@After
 	public void shutDown(){
 		driver.quit();
 		
-	}
+	}*/
 
 }

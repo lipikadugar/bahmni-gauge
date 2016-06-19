@@ -9,17 +9,17 @@ import Library.Common;
 
 public class HomePage {
 
-	@FindBy(how= How.CSS, using = ".fa-user")
+	@FindBy(how= How.CSS, using = "i.icon-bahmni-registration")
     public WebElement registration;
 	
-	@FindBy(how= How.CSS, using = "i.icon-bahmni-program")
-    public WebElement programs;
+	@FindBy(how= How.CSS, using = "i.icon-bahmni-documents")
+    public WebElement patient_records;
 	
-	@FindBy(how= How.CSS, using = "i.fa-stethoscope")
-    public WebElement clinical;
+	@FindBy(how= How.CSS, using = "i.icon-bahmni-admin")
+    public WebElement admin;
 	
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-reports")
-    public WebElement reports;
+    public WebElement exports;
 	
 	public HomePage(){
 		PageFactory.initElements(Common.Webdriver, this);
@@ -30,19 +30,19 @@ public class HomePage {
     	registration.click();
     }
     
-    public void clickProgramsApp() throws InterruptedException {
+    public void clickPatientRecords() throws InterruptedException {
     	Common.waitUntilAppReady(Common.Webdriver);
-    	programs.click();
+    	patient_records.click();
     }
     
-    public void clickClinicalApp() throws InterruptedException {
+    public void clickAdminApp() throws InterruptedException {
     	Common.waitUntilAppReady(Common.Webdriver);
-    	clinical.click();
+    	admin.click();
     }
     
-    public void clickReportsApp() throws InterruptedException {
+    public void clickExportsApp() throws InterruptedException {
     	Common.waitUntilAppReady(Common.Webdriver);
-    	reports.click();
+    	exports.click();
     }
     
 }

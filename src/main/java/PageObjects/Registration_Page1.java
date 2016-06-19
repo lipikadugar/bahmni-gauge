@@ -2,6 +2,7 @@ package PageObjects;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -16,6 +17,9 @@ public class Registration_Page1 {
 	
 	@FindBy(how= How.CSS, using = "#givenName")
 	public WebElement patientName;
+	
+	@FindBy(how= How.CSS, using = "#registrationNumber")
+	public WebElement registration_num;
 	
 	@FindBy(how= How.CSS, using = "#familyName")
 	public WebElement familyName;
@@ -41,6 +45,9 @@ public class Registration_Page1 {
 	@FindBy(how= How.CSS, using = "strong > span")
 	public WebElement new_patient;
 	
+	@FindBy(how= How.CSS, using = ".confirm")
+	public WebElement treatment_reg;
+	
 	@FindBy(how= How.CSS, using = ".buttonClass")
 	public List<WebElement> visit_btn;
 	
@@ -49,6 +56,12 @@ public class Registration_Page1 {
 	}
 	
 	Common app = new Common();
+	
+	public void enterID() throws InterruptedException {
+		Random randomGenerator = new Random();
+		Common.patientID = "EMD"+ randomGenerator.nextInt(10000);
+		registration_num.sendKeys(Common.patientID);
+	}
 	
 	public void enterFirstName(String Firstname) throws InterruptedException {
 		patientName.sendKeys(Firstname);
@@ -82,6 +95,11 @@ public class Registration_Page1 {
 		save.click();
 	}
 	
+	public void clickTreatmentRegistration() throws InterruptedException{
+		Common.waitUntilAppReady(Common.Webdriver);
+		treatment_reg.click();
+	}
+	
 	public void startVisit() throws InterruptedException {
 		Common.waitUntilAppReady(Common.Webdriver);
 		for(int i=0;i<visit_btn.size()-1;i++)
@@ -93,13 +111,13 @@ public class Registration_Page1 {
 	
 	public void createNewPatient() throws InterruptedException, IOException{
 		Common.waitUntilAppReady(Common.Webdriver);
+		enterID();
 		enterFirstName(app.getJsonKeyValue("patient","FirstName"));
 		enterLastName(app.getJsonKeyValue("patient","LastName"));
 		enterGender(app.getJsonKeyValue("patient","Gender"));
 		enterAgeYears(app.getJsonKeyValue("patient","Age")); 
-		enterVillage(app.getJsonKeyValue("patient","Village"));
-		//enterAddress(app.getJsonKeyValue("patient","Village"));
-		clickSave();
+		//clickSave();
+		clickTreatmentRegistration();
 		Common.waitUntilAppReady(Common.Webdriver);
 	}
 

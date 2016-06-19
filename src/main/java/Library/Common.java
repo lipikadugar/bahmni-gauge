@@ -24,6 +24,7 @@ public class Common {
 
 	public static ChromeDriver Webdriver;
 	public static String URL;
+	public static String patientID;
 	
 	public static void waitUntilAppReady(ChromeDriver driver) throws InterruptedException {
 		Thread.sleep(1000);
@@ -33,12 +34,9 @@ public class Common {
 	}
 	
 	public static ChromeDriver launchApp() throws InterruptedException, IOException {
-		/*DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
-		capabilities.setCapability("--ignore-ssl-errors", true);
-		capabilities = new DesiredCapabilities();
-		capabilities.setJavascriptEnabled(true);
-		capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, new String[] {"--web-security=no", "--ignore-ssl-errors=yes"});*/
+		
         Webdriver = new ChromeDriver();
+        //System.setProperty("webdriver.chrome.driver", "//usr/local//bin//");
 		URL = getEnvDetails("QA","URL");
 		Webdriver.get(URL+"/home");
 		Thread.sleep(1000);
@@ -46,19 +44,23 @@ public class Common {
 		
 		return Webdriver;
 	}
+	
+	public void setupChromeDriver() throws IOException{
+		Runtime.getRuntime().exec("..//endtb-functional-tests//ChromeSetup.sh /");
+	}
 
 	public static void navigateToDashboard() throws InterruptedException {
 		waitUntilAppReady(Webdriver);
-		Webdriver.get("https://172.18.2.27/bahmni/home/index.html#/dashboard");
+		Webdriver.get(URL+"/bahmni/home/index.html#/dashboard");
 	}
 
 	public static void navigateToSearchPage() throws InterruptedException {
 		waitUntilAppReady(Webdriver);
-		Webdriver.get("https://172.18.2.27/bahmni/registration/index.html#/search");
+		Webdriver.get(URL+"/bahmni/registration/index.html#/search");
 	}
 	
 	public static String getEnvDetails(String jsonPath, String key) throws IOException{
-		InputStream fis = new FileInputStream("..//bahmni//Env.json");
+		InputStream fis = new FileInputStream("..//endtb-functional-tests//Env.json");
 		JsonReader jsonReader = Json.createReader(fis);
 		// get JsonObject from JsonReader
 		JsonObject jsonObject = jsonReader.readObject();
@@ -83,7 +85,7 @@ public class Common {
 	public String getJsonKeyValue(String jsonPath, String key)
 			throws IOException {
 
-		InputStream fis = new FileInputStream("..//bahmni//PatientProfile.json");
+		InputStream fis = new FileInputStream("..//endtb-functional-tests//PatientProfile.json");
 		JsonReader jsonReader = Json.createReader(fis);
 		// get JsonObject from JsonReader
 		JsonObject jsonObject = jsonReader.readObject();
@@ -108,7 +110,7 @@ public class Common {
 	public String putJsonKeyValue(String key, String value)
 			throws IOException {
 
-		InputStream fis = new FileInputStream("..//bahmni//PatientProfile.json");
+		InputStream fis = new FileInputStream("..//endtb-functional-tests//PatientProfile.json");
 		JsonReader jsonReader = Json.createReader(fis);
 		// get JsonObject from JsonReader
 		JsonObject jsonObject = jsonReader.readObject();
