@@ -53,22 +53,13 @@ public class LoginPage extends Common {
     	signin_btn.click();
     }
     
-    public void login(String user, String pass, String loc, String locale) throws InterruptedException, IOException  {
+    public void login(String Username, String Password, String Location, String Locale) throws InterruptedException, IOException  {
     	Common.waitUntilAppReady(Common.Webdriver);
-    	enterUsername(Common.getEnvDetails("QA","username"));
-    	enterPassword(Common.getEnvDetails("QA","password"));
-    	selectLocation(Common.getEnvDetails("QA","location"));
-    	selectLocale(Common.getEnvDetails("QA","locale"));
-    	signin_btn.click();
-    }
-    
-    public void login() throws InterruptedException, IOException  {
-    	Common.waitUntilAppReady(Common.Webdriver);
-    	enterUsername(Common.getEnvDetails("QA","username"));
-    	enterPassword(Common.getEnvDetails("QA","password"));
-    	selectLocation(Common.getEnvDetails("QA","location"));
+    	enterUsername(Username);	//Common.getEnvDetails("QA","username")
+    	enterPassword(Password);	//Common.getEnvDetails("QA","password")
+    	selectLocation(Location);	//Common.getEnvDetails("QA","location")
+    	selectLocale(Locale);
     	signin_btn.click();
     }
 	
-
 }

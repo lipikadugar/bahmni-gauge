@@ -55,12 +55,13 @@ public class BacteriologyTest {
 		bacteriologyPage = new BacteriologyPage();
 		
 		login_page.login();
-		//commonTasks.searchAndOpenVisit();
-		Common.navigateToDashboard();
+		//Create a new Patient
+		//commonTasks.createPatient();
+		//Common.navigateToDashboard();
 		homepage.clickPatientRecords();
 	}
 	
-	//@Test
+	@Test
 	public void createBacteriologySample() throws InterruptedException, IOException{
 		
 		patients_page.searchSelectPatientFromTable();
@@ -73,7 +74,7 @@ public class BacteriologyTest {
 	
 	}
 	
-	//@Test
+	@Test
 	public void editBacteriologySample() throws InterruptedException, IOException{
 		
 		patients_page.searchSelectPatientFromTable();

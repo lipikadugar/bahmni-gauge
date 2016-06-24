@@ -17,6 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import PageObjects.HomePage;
 import PageObjects.RegistrationSearch;
 import PageObjects.Registration_Page1;
 
@@ -138,6 +139,17 @@ public class Common {
 		registration_search.searchPatientWithID("GAN", getJsonKeyValue("patient", "ID").substring(3,getJsonKeyValue("patient", "ID").length()));
 		registration_page.startVisit();
 		waitUntilAppReady(Webdriver);
+	}
+	
+	public void createPatient() throws InterruptedException, IOException{
+		RegistrationSearch registration_search = new RegistrationSearch();
+		Registration_Page1 registration_page = new Registration_Page1();
+		HomePage homepage = new HomePage();
+		
+		homepage.clickRegistrationApp();
+		registration_search.clickCreateNew();		
+		registration_page.createNewPatient();
+		
 	}
 	
 	public static void getCurrentTab(){

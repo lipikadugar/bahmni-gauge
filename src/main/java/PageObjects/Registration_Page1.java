@@ -109,13 +109,13 @@ public class Registration_Page1 {
 		}
 	}
 	
-	public void createNewPatient() throws InterruptedException, IOException{
+	public void createNewPatient(String FirstName, String LastName, String Gender, String Age) throws InterruptedException, IOException{
 		Common.waitUntilAppReady(Common.Webdriver);
 		enterID();
-		enterFirstName(app.getJsonKeyValue("patient","FirstName"));
-		enterLastName(app.getJsonKeyValue("patient","LastName"));
-		enterGender(app.getJsonKeyValue("patient","Gender"));
-		enterAgeYears(app.getJsonKeyValue("patient","Age")); 
+		enterFirstName(FirstName);
+		enterLastName(LastName);
+		enterGender(Gender);
+		enterAgeYears(Age); 
 		//clickSave();
 		clickTreatmentRegistration();
 		Common.waitUntilAppReady(Common.Webdriver);

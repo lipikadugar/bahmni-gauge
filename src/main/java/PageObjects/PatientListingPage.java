@@ -61,9 +61,9 @@ public class PatientListingPage extends Common {
     	}
     }
   
-    public void searchSelectPatientFromTable() throws IOException, InterruptedException{
+    public void searchSelectPatientFromTable(String PatientID) throws IOException, InterruptedException{
     	Common.waitUntilAppReady(Common.Webdriver);
-    	enterPatientIDOrName(app.getJsonKeyValue("patient", "ID"));
-    	selectPatient(app.getJsonKeyValue("patient", "ID"));	
+    	enterPatientIDOrName(PatientID);	//app.getJsonKeyValue("patient", "ID")
+    	selectPatient(PatientID);	
     }
 }

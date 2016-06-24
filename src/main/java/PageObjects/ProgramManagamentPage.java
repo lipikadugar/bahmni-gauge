@@ -136,60 +136,60 @@ public class ProgramManagamentPage {
 	}
 	
 	
-	public void enrollToProgram() throws InterruptedException, IOException {
+	public void enrollToProgram(String ProgramName, String Date, String RegistrationNumber, String RegistrationFacility) throws InterruptedException, IOException {
 		Common.waitUntilAppReady(Common.Webdriver);
 		expand.click();
 		Common.waitUntilAppReady(Common.Webdriver);
-		selectProgram(app.getJsonKeyValue("patient/Programs/Program", "Name"));
-		enterStartDate(app.getJsonKeyValue("patient/Programs/Program", "StartDate"));
-		enterRegistrationNumber(app.getJsonKeyValue("patient/Programs/Program", "RegistrationNumber"));
-		enterRegistrationFacility(app.getJsonKeyValue("patient/Programs/Program", "RegistrationFacility"));
+		selectProgram(ProgramName);
+		enterStartDate(Date);
+		enterRegistrationNumber(RegistrationNumber);
+		enterRegistrationFacility(RegistrationFacility);
 		enroll_btn.click();
 		Common.waitUntilAppReady(Common.Webdriver);
 	}
 	
-	public void selectTreatmentDashboard() throws InterruptedException, IOException {
+	public void selectTreatmentDashboard(String ProgramName) throws InterruptedException, IOException {
 		Common.waitUntilAppReady(Common.Webdriver);
-		clickTreatmentStatus(app.getJsonKeyValue("patient/Programs/Program", "Name"));
+		clickTreatmentStatus(ProgramName);		//app.getJsonKeyValue("patient/Programs/Program", "Name")
 		Common.waitUntilAppReady(Common.Webdriver);
 	}
 	
-	public void editProgramEnrolled() throws InterruptedException, IOException {
+	public void editProgramEnrolled(String ProgramName) throws InterruptedException, IOException {
 		Common.waitUntilAppReady(Common.Webdriver);
 		Thread.sleep(1000);
-		editProgram(app.getJsonKeyValue("patient/Programs/Program", "Name"));
-		editRegistrationNumber(app.getJsonKeyValue("patient/Programs/Program", "Name"),"E1111");
-		saveProgram(app.getJsonKeyValue("patient/Programs/Program", "Name"));
+		editProgram(ProgramName);
+		editRegistrationNumber(ProgramName,"E1111");
+		saveProgram(ProgramName);
 		Common.waitUntilAppReady(Common.Webdriver);
 	}
 	
-	public void endProgramEnrolled() throws InterruptedException, IOException{
+	public void endProgramEnrolled(String ProgramName) throws InterruptedException, IOException{
 		Common.waitUntilAppReady(Common.Webdriver);
-		editProgram(app.getJsonKeyValue("patient/Programs/Program", "Name"));
-		selectTreatmentStatus(app.getJsonKeyValue("patient/Programs/Program", "Name"), "Non Active");
-		saveProgram(app.getJsonKeyValue("patient/Programs/Program", "Name"));
+		editProgram(ProgramName);
+		selectTreatmentStatus(ProgramName, "Non Active");
+		saveProgram(ProgramName);
 		Common.waitUntilAppReady(Common.Webdriver);
 	}
 	
-	public boolean hasEnrolledProgram() throws InterruptedException, IOException{
+	public boolean hasEnrolledProgram(String ProgramName) throws InterruptedException, IOException{
 		if(Common.Webdriver.findElement(By.cssSelector(".active-program-container")).getText()
-				.toString().contains(app.getJsonKeyValue("patient/Programs/Program", "Name")))
+				.toString().contains(ProgramName))
 			return true;
 		else
 			return false;
 	}
 	
-	public boolean hasAttribute() throws InterruptedException, IOException{
+	public boolean hasAttribute(String Attribute) throws InterruptedException, IOException{
 		if(Common.Webdriver.findElement(By.cssSelector(".active-program-container")).getText()
-				.toString().contains("E1111"))
+				.toString().contains(Attribute))
 			return true;
 		else
 			return false;
 	}
 	
-	public boolean hasEndedProgram() throws InterruptedException, IOException{
+	public boolean hasEndedProgram(String ProgramName) throws InterruptedException, IOException{
 		if(Common.Webdriver.findElement(By.cssSelector(".inactive-program-container")).getText()
-				.toString().contains(app.getJsonKeyValue("patient/Programs/Program", "Name")))
+				.toString().contains(ProgramName))
 			return true;
 		else
 			return false;
