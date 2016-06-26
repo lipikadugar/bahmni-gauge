@@ -1,15 +1,13 @@
- endTB-functional-tests
+Thin light weight Automation Test Framework using [PageFactory](https://github.com/SeleniumHQ/selenium/wiki/PageFactory) in java.
  
 Overview:
  1. Page Object Pattern for app pages
- 2. Maven project with Java
+ 2. Gradle based project.  The core is for the framework and implementations will have separate projects.
  3. JUnit construct to write tests
- 4. Maven build tool
 
 Setup:
- 1. Download chromedriver.zip, unzip and save under /usr/local/bin
- 2. Clone this repo on local
- 3. Open terminal and Navigate to the project folder, run "mvn install"
- 
-Execution:
-1. Open terminal, navigate to the project folder and run "mvn test"
+ 1. Clone this repo on local
+ 2. Copy chromedriver.zip, unzip and save under /usr/local/bin
+ 3. Open terminal and Navigate to the project folder, run "gradle build -x"
+
+The framework is experimental.  Once the codebase becomes stable, the implementation projects like jss,amman,endtb can be made as separate projects and can depend on the core.

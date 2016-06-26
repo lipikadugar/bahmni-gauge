@@ -2,16 +2,15 @@ package org.bahmni.test.page.registration;
 
 import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
-import org.bahmni.test.page.registration.domain.Patient;
 import org.bahmni.test.page.PageFactory;
 import org.bahmni.test.page.program.ProgramManagamentPage;
+import org.bahmni.test.page.registration.domain.Patient;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
-import java.util.Random;
 
 public class RegistrationFirstPage extends BahmniPage{
 	
@@ -78,13 +77,16 @@ public class RegistrationFirstPage extends BahmniPage{
 	}
 
 	public RegistrationFirstPage registerPatient(Patient patient) {
-		Random randomGenerator = new Random();
+		doActions(patient);
+		return clickSave();
+	}
+
+	protected void doActions(Patient patient){
 		txtRegistrationNumber.sendKeys(patient.getIdNumber());
 		txtPatientName.sendKeys(patient.getFirstName());
 		familyName.sendKeys(patient.getLastName());
 		new Select(gender).selectByVisibleText(patient.getGender());
 		ageYears.sendKeys(patient.getAge());
-		return clickSave();
 	}
 
 }

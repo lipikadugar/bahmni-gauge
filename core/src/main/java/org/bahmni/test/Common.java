@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class Common {
 
 	public static ChromeDriver Webdriver;
-	public static String URL;
+	public static String URL = "https://mybahmni.org";
 	public static String patientID;
 
 	public static void waitForSpinner(){
@@ -38,10 +38,8 @@ public class Common {
 	}
 
 	public static ChromeDriver launchApp() throws InterruptedException, IOException {
-		
         Webdriver = new ChromeDriver();
-        //System.setProperty("webdriver.chrome.driver", "//usr/local//bin//");
-		URL = getEnvDetails("QA","URL");
+//		URL = getEnvDetails("QA","URL");
 		Webdriver.get(URL+"/home");
 		Thread.sleep(1000);
 		Webdriver.manage().window().setSize(new Dimension(1440, 900));
@@ -60,7 +58,7 @@ public class Common {
 	}
 	
 	public static String getEnvDetails(String jsonPath, String key) throws IOException{
-		InputStream fis = new FileInputStream("..//endtb-functional-tests//Env.json");
+		InputStream fis = new FileInputStream("Env.json");
 		JsonReader jsonReader = Json.createReader(fis);
 		// get JsonObject from JsonReader
 		JsonObject jsonObject = jsonReader.readObject();
