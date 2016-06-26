@@ -1,4 +1,3 @@
 rootProject.name = 'bahmni-fat'
 
-include 'core'
-include 'endtb'
+include "core","endtb"

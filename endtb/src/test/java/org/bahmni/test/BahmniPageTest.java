@@ -1,6 +1,5 @@
-package org.bahmni.test.page;
+package org.bahmni.test;
 
-import org.bahmni.test.Common;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.chrome.ChromeDriver;

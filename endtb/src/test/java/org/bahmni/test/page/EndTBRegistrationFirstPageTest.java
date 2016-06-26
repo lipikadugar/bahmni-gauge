@@ -1,5 +1,6 @@
 package org.bahmni.test.page;
 
+import org.bahmni.test.BahmniPageTest;
 import org.bahmni.test.BahmniTestCase;
 import org.bahmni.test.page.registration.RegistrationFirstPage;
 import org.bahmni.test.page.registration.domain.EndTBPatient;

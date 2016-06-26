@@ -1,5 +1,6 @@
 package org.bahmni.test.page;
 
+import org.bahmni.test.BahmniPageTest;
 import org.bahmni.test.BahmniTestCase;
 import org.bahmni.test.page.home.HomePage;
 import org.junit.Test;
@@ -9,7 +10,7 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertTrue;
 
-public class LoginPageTest extends BahmniPageTest{
+public class LoginPageTest extends BahmniPageTest {
 
 
 	@Test
