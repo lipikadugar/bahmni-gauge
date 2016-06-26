@@ -1,8 +1,7 @@
 package org.bahmni.test;
 
-import org.bahmni.test.page.HomePage;
+import org.bahmni.test.page.RegistrationFirstPage;
 import org.bahmni.test.page.RegistrationSearch;
-import org.bahmni.test.page.Registration_Page1;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -137,25 +136,14 @@ public class Common {
 	public void searchAndOpenVisit() throws InterruptedException, IOException{
 		
 		RegistrationSearch registration_search = new RegistrationSearch();
-		Registration_Page1 registration_page = new Registration_Page1();
+		RegistrationFirstPage registration_page = new RegistrationFirstPage();
 		
 		Common.navigateToSearchPage();
 		registration_search.searchByIdentifier("GAN", getJsonKeyValue("patient", "ID").substring(3,getJsonKeyValue("patient", "ID").length()));
 		registration_page.startVisit();
 		waitForSpinner();
 	}
-	
-	public void createPatient() throws InterruptedException, IOException{
-		RegistrationSearch registration_search = new RegistrationSearch();
-		Registration_Page1 registration_page = new Registration_Page1();
-		HomePage homepage = new HomePage();
-		
-		homepage.clickRegistrationApp();
-		registration_search.clickCreateNew();		
-		registration_page.createNewPatient();
-		
-	}
-	
+
 	public static void getCurrentTab(){
 		ArrayList<String> tabs2 = new ArrayList<String> (Webdriver.getWindowHandles());
 		Webdriver.switchTo().window(tabs2.get(0));

@@ -18,9 +18,19 @@ public class PageFactory {
 
 	public static RegistrationSearch getRegistrationSearchPage(){
 		RegistrationSearch registrationSearch = org.openqa.selenium.support.PageFactory.initElements(Common.Webdriver, RegistrationSearch.class);
-		Common.waitForSpinner();;
+		Common.waitForSpinner();
 		return registrationSearch;
 	}
 
+	public static RegistrationFirstPage getRegistrationFirstPage() {
+		RegistrationFirstPage registrationFirstPage = org.openqa.selenium.support.PageFactory.initElements(Common.Webdriver, RegistrationFirstPage.class);
+		Common.waitForSpinner();
+		return registrationFirstPage;
+	}
 
+	public static ProgramManagamentPage getProgramManagementPage() {
+		ProgramManagamentPage programManagamentPage = org.openqa.selenium.support.PageFactory.initElements(Common.Webdriver, ProgramManagamentPage.class);
+		Common.waitForSpinner();
+		return programManagamentPage;
+	}
 }

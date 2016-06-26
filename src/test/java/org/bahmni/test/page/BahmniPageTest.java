@@ -18,7 +18,7 @@ public class BahmniPageTest {
 
 	@AfterClass
 	public static void cleanUp() {
-//		driver.close();
+		driver.close();
 	}
 
 }

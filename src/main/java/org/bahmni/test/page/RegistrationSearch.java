@@ -1,8 +1,10 @@
 package org.bahmni.test.page;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.*;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class RegistrationSearch {
 
@@ -22,7 +24,7 @@ public class RegistrationSearch {
     public WebElement txtName;
 	
 	@FindBy(how= How.CSS, using = "#identifierPrefix")
-    public WebElement txtIdentifier;
+    public List<WebElement> txtIdentifier;
 	
 	@FindBy(how= How.CSS, using = ".reg-srch-btn > button")
     public WebElement btnIdentifierSearch;
@@ -41,16 +43,34 @@ public class RegistrationSearch {
     	iconHome.click();
     }
     
-    public void clickCreateNew() {
+    public RegistrationFirstPage clickCreateNew() {
     	iconCreateNew.click();
+	    return PageFactory.getRegistrationFirstPage();
     }
 
     private void enterName(String name) {
     	txtName.sendKeys(name);
     }
     
-    public void searchByIdentifier(String prefix, String id){
+    public RegistrationFirstPage searchByExactIdentifier(String prefix, String id){
+	    selectPrefix(prefix);
+
 	    txtRegistration.sendKeys(id);
 	    btnIdentifierSearch.click();
+
+	    return PageFactory.getRegistrationFirstPage();
     }
+
+	private void selectPrefix(String prefix) {
+		if(txtIdentifier.size()>0){
+			new Select(txtIdentifier.get(0)).selectByVisibleText(prefix);
+		}
+	}
+
+	public void searchByIdentifier(String prefix, String id){
+		selectPrefix(prefix);
+
+		txtRegistration.sendKeys(id);
+		btnIdentifierSearch.click();
+	}
 }
