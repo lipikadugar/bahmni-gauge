@@ -1,48 +1,49 @@
-package PageObjects;
+package org.bahmni.test.page;
 
+import org.bahmni.test.Common;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
-import Library.Common;
-
-public class HomePage {
+public class HomePage extends BahmniPage{
 
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-registration")
     public WebElement registration;
 	
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-documents")
-    public WebElement patient_records;
+    public WebElement patientDocuments;
 	
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-admin")
     public WebElement admin;
 	
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-reports")
     public WebElement exports;
-	
-	public HomePage(){
-		PageFactory.initElements(Common.Webdriver, this);
-	}
 
-    public void clickRegistrationApp() throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+	//TODO: logout doesn't recognize
+	@FindBy(how= How.XPATH, using = "#view-content > div > header > div > ul > li:nth-child(3) > a > span")
+	public WebElement logout;
+
+    public RegistrationSearch clickRegistrationApp(){
     	registration.click();
+	    return PageFactory.getRegistrationSearchPage();
     }
     
     public void clickPatientRecords() throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
-    	patient_records.click();
+    	Common.waitForSpinner();
+    	patientDocuments.click();
     }
     
     public void clickAdminApp() throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	admin.click();
     }
     
     public void clickExportsApp() throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	exports.click();
     }
-    
+
+	public void logout(){
+		logout.click();
+	}
 }

@@ -1,18 +1,18 @@
 package test.bahmni;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.io.IOException;
-
+import org.bahmni.test.BahmniTestCase;
+import org.bahmni.test.Common;
+import org.bahmni.test.page.HomePage;
+import org.bahmni.test.page.LoginPage;
+import org.bahmni.test.page.RegistrationSearch;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import Library.Common;
-import PageObjects.HomePage;
-import PageObjects.LoginPage;
-import PageObjects.RegistrationSearch;
+import java.io.IOException;
+
+import static org.junit.Assert.assertNotNull;
 
 public class SearchPatientTest {
 	
@@ -27,19 +27,18 @@ public class SearchPatientTest {
 	public void setup() throws InterruptedException, IOException{
 		app = new Common();
 		driver = Common.launchApp();
-		
-		login_page = new LoginPage();
+
 		homepage = new HomePage();
 		registration_search = new RegistrationSearch();
 	}
 	
 	@Test
 	public void searchPatientWithIDPrefix() throws InterruptedException, IOException{
-		login_page.login();
+		BahmniTestCase.start().login();
 		homepage.clickRegistrationApp();
-		registration_search.searchPatientWithID("EMR", "123");
+		registration_search.searchByIdentifier("EMR", "123");
 		
-		assertNotNull(registration_search.search_results);	
+		assertNotNull(registration_search.gridSearchResults);
 	}
 	
 	@After

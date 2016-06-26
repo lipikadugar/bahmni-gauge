@@ -1,4 +1,4 @@
-package PageObjects;
+package org.bahmni.test.page;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import Library.Common;
+import org.bahmni.test.Common;
 
 public class TreatmentPage {
 	
@@ -73,38 +73,38 @@ public class TreatmentPage {
     }
 	
 	public void addDrug(String DrugName) throws InterruptedException {
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 		  drug_name.sendKeys(DrugName);
 		  Thread.sleep(2000);
 		  drug_autocomplete.click();
 	 }
 	
 	 public void selectUnits(String Unit) throws InterruptedException {
-		 Common.waitUntilAppReady(Common.Webdriver);
+		 Common.waitForSpinner();
 		 Select units = new Select(dose_unit);
 		 units.selectByVisibleText(Unit);
 	 }
 	 
 	 public void selectFrequency(String Frequency) throws InterruptedException {
-		 Common.waitUntilAppReady(Common.Webdriver);
+		 Common.waitForSpinner();
 		 Select units = new Select(frequency);
 		 units.selectByVisibleText(Frequency);
 	 }
 	 
 	 public void selectRoute(String Route) throws InterruptedException {
-		 Common.waitUntilAppReady(Common.Webdriver);
+		 Common.waitForSpinner();
 		 Select units = new Select(route);
 		 units.selectByVisibleText(Route);
 		 
 	 }
 	 
 	 public void savePrecription() throws InterruptedException {
-		 Common.waitUntilAppReady(Common.Webdriver);
+		 Common.waitForSpinner();
 		  save_btn.click();
 	 }
 	    
 	 public void prescribeDrugToPatient(String DrugName) throws InterruptedException, IOException {
-		 Common.waitUntilAppReady(Common.Webdriver);
+		 Common.waitForSpinner();
 		 addDrug(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Name"));
 		 dose.sendKeys(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Dose"));
 		 selectUnits(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Unit"));
@@ -116,7 +116,7 @@ public class TreatmentPage {
 	 } 
 	    
 	 public void prescribeFreeTextDrugToPatient(String DrugName) throws InterruptedException, IOException {
-		 Common.waitUntilAppReady(Common.Webdriver);
+		 Common.waitForSpinner();
 		 drug_name.sendKeys(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Name"));
 		 accept_btn.click();
 		 dose.sendKeys(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Dose"));

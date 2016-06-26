@@ -1,4 +1,4 @@
-package PageObjects;
+package org.bahmni.test.page;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import Library.Common;
+import org.bahmni.test.Common;
 
 public class ObservationsPage {
 	
@@ -25,7 +25,7 @@ public class ObservationsPage {
     }
 	
 	public void prescribeFreeTextDrugToPatient(String DrugName) throws InterruptedException, IOException {
-		 Common.waitUntilAppReady(Common.Webdriver);
+		 Common.waitForSpinner();
 	 } 
 	
 

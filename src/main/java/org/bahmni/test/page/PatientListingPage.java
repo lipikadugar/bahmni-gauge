@@ -1,15 +1,14 @@
-package PageObjects;
+package org.bahmni.test.page;
 
-import java.io.IOException;
-import java.util.List;
-
+import org.bahmni.test.Common;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import Library.Common;
+import java.io.IOException;
+import java.util.List;
 
 public class PatientListingPage extends Common {
 
@@ -62,7 +61,7 @@ public class PatientListingPage extends Common {
     }
   
     public void searchSelectPatientFromTable(String PatientID) throws IOException, InterruptedException{
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	enterPatientIDOrName(PatientID);	//app.getJsonKeyValue("patient", "ID")
     	selectPatient(PatientID);	
     }

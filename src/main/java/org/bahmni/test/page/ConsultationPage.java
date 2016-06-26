@@ -1,13 +1,12 @@
-package PageObjects;
+package org.bahmni.test.page;
 
-import java.util.List;
-
+import org.bahmni.test.Common;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import Library.Common;
+import java.util.List;
 
 public class ConsultationPage {
 	
@@ -28,23 +27,23 @@ public class ConsultationPage {
     }
 	
     public void clickClinical() throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	clinical.click();
     }
     
     public void clickSave() throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	save.click();
     }
     
     public void clickPatientProfile() throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	patient_profile.click();
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     }
     
     public void clickTab(String Tabname) throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	for(int i=0;i<=tabs.size()-1;i++){
     		if(tabs.get(i).getText().toString().contains(Tabname)){
     			tabs.get(i).click();
@@ -53,12 +52,12 @@ public class ConsultationPage {
     }
     
     public void createBacteriologySample(String Date, String Sample, String ID ) throws InterruptedException{
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	clickTab("Bacteriology");
     	BacteriologyPage bacteriologyPage = new BacteriologyPage();
     	bacteriologyPage.createSample(Date, Sample, ID);
     	clickSave();
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     }
 
 }

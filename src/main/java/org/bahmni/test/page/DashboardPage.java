@@ -1,11 +1,11 @@
-package PageObjects;
+package org.bahmni.test.page;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import Library.Common;
+import org.bahmni.test.Common;
 
 public class DashboardPage {
 	
@@ -20,12 +20,12 @@ public class DashboardPage {
     }
 
     public void clickClinical() throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	clinical.click();
     }
     
     public void navigateToConsultation() throws InterruptedException{
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	clickClinical();
     }
     

@@ -1,14 +1,13 @@
-package PageObjects;
+package org.bahmni.test.page;
 
-import java.util.List;
-
+import org.bahmni.test.Common;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import Library.Common;
+import java.util.List;
 
 public class BacteriologyPage {
 	
@@ -63,18 +62,18 @@ public class BacteriologyPage {
     }
     
     public void createSample(String date, String type, String sample) throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	clickButton(type);
     	sample_id.sendKeys(sample);
     	sample_date.sendKeys(date);
     	Thread.sleep(1000);
     	ConsultationPage consultationPage = PageFactory.initElements(Common.Webdriver,ConsultationPage.class);
     	consultationPage.clickSave();
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     }
     
     public void editSample(String date, String type, String sample) throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	edit.click();
     	sample_date.clear();
     	sample_date.sendKeys(date);
@@ -85,20 +84,20 @@ public class BacteriologyPage {
  
     	ConsultationPage consultationPage = PageFactory.initElements(Common.Webdriver,ConsultationPage.class);
     	consultationPage.clickSave();
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     }
     
     public void deleteSample(String date, String type, String sample) throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	WebElement delete_item = lookForBacteriologyResult(date,type,sample).findElement(By.cssSelector(".fa-remove"));
     	delete_item.click();
     	Thread.sleep(1000);
     	Common.Webdriver.switchTo().alert().accept();
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	
     	ConsultationPage consultationPage = PageFactory.initElements(Common.Webdriver,ConsultationPage.class);
     	consultationPage.clickSave();
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     }
     
     public boolean isSampleExists(String Sample, String SampleID){

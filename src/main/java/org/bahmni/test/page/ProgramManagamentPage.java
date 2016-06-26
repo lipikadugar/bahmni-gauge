@@ -1,17 +1,16 @@
-package PageObjects;
+package org.bahmni.test.page;
 
 import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import Library.Common;
+import org.bahmni.test.Common;
 
 public class ProgramManagamentPage {
     
@@ -52,40 +51,40 @@ public class ProgramManagamentPage {
     }
     
     /*public void expandProgramEnrollment() throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	expand.click();
 	}*/
     
     public void selectProgram(String prog) throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	Select program_name = new Select(program);
     	program_name.selectByVisibleText(prog);
 	}
 	
 	public void enterStartDate(String Date) throws InterruptedException {
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 		Thread.sleep(1000);
 		start_date.sendKeys(Date);
 	}
 	
 	public void enterRegistrationNumber(String Facility) throws InterruptedException {
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 		registration_number.sendKeys(Facility);
 	}
 	
 	public void enterRegistrationFacility(String FacilityName) throws InterruptedException {
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
     	Select facility_name = new Select(registration_facility);
     	facility_name.selectByVisibleText(FacilityName);
 	}
 	
 	public void clickEnroll() throws InterruptedException {
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 		enroll_btn.click();
 	}
 	
 	public void editProgram(String ProgramName) throws InterruptedException {
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 		for(int i=0;i<=active_progs.size()-1;i++){
 			if(active_progs.get(i).getText().contains(ProgramName)){
 				active_progs.get(i).findElement(By.cssSelector("[value='Edit']")).click();
@@ -94,7 +93,7 @@ public class ProgramManagamentPage {
 	}
 	
 	public void saveProgram(String ProgramName) throws InterruptedException {
-		Common.waitUntilAppReady(Common.Webdriver);	
+		Common.waitForSpinner();
 		for(int i=0;i<=active_progs.size()-1;i++){
 			if(active_progs.get(i).getText().contains(ProgramName)){
 				active_progs.get(i).findElement(By.cssSelector("[value='Save']")).click();
@@ -103,7 +102,7 @@ public class ProgramManagamentPage {
 	}
 	
 	public void editRegistrationNumber(String ProgramName, String RegistrationNo) throws InterruptedException{
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 		for(int i=0;i<=active_progs.size()-1;i++){
 			if(active_progs.get(i).getText().contains(ProgramName)){
 				WebElement reg_no = active_progs.get(i).findElement(By.cssSelector("[id='Registration Number']"));
@@ -114,7 +113,7 @@ public class ProgramManagamentPage {
 	}
 	
 	public void selectTreatmentStatus(String ProgramName, String Outcome) throws InterruptedException {
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 		WebElement outcome = null;
 		for(int i=0;i<=active_progs.size()-1;i++){
 			if(active_progs.get(i).getText().contains(ProgramName)){
@@ -127,7 +126,7 @@ public class ProgramManagamentPage {
 	
 	public void clickTreatmentStatus(String ProgramName) throws InterruptedException {
 		Thread.sleep(2000);
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 		for(int i=0;i<=treatment_dashboard.size()-1;i++){
 			if(treatment_dashboard.get(i).getText().contains(ProgramName)){
 				treatment_dashboard.get(i).click();
@@ -137,38 +136,38 @@ public class ProgramManagamentPage {
 	
 	
 	public void enrollToProgram(String ProgramName, String Date, String RegistrationNumber, String RegistrationFacility) throws InterruptedException, IOException {
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 		expand.click();
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 		selectProgram(ProgramName);
 		enterStartDate(Date);
 		enterRegistrationNumber(RegistrationNumber);
 		enterRegistrationFacility(RegistrationFacility);
 		enroll_btn.click();
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 	}
 	
 	public void selectTreatmentDashboard(String ProgramName) throws InterruptedException, IOException {
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 		clickTreatmentStatus(ProgramName);		//app.getJsonKeyValue("patient/Programs/Program", "Name")
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 	}
 	
 	public void editProgramEnrolled(String ProgramName) throws InterruptedException, IOException {
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 		Thread.sleep(1000);
 		editProgram(ProgramName);
 		editRegistrationNumber(ProgramName,"E1111");
 		saveProgram(ProgramName);
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 	}
 	
 	public void endProgramEnrolled(String ProgramName) throws InterruptedException, IOException{
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 		editProgram(ProgramName);
 		selectTreatmentStatus(ProgramName, "Non Active");
 		saveProgram(ProgramName);
-		Common.waitUntilAppReady(Common.Webdriver);
+		Common.waitForSpinner();
 	}
 	
 	public boolean hasEnrolledProgram(String ProgramName) throws InterruptedException, IOException{

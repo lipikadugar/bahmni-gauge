@@ -1,6 +1,5 @@
-package PageObjects;
+package org.bahmni.test.page;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -10,7 +9,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import Library.Common;
+import org.bahmni.test.Common;
 
 public class ReportsPage {
 	
@@ -60,13 +59,13 @@ public class ReportsPage {
     }
     
     public void selectAndRunReport(String Report, String StartDate, String StopDate, String Format) throws InterruptedException {
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	setStartDate(StartDate);
     	setStopDate(StopDate);
     	setReportFormat(Format);
     	selectAndRun(Report);
     	
-    	Common.waitUntilAppReady(Common.Webdriver);
+    	Common.waitForSpinner();
     	Common.getCurrentTab();
     	Common.Webdriver.navigate().refresh();//Common.getEnvDetails("QA", "URL")+"/bahmnireports/report?name=Chief%20Complaint%20Report&startDate=2016-01-01&endDate=2016-04-01&responseType=text/html&paperSize=A3");
     }

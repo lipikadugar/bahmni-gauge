@@ -1,21 +1,20 @@
 package test.bahmni;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.io.IOException;
-
-import org.junit.After;
+import org.bahmni.test.BahmniTestCase;
+import org.bahmni.test.Common;
+import org.bahmni.test.page.HomePage;
+import org.bahmni.test.page.LoginPage;
+import org.bahmni.test.page.RegistrationSearch;
+import org.bahmni.test.page.Registration_Page1;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import Library.Common;
-import PageObjects.HomePage;
-import PageObjects.LoginPage;
-import PageObjects.RegistrationSearch;
-import PageObjects.Registration_Page1;
+import java.io.IOException;
+
+import static org.junit.Assert.assertNotNull;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
@@ -34,7 +33,7 @@ public class CreatePatientTest {
 		driver = Common.launchApp();
 		commonTasks =  new Common();
 		//Login to the App
-		LoginPage login_page = new LoginPage();
+		LoginPage login_page = BahmniTestCase.start();
 		HomePage homepage = new HomePage();
 		
 		login_page.login();

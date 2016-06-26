@@ -1,39 +1,43 @@
-package Library;
+package org.bahmni.test;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-import javax.json.JsonValue;
-
+import org.bahmni.test.page.HomePage;
+import org.bahmni.test.page.RegistrationSearch;
+import org.bahmni.test.page.Registration_Page1;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import PageObjects.HomePage;
-import PageObjects.RegistrationSearch;
-import PageObjects.Registration_Page1;
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+import javax.json.JsonValue;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 public class Common {
 
 	public static ChromeDriver Webdriver;
 	public static String URL;
 	public static String patientID;
-	
-	public static void waitUntilAppReady(ChromeDriver driver) throws InterruptedException {
-		Thread.sleep(1000);
-		WebDriverWait wait = new WebDriverWait(driver, 60);
-		Boolean elem_obj = wait.until(ExpectedConditions
-				.invisibilityOfElementLocated(By.cssSelector("#overlay")));
+
+	public static void waitForSpinner(){
+		try {
+			Thread.sleep(1000);
+			WebDriverWait wait = new WebDriverWait(Webdriver, 60);
+			Boolean spinner = wait.until(ExpectedConditions
+					.invisibilityOfElementLocated(By.cssSelector("#overlay")));
+
+		}
+		catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 	public static ChromeDriver launchApp() throws InterruptedException, IOException {
 		
         Webdriver = new ChromeDriver();
@@ -51,12 +55,12 @@ public class Common {
 	}
 
 	public static void navigateToDashboard() throws InterruptedException {
-		waitUntilAppReady(Webdriver);
+		waitForSpinner();
 		Webdriver.get(URL+"/bahmni/home/index.html#/dashboard");
 	}
 
 	public static void navigateToSearchPage() throws InterruptedException {
-		waitUntilAppReady(Webdriver);
+		waitForSpinner();
 		Webdriver.get(URL+"/bahmni/registration/index.html#/search");
 	}
 	
@@ -136,9 +140,9 @@ public class Common {
 		Registration_Page1 registration_page = new Registration_Page1();
 		
 		Common.navigateToSearchPage();
-		registration_search.searchPatientWithID("GAN", getJsonKeyValue("patient", "ID").substring(3,getJsonKeyValue("patient", "ID").length()));
+		registration_search.searchByIdentifier("GAN", getJsonKeyValue("patient", "ID").substring(3,getJsonKeyValue("patient", "ID").length()));
 		registration_page.startVisit();
-		waitUntilAppReady(Webdriver);
+		waitForSpinner();
 	}
 	
 	public void createPatient() throws InterruptedException, IOException{
