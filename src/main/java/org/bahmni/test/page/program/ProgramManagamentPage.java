@@ -1,8 +1,7 @@
-package org.bahmni.test.page;
+package org.bahmni.test.page.program;
 
-import java.io.IOException;
-import java.util.List;
-
+import org.bahmni.test.Common;
+import org.bahmni.test.page.BahmniPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,9 +9,10 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import org.bahmni.test.Common;
+import java.io.IOException;
+import java.util.List;
 
-public class ProgramManagamentPage {
+public class ProgramManagamentPage extends BahmniPage{
     
     @FindBy(how= How.CSS, using = "select.ng-pristine")
     public WebElement program;

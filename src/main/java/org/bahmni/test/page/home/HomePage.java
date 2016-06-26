@@ -1,11 +1,14 @@
-package org.bahmni.test.page;
+package org.bahmni.test.page.home;
 
 import org.bahmni.test.Common;
+import org.bahmni.test.page.BahmniPage;
+import org.bahmni.test.page.PageFactory;
+import org.bahmni.test.page.registration.RegistrationSearch;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class HomePage extends BahmniPage{
+public class HomePage extends BahmniPage {
 
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-registration")
     public WebElement registration;

@@ -1,11 +1,14 @@
-package org.bahmni.test.page;
+package org.bahmni.test.page.login;
 
+import org.bahmni.test.page.BahmniPage;
+import org.bahmni.test.page.PageFactory;
+import org.bahmni.test.page.home.HomePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 
-public class LoginPage {
+public class LoginPage extends BahmniPage{
 	
 	@FindBy(how= How.CSS, using = "#username")
     public WebElement txtUserName;

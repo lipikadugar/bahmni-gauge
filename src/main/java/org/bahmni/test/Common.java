@@ -1,7 +1,7 @@
 package org.bahmni.test;
 
-import org.bahmni.test.page.RegistrationFirstPage;
-import org.bahmni.test.page.RegistrationSearch;
+import org.bahmni.test.page.registration.RegistrationFirstPage;
+import org.bahmni.test.page.registration.RegistrationSearch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -47,10 +47,6 @@ public class Common {
 		Webdriver.manage().window().setSize(new Dimension(1440, 900));
 		
 		return Webdriver;
-	}
-	
-	public void setupChromeDriver() throws IOException{
-		Runtime.getRuntime().exec("..//endtb-functional-tests//ChromeSetup.sh /");
 	}
 
 	public static void navigateToDashboard() throws InterruptedException {

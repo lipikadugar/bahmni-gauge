@@ -1,7 +1,10 @@
-package org.bahmni.test.page;
+package org.bahmni.test.page.registration;
 
 import org.bahmni.test.Common;
-import org.bahmni.test.domain.Patient;
+import org.bahmni.test.page.BahmniPage;
+import org.bahmni.test.page.registration.domain.Patient;
+import org.bahmni.test.page.PageFactory;
+import org.bahmni.test.page.program.ProgramManagamentPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -10,7 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 import java.util.Random;
 
-public class RegistrationFirstPage {
+public class RegistrationFirstPage extends BahmniPage{
 	
 	@FindBy(how= How.CSS, using = "#givenName")
 	public WebElement txtPatientName;

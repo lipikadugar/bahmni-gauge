@@ -1,4 +1,4 @@
-package org.bahmni.test.page;
+package org.bahmni.test.page.clinical;
 
 import org.bahmni.test.Common;
 import org.openqa.selenium.WebElement;

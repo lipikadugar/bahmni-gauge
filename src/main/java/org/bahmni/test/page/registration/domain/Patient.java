@@ -1,4 +1,4 @@
-package org.bahmni.test.domain;
+package org.bahmni.test.page.registration.domain;
 
 import java.util.Date;
 

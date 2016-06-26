@@ -1,15 +1,14 @@
-package org.bahmni.test.page;
+package org.bahmni.test.page.clinical;
 
 
-import java.util.List;
-
+import org.bahmni.test.Common;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import org.bahmni.test.Common;
+import java.util.List;
 
 public class ObservationTemplatesPage {
 	

@@ -1,4 +1,4 @@
-package org.bahmni.test.page;
+package org.bahmni.test.page.clinical;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

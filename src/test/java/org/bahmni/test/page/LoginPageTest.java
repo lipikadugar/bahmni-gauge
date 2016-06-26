@@ -1,6 +1,7 @@
 package org.bahmni.test.page;
 
 import org.bahmni.test.BahmniTestCase;
+import org.bahmni.test.page.home.HomePage;
 import org.junit.Test;
 import org.openqa.selenium.NoSuchElementException;
 

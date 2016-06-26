@@ -1,12 +1,13 @@
-package org.bahmni.test.page;
+package org.bahmni.test.page.registration;
 
+import org.bahmni.test.page.BahmniPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class RegistrationSearch {
+public class RegistrationSearch extends BahmniPage{
 
 	@FindBy(how= How.CSS, using = ".fa-home")
     public WebElement iconHome;
@@ -45,7 +46,7 @@ public class RegistrationSearch {
     
     public RegistrationFirstPage clickCreateNew() {
     	iconCreateNew.click();
-	    return PageFactory.getRegistrationFirstPage();
+	    return org.bahmni.test.page.PageFactory.getRegistrationFirstPage();
     }
 
     private void enterName(String name) {
@@ -58,7 +59,7 @@ public class RegistrationSearch {
 	    txtRegistration.sendKeys(id);
 	    btnIdentifierSearch.click();
 
-	    return PageFactory.getRegistrationFirstPage();
+	    return org.bahmni.test.page.PageFactory.getRegistrationFirstPage();
     }
 
 	private void selectPrefix(String prefix) {

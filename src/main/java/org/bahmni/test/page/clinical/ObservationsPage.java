@@ -1,13 +1,12 @@
-package org.bahmni.test.page;
+package org.bahmni.test.page.clinical;
 
-import java.io.IOException;
-
+import org.bahmni.test.Common;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import org.bahmni.test.Common;
+import java.io.IOException;
 
 public class ObservationsPage {
 	
