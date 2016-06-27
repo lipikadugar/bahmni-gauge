@@ -1,4 +1,4 @@
-Thin light weight Automation Test Framework using [PageFactory](https://github.com/SeleniumHQ/selenium/wiki/PageFactory) in java.
+Bahmni FAT - Functional Automation Testing - Thin light weight Automation Test Framework using [PageFactory](https://github.com/SeleniumHQ/selenium/wiki/PageFactory) in java.
  
 Overview:
  1. Page Object Pattern for app pages
