@@ -2,6 +2,7 @@ package org.bahmni.test.page.program;
 
 import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
+import org.bahmni.test.page.PageFactory;
 import org.bahmni.test.page.program.domain.Program;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -38,6 +39,9 @@ public class ProgramManagamentPage extends BahmniPage{
     @FindBy(how= How.CSS, using = "#dashboard-link")
     public List<WebElement> treatment_dashboard;
 
+	@FindBy(how=How.CSS, using=".active-program-container")
+	public WebElement activeProgramContainer;
+
     public ProgramManagamentPage(){
     }
 
@@ -60,7 +64,7 @@ public class ProgramManagamentPage extends BahmniPage{
 		doModifyEnrollmentDetails(programToModify,treatment);
 		programToModify.findElement(By.cssSelector("[value='Save']")).click();
 
-		return this;
+		return PageFactory.getProgramManagementPage();
 	}
 
 	protected void doModifyEnrollmentDetails(WebElement programToModify, Program treatment) {
@@ -100,14 +104,18 @@ public class ProgramManagamentPage extends BahmniPage{
 //		Common.waitForSpinner();
 //	}
 	
-	public boolean hasEnrolledProgram(String ProgramName) throws InterruptedException, IOException{
-		if(Common.Webdriver.findElement(By.cssSelector(".active-program-container")).getText()
-				.toString().contains(ProgramName))
+	public boolean isPatientEnrolledToProgram(Program treatment) {
+		WebElement programName = activeProgramContainer.findElement(By.cssSelector(".programName"));
+		return isProgramAvailable(treatment, programName);
+	}
+
+	protected boolean isProgramAvailable(Program treatment, WebElement programName) {
+		if(programName!=null && programName.getText().contains(treatment.getName()))
 			return true;
 		else
 			return false;
 	}
-	
+
 	public boolean hasAttribute(String Attribute) throws InterruptedException, IOException{
 		if(Common.Webdriver.findElement(By.cssSelector(".active-program-container")).getText()
 				.toString().contains(Attribute))
