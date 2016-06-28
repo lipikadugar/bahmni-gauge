@@ -2,11 +2,11 @@ package org.bahmni.test.page.program;
 
 import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
+import org.bahmni.test.page.program.domain.Program;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
@@ -18,22 +18,16 @@ public class ProgramManagamentPage extends BahmniPage{
     public WebElement program;
     
     @FindBy(how= How.CSS, using = ".fa-plus-square")
-    public WebElement expand;
+    public WebElement btnPlus;
     
     @FindBy(how= How.CSS, using = "input.ng-valid-max")
     public WebElement start_date;
-    
-    @FindBy(how= How.CSS, using = "[id='Registration Number']")
-    public WebElement registration_number;
-    
-    @FindBy(how= How.CSS, using = "[id='Registration Facility']")
-    public WebElement registration_facility;
-    
-    @FindBy(how= How.CSS, using = ".fr")
-    public WebElement enroll_btn;
+
+    @FindBy(how= How.XPATH, using = "//input[@value='Enroll' and @type='submit']")
+    public WebElement btnEnroll;
     
     @FindBy(how= How.CSS, using = ".active-program-tiles")
-    public List<WebElement> active_progs;
+    public List<WebElement> allActivePrograms;
     
     @FindBy(how= How.CSS, using = ".inactive-program-tiles")
     public List<WebElement> inactive_progs;
@@ -43,132 +37,68 @@ public class ProgramManagamentPage extends BahmniPage{
     
     @FindBy(how= How.CSS, using = "#dashboard-link")
     public List<WebElement> treatment_dashboard;
-    
-    Common app = new Common();
-    
+
     public ProgramManagamentPage(){
-    	PageFactory.initElements(Common.Webdriver, this);
     }
-    
-    /*public void expandProgramEnrollment() throws InterruptedException {
-    	Common.waitForSpinner();
-    	expand.click();
-	}*/
-    
-    public void selectProgram(String prog) throws InterruptedException {
-    	Common.waitForSpinner();
-    	Select program_name = new Select(program);
-    	program_name.selectByVisibleText(prog);
+
+	public ProgramManagamentPage enrollPatientToProgram(Program treatment){
+		doActions(treatment);
+		btnEnroll.click();
+		return this;
 	}
-	
-	public void enterStartDate(String Date) throws InterruptedException {
-		Common.waitForSpinner();
-		Thread.sleep(1000);
-		start_date.sendKeys(Date);
+
+	protected void doActions(Program treatment) {
+		btnPlus.click();
+		new Select(program).selectByVisibleText(treatment.getName());
+		start_date.sendKeys(treatment.getDateOfRegistration());
 	}
-	
-	public void enterRegistrationNumber(String Facility) throws InterruptedException {
-		Common.waitForSpinner();
-		registration_number.sendKeys(Facility);
+
+	public ProgramManagamentPage modifyProgramEnrollment(Program treatment){
+
+		WebElement programToModify = findProgram(treatment);
+		programToModify.findElement(By.cssSelector("[value='Edit']")).click();
+		doModifyEnrollmentDetails(programToModify,treatment);
+		programToModify.findElement(By.cssSelector("[value='Save']")).click();
+
+		return this;
 	}
-	
-	public void enterRegistrationFacility(String FacilityName) throws InterruptedException {
-		Common.waitForSpinner();
-    	Select facility_name = new Select(registration_facility);
-    	facility_name.selectByVisibleText(FacilityName);
+
+	protected void doModifyEnrollmentDetails(WebElement programToModify, Program treatment) {
+
+		if(treatment.getTreatmentStatus()!=null){
+			WebElement outcome = programToModify.findElement(By.cssSelector("[ng-model='patientProgram.outcomeData']"));
+			new Select(outcome).selectByVisibleText(treatment.getTreatmentStatus());
+		}
+
+		//TODO: Write modification for DateOfRegistration
 	}
-	
-	public void clickEnroll() throws InterruptedException {
-		Common.waitForSpinner();
-		enroll_btn.click();
-	}
-	
-	public void editProgram(String ProgramName) throws InterruptedException {
-		Common.waitForSpinner();
-		for(int i=0;i<=active_progs.size()-1;i++){
-			if(active_progs.get(i).getText().contains(ProgramName)){
-				active_progs.get(i).findElement(By.cssSelector("[value='Edit']")).click();
+
+	private WebElement findProgram(Program treatment){
+		for(int i = 0; i< allActivePrograms.size(); i++){
+			if(allActivePrograms.get(i).getText().contains(treatment.getName())){
+				return allActivePrograms.get(i);
 			}
 		}
+		throw new RuntimeException("The program with name ["+treatment.getName()+"] doesn't exist");
 	}
-	
-	public void saveProgram(String ProgramName) throws InterruptedException {
-		Common.waitForSpinner();
-		for(int i=0;i<=active_progs.size()-1;i++){
-			if(active_progs.get(i).getText().contains(ProgramName)){
-				active_progs.get(i).findElement(By.cssSelector("[value='Save']")).click();
-			}
-		}
+
+	public void clickTreatmentDashboard(Program treatment){
+		WebElement programWidget = findProgram(treatment);
+		programWidget.findElement(By.id("dashboard-link")).click();
+
 	}
-	
-	public void editRegistrationNumber(String ProgramName, String RegistrationNo) throws InterruptedException{
-		Common.waitForSpinner();
-		for(int i=0;i<=active_progs.size()-1;i++){
-			if(active_progs.get(i).getText().contains(ProgramName)){
-				WebElement reg_no = active_progs.get(i).findElement(By.cssSelector("[id='Registration Number']"));
-				reg_no.clear();
-				reg_no.sendKeys(RegistrationNo);
-			}
-		}
+
+	public void endProgram(Program treatment){
+		//TODO: write logic for endingPrograms
 	}
-	
-	public void selectTreatmentStatus(String ProgramName, String Outcome) throws InterruptedException {
-		Common.waitForSpinner();
-		WebElement outcome = null;
-		for(int i=0;i<=active_progs.size()-1;i++){
-			if(active_progs.get(i).getText().contains(ProgramName)){
-				outcome = active_progs.get(i).findElement(By.cssSelector("[ng-model='patientProgram.outcomeData']"));
-			}
-		}
-		Select out_come = new Select(outcome);
-		out_come.selectByVisibleText(Outcome);
-	}
-	
-	public void clickTreatmentStatus(String ProgramName) throws InterruptedException {
-		Thread.sleep(2000);
-		Common.waitForSpinner();
-		for(int i=0;i<=treatment_dashboard.size()-1;i++){
-			if(treatment_dashboard.get(i).getText().contains(ProgramName)){
-				treatment_dashboard.get(i).click();
-			}
-		}
-	}
-	
-	
-	public void enrollToProgram(String ProgramName, String Date, String RegistrationNumber, String RegistrationFacility) throws InterruptedException, IOException {
-		Common.waitForSpinner();
-		expand.click();
-		Common.waitForSpinner();
-		selectProgram(ProgramName);
-		enterStartDate(Date);
-		enterRegistrationNumber(RegistrationNumber);
-		enterRegistrationFacility(RegistrationFacility);
-		enroll_btn.click();
-		Common.waitForSpinner();
-	}
-	
-	public void selectTreatmentDashboard(String ProgramName) throws InterruptedException, IOException {
-		Common.waitForSpinner();
-		clickTreatmentStatus(ProgramName);		//app.getJsonKeyValue("patient/Programs/Program", "Name")
-		Common.waitForSpinner();
-	}
-	
-	public void editProgramEnrolled(String ProgramName) throws InterruptedException, IOException {
-		Common.waitForSpinner();
-		Thread.sleep(1000);
-		editProgram(ProgramName);
-		editRegistrationNumber(ProgramName,"E1111");
-		saveProgram(ProgramName);
-		Common.waitForSpinner();
-	}
-	
-	public void endProgramEnrolled(String ProgramName) throws InterruptedException, IOException{
-		Common.waitForSpinner();
-		editProgram(ProgramName);
-		selectTreatmentStatus(ProgramName, "Non Active");
-		saveProgram(ProgramName);
-		Common.waitForSpinner();
-	}
+
+//	public void endProgramEnrolled(String ProgramName) throws InterruptedException, IOException{
+//		Common.waitForSpinner();
+//		editProgram(ProgramName);
+//		selectTreatmentStatus(ProgramName, "Non Active");
+//		saveProgram(ProgramName);
+//		Common.waitForSpinner();
+//	}
 	
 	public boolean hasEnrolledProgram(String ProgramName) throws InterruptedException, IOException{
 		if(Common.Webdriver.findElement(By.cssSelector(".active-program-container")).getText()

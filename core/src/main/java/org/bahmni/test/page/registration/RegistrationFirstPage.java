@@ -3,7 +3,6 @@ package org.bahmni.test.page.registration;
 import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
 import org.bahmni.test.page.PageFactory;
-import org.bahmni.test.page.program.ProgramManagamentPage;
 import org.bahmni.test.page.registration.domain.Patient;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -43,10 +42,7 @@ public class RegistrationFirstPage extends BahmniPage{
 	
 	@FindBy(how= How.CSS, using = "strong > span")
 	public WebElement new_patient;
-	
-	@FindBy(how= How.CSS, using = ".confirm")
-	public WebElement programEnrollment;
-	
+
 	@FindBy(how= How.CSS, using = ".buttonClass")
 	public List<WebElement> btnVisit;
 	
@@ -60,11 +56,6 @@ public class RegistrationFirstPage extends BahmniPage{
 	public RegistrationFirstPage clickSave() {
 		save.click();
 		return PageFactory.getRegistrationFirstPage();
-	}
-	
-	public ProgramManagamentPage clickTreatmentRegistration(){
-		programEnrollment.click();
-		return PageFactory.getProgramManagementPage();
 	}
 	
 	public void startVisit() throws InterruptedException {
