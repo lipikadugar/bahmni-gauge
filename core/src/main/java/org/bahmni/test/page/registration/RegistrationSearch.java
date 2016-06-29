@@ -1,6 +1,7 @@
 package org.bahmni.test.page.registration;
 
 import org.bahmni.test.page.BahmniPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.ui.Select;
@@ -68,10 +69,18 @@ public class RegistrationSearch extends BahmniPage{
 		}
 	}
 
-	public void searchByIdentifier(String prefix, String id){
+	public RegistrationSearch searchByIdentifier(String prefix, String id){
 		selectPrefix(prefix);
 
 		txtRegistration.sendKeys(id);
 		btnIdentifierSearch.click();
+	    return org.bahmni.test.page.PageFactory.getRegistrationSearchPage();
+    }
+
+	public RegistrationFirstPage getFirstResult() {
+		gridSearchResults.findElements(By.tagName("a")).get(0).click();
+		
+		return org.bahmni.test.page.PageFactory.getRegistrationFirstPage();
 	}
+	
 }

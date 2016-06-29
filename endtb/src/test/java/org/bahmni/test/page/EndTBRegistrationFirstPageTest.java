@@ -30,7 +30,7 @@ public class EndTBRegistrationFirstPageTest extends BahmniPageTest {
 		EndTBRegistrationFirstPage registrationFirstPage = (EndTBRegistrationFirstPage) BahmniTestCase.start()
 				.login()
 				.clickRegistrationApp()
-				.searchByExactIdentifier("","1234-1983991473");
+				.searchByIdentifier("IND","2001").getFirstResult();
 
 
 		ProgramManagamentPage programManagamentPage = registrationFirstPage
