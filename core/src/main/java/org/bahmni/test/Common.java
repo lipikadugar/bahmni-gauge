@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class Common {
 
 	public static ChromeDriver Webdriver;
-	public static String URL = "https://mybahmni.org";
+	public static String URL = "https://172.18.2.35";
 	public static String patientID;
 
 	public static void waitForSpinner(){

@@ -2,6 +2,7 @@ package org.bahmni.test.page.registration.domain;
 
 import java.util.Date;
 
+
 public class EndTBPatient extends Patient{
 
 	private String nationalIdentificationNumber;

@@ -1,6 +1,8 @@
 package org.bahmni.test;
 
+import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -10,13 +12,13 @@ public class BahmniPageTest {
 
 	static ChromeDriver driver = null;
 
-	@BeforeClass
-	public static void setup() throws IOException, InterruptedException {
+	@Before
+	public void setup() throws IOException, InterruptedException {
 		driver = Common.launchApp();
 	}
-
-	@AfterClass
-	public static void cleanUp() {
+	
+	@After
+	public void cleanUp() {
 		driver.close();
 	}
 
