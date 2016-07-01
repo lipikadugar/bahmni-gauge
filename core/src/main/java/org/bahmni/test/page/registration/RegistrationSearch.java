@@ -1,12 +1,16 @@
 package org.bahmni.test.page.registration;
 
+import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+
+import junit.framework.Assert;
 
 public class RegistrationSearch extends BahmniPage{
 
@@ -50,8 +54,8 @@ public class RegistrationSearch extends BahmniPage{
 	    return org.bahmni.test.page.PageFactory.getRegistrationFirstPage();
     }
 
-    private void enterName(String name) {
-    	txtName.sendKeys(name);
+    public void enterName(String name) {
+    	txtName.sendKeys(name,Keys.ENTER);
     }
     
     public RegistrationFirstPage searchByExactIdentifier(String prefix, String id){
@@ -81,6 +85,21 @@ public class RegistrationSearch extends BahmniPage{
 		gridSearchResults.findElements(By.tagName("a")).get(0).click();
 		
 		return org.bahmni.test.page.PageFactory.getRegistrationFirstPage();
+	}
+
+	public void verifySearchResultForPatient(String patientFirstName) {
+		enterName(patientFirstName);
+		Common.waitForSpinner();
+		Assert.assertTrue(isPatientInResult(patientFirstName));
+	}
+
+	private Boolean isPatientInResult(String patientFirstName) {
+		List<WebElement> patientListRows = gridSearchResults.findElements(By.xpath(".//tr"));
+		for (WebElement element : patientListRows){
+			String name = element.getText();
+			if (name.contains(patientFirstName)) {return true;}
+		}
+		return false;
 	}
 	
 }

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class Common {
 
 	public static ChromeDriver Webdriver;
-	public static String URL = "https://172.18.2.35";
+	public static String URL = "https://172.18.2.27";
 	public static String patientID;
 
 	public static void waitForSpinner(){
@@ -134,7 +134,7 @@ public class Common {
 		
 		Common.navigateToSearchPage();
 		registration_search.searchByIdentifier("GAN", getJsonKeyValue("patient", "ID").substring(3,getJsonKeyValue("patient", "ID").length()));
-		registration_page.startVisit();
+		//registration_page.startVisit();
 		waitForSpinner();
 	}
 

@@ -1,5 +1,6 @@
 package org.bahmni.test.page.login;
 
+import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
 import org.bahmni.test.page.PageFactory;
 import org.bahmni.test.page.home.HomePage;
@@ -42,7 +43,7 @@ public class LoginPage extends BahmniPage{
 	    new Select(cmbLocation).selectByVisibleText(location);
 	    new Select(cmbLocale).selectByVisibleText(locale);
     	btnLogin.click();
-
+    	Common.waitForSpinner();
 	    return PageFactory.getHomePage();
     }
 }
