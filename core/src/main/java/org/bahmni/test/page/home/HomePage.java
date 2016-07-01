@@ -3,6 +3,7 @@ package org.bahmni.test.page.home;
 import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
 import org.bahmni.test.page.PageFactory;
+import org.bahmni.test.page.program.ProgramManagementPage;
 import org.bahmni.test.page.registration.RegistrationSearch;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,9 +13,9 @@ public class HomePage extends BahmniPage {
 
 	@FindBy(how= How.CSS, using = "i.fa-user")
     public WebElement registration;
-	
-	@FindBy(how= How.CSS, using = "i.icon-bahmni-documents")
-    public WebElement patientDocuments;
+
+	@FindBy(how= How.CSS, using = "i.icon-bahmni-program")
+	public WebElement programs;
 	
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-admin")
     public WebElement admin;
@@ -34,10 +35,12 @@ public class HomePage extends BahmniPage {
 	    return PageFactory.getRegistrationSearchPage();
     }
     
-    public void clickPatientRecords() throws InterruptedException {
+    public ProgramManagementPage clickProgramsApp() {
     	Common.waitForSpinner();
-    	patientDocuments.click();
-    }
+		programs.click();
+		return PageFactory.getProgramManagementPage();
+
+	}
     
     public void clickAdminApp() throws InterruptedException {
     	Common.waitForSpinner();

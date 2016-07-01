@@ -1,7 +1,7 @@
 package org.bahmni.test.page.registration;
 
 import org.bahmni.test.page.PageFactory;
-import org.bahmni.test.page.program.ProgramManagamentPage;
+import org.bahmni.test.page.program.ProgramManagementPage;
 import org.bahmni.test.page.registration.domain.EndTBPatient;
 import org.bahmni.test.page.registration.domain.Patient;
 import org.openqa.selenium.WebElement;
@@ -23,7 +23,7 @@ public class EndTBRegistrationFirstPage extends RegistrationFirstPage{
 		txtNationalIdentificationNumber.sendKeys(endTBPatient.getNationalIdentificationNumber());
 	}
 
-	public ProgramManagamentPage clickTreatmentRegistration(){
+	public ProgramManagementPage clickTreatmentRegistration(){
 		programEnrollment.click();
 		return PageFactory.getProgramManagementPage();
 	}

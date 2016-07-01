@@ -2,7 +2,7 @@ package org.bahmni.test.page;
 
 import org.bahmni.test.BahmniPageTest;
 import org.bahmni.test.BahmniTestCase;
-import org.bahmni.test.page.program.ProgramManagamentPage;
+import org.bahmni.test.page.program.ProgramManagementPage;
 import org.bahmni.test.page.registration.EndTBRegistrationFirstPage;
 import org.bahmni.test.page.registration.domain.EndTBPatient;
 import org.bahmni.test.page.registration.domain.EndTBProgram;
@@ -33,7 +33,7 @@ public class EndTBRegistrationFirstPageTest extends BahmniPageTest {
 				.searchByIdentifier("IND","2001").getFirstResult();
 
 
-		ProgramManagamentPage programManagamentPage = registrationFirstPage
+		ProgramManagementPage programManagementPage = registrationFirstPage
 				.clickTreatmentRegistration()
 				.enrollPatientToProgram(new EndTBProgram("Second-line TB treatment register","01/01/2015","123","Facility1, City1, Country1"))
 				;

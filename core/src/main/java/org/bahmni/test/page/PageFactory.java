@@ -3,7 +3,7 @@ package org.bahmni.test.page;
 import org.bahmni.test.Common;
 import org.bahmni.test.page.home.HomePage;
 import org.bahmni.test.page.login.LoginPage;
-import org.bahmni.test.page.program.ProgramManagamentPage;
+import org.bahmni.test.page.program.ProgramManagementPage;
 import org.bahmni.test.page.registration.RegistrationFirstPage;
 import org.bahmni.test.page.registration.RegistrationSearch;
 import org.bahmni.test.page.registration.RegistrationVisitDetailsPage;
@@ -66,8 +66,8 @@ public class PageFactory {
 		return (RegistrationFirstPage) getPage(REGISTRATION_FIRST_PAGE);
 	}
 
-	public static ProgramManagamentPage getProgramManagementPage() {
-		return (ProgramManagamentPage) getPage(PROGRAMS_PAGE);
+	public static ProgramManagementPage getProgramManagementPage() {
+		return (ProgramManagementPage) getPage(PROGRAMS_PAGE);
 	}
 	
 	public static RegistrationVisitDetailsPage getRegistrationVisitDetailsPage() {

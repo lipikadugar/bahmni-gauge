@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.io.IOException;
 import java.util.List;
 
-public class ProgramManagamentPage extends BahmniPage{
+public class ProgramManagementPage extends BahmniPage{
     
     @FindBy(how= How.CSS, using = "select.ng-pristine")
     public WebElement program;
@@ -42,10 +42,10 @@ public class ProgramManagamentPage extends BahmniPage{
 	@FindBy(how=How.CSS, using=".active-program-container")
 	public WebElement activeProgramContainer;
 
-    public ProgramManagamentPage(){
+    public ProgramManagementPage(){
     }
 
-	public ProgramManagamentPage enrollPatientToProgram(Program treatment){
+	public ProgramManagementPage enrollPatientToProgram(Program treatment){
 		doActions(treatment);
 		btnEnroll.click();
 		return this;
@@ -57,7 +57,7 @@ public class ProgramManagamentPage extends BahmniPage{
 		start_date.sendKeys(treatment.getDateOfRegistration());
 	}
 
-	public ProgramManagamentPage modifyProgramEnrollment(Program treatment){
+	public ProgramManagementPage modifyProgramEnrollment(Program treatment){
 
 		WebElement programToModify = findProgram(treatment);
 		programToModify.findElement(By.cssSelector("[value='Edit']")).click();
@@ -106,11 +106,13 @@ public class ProgramManagamentPage extends BahmniPage{
 	
 	public boolean isPatientEnrolledToProgram(Program treatment) {
 		WebElement programName = activeProgramContainer.findElement(By.cssSelector(".programName"));
-		return isProgramAvailable(treatment, programName);
+		return isProgramAvailable(treatment);
 	}
 
-	protected boolean isProgramAvailable(Program treatment, WebElement programName) {
-		if(programName!=null && programName.getText().contains(treatment.getName()))
+	protected boolean isProgramAvailable(Program treatment) {
+		if(Common.Webdriver.findElement(By.cssSelector(".active-program-container")).getText()
+				.toString()
+				.contains(treatment.getName()))
 			return true;
 		else
 			return false;

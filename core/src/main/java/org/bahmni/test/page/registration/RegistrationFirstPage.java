@@ -1,5 +1,6 @@
 package org.bahmni.test.page.registration;
 
+import org.apache.http.util.Asserts;
 import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
 import org.bahmni.test.page.PageFactory;
@@ -96,6 +97,11 @@ public class RegistrationFirstPage extends BahmniPage{
 		Common.waitForSpinner();
 		return PageFactory.getRegistrationSearchPage();
 		
+	}
+
+	public RegistrationFirstPage isPatientCreated(){
+		//assertTrue(new_patient);
+		return org.bahmni.test.page.PageFactory.getRegistrationFirstPage();
 	}
 
 }

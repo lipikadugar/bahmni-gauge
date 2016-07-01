@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 
-public class EndTBProgramManagementPage extends ProgramManagamentPage{
+public class EndTBProgramManagementPage extends ProgramManagementPage {
 
 	@FindBy(how= How.ID, using = "Registration Number")
 	public WebElement txtRegistrationNumber;
