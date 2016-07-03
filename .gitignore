@@ -3,6 +3,14 @@
 .settings
 target
 .idea/
+*.iml
+reports/
+out/
+logs/
+gauge_bin/
+libs/
 .gradle/
 *.iml
-*/build/
+build/
+*.log
+.gauge
