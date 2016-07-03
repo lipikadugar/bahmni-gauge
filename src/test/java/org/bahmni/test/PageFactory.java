@@ -28,7 +28,9 @@ public class PageFactory {
 	private static Properties props = new Properties();
 
 	static{
-		InputStream is = ClassLoader.getSystemResourceAsStream("page.properties");
+		String implementationName = System.getenv("implementation_name");
+		String fileName = implementationName == null ? "page.properties": implementationName + "-page.properties";
+		InputStream is = ClassLoader.getSystemResourceAsStream(fileName);
 		try {
 			props.load(is);
 		}

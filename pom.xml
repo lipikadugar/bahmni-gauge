@@ -61,7 +61,7 @@
                     <execution>
                         <phase>test</phase>
                         <configuration>
-                            <specsDir>specs</specsDir>
+                            <specsDir>specs/endtb</specsDir>
                         </configuration>
                         <goals>
                             <goal>execute</goal>

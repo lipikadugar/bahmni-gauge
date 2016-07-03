@@ -1,5 +1,6 @@
 package org.bahmni.test.page.registration;
 
+import com.thoughtworks.gauge.TableRow;
 import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
 import org.bahmni.test.page.PageFactory;
@@ -10,7 +11,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class RegistrationFirstPage extends BahmniPage{
 
@@ -51,9 +54,6 @@ public class RegistrationFirstPage extends BahmniPage{
 	
 	@FindBy(how= How.CSS, using = ".fa-search")
 	public WebElement searchLink;
-	
-	public RegistrationFirstPage(){
-	}
 
 	public void clickSave() {
 		save.click();
@@ -96,5 +96,13 @@ public class RegistrationFirstPage extends BahmniPage{
 		//TODO: Find a way to identify the identifier in edit mode with correct selector
 		//TODO: write a correct assertion
 //		Assert.assertTrue(familyName.getText().equals(lastName) && txtPatientName.getText().equals(firstName));
+	}
+
+	public Patient transformTableRowToPatient(TableRow row,List<String> columnNames){
+		String randomPatientId = "EMR"+new Random().nextInt();
+		Patient patient = new Patient(randomPatientId, row.getCell(columnNames.get(1)),
+				row.getCell(columnNames.get(2)), row.getCell(columnNames.get(3)), new Date(), 50);
+
+		return patient;
 	}
 }

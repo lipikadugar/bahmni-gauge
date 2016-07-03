@@ -9,9 +9,7 @@ import org.bahmni.test.page.registration.RegistrationFirstPage;
 import org.bahmni.test.page.registration.domain.Patient;
 import org.openqa.selenium.WebDriver;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 public class RegistrationFirstPageSpec {
 
@@ -37,9 +35,8 @@ public class RegistrationFirstPageSpec {
 			throw new TestSpecException("Only one patient should be provided in the table");
 		}
 
-		Patient patient = transformTableRowToPatient(columnNames, rows.get(0));
-
 		RegistrationFirstPage registrationFirstPage = org.bahmni.test.PageFactory.getRegistrationFirstPage();
+		Patient patient = registrationFirstPage.transformTableRowToPatient(rows.get(0),columnNames);
 		registrationFirstPage.storePatientInSpecStore(patient);
 		registrationFirstPage.registerPatient(patient);
 	}
@@ -56,11 +53,4 @@ public class RegistrationFirstPageSpec {
 		registrationFirstPage.verifyPatientWithIdentifierAndName();
 	}
 
-	private Patient transformTableRowToPatient(List<String> columnNames, TableRow row) {
-		String randomPatientId = "EMR"+new Random().nextInt();
-		Patient patient = new Patient(randomPatientId, row.getCell(columnNames.get(1)),
-				row.getCell(columnNames.get(2)), row.getCell(columnNames.get(3)), new Date(), 50);
-
-		return patient;
-	}
 }
