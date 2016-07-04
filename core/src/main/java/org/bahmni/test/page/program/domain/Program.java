@@ -8,9 +8,23 @@ public class Program {
 
 	private String treatmentStatus;
 
-	public Program(String name, String dateOfRegistration) {
+	private String doctor;
+
+	private String facilityName;
+
+	private String facilityID;
+
+	private String enrollmentID;
+
+	public Program(String name, String dateOfRegistration, String doctor, String facilityName,
+				   String facilityID, String enrollmentID) {
 		this.name = name;
 		this.dateOfRegistration = dateOfRegistration;
+		this.doctor = doctor;
+		this.facilityName = facilityName;
+		this.facilityID = facilityID;
+		this.enrollmentID = enrollmentID;
+
 	}
 
 	public String getName() {
@@ -25,7 +39,14 @@ public class Program {
 		this.treatmentStatus = treatmentStatus;
 	}
 
-	public String getTreatmentStatus() {
-		return treatmentStatus;
-	}
+	public String getTreatmentStatus() { return treatmentStatus; }
+
+	public String getDoctor() { return this.doctor; }
+
+	public String getFacilityName() { return this.facilityName; }
+
+	public String getFacilityID() { return this.facilityID; }
+
+	public String getEnrollmentID() { return this.enrollmentID; }
+
 }

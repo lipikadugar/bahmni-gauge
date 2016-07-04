@@ -26,7 +26,22 @@ public class ProgramManagementPage extends BahmniPage{
 
     @FindBy(how= How.XPATH, using = "//input[@value='Enroll' and @type='submit']")
     public WebElement btnEnroll;
-    
+
+	@FindBy(how= How.CSS, using = "[id='Facility Name']")
+	public WebElement facility_name;
+
+	@FindBy(how= How.CSS, using = "[id='Sample attribute3']")
+	public WebElement facility_id;
+
+	@FindBy(how= How.CSS, using = "#Doctor")
+	public WebElement doctor;
+
+	@FindBy(how= How.CSS, using = "#Enrollment")
+	public WebElement enrollment_id;
+
+	@FindBy(how= How.CSS, using = ".active-program-tiles #Enrollment")
+	public WebElement activ_enrollmentID;
+
     @FindBy(how= How.CSS, using = ".active-program-tiles")
     public List<WebElement> allActivePrograms;
     
@@ -55,9 +70,13 @@ public class ProgramManagementPage extends BahmniPage{
 		btnPlus.click();
 		new Select(program).selectByVisibleText(treatment.getName());
 		start_date.sendKeys(treatment.getDateOfRegistration());
+		facility_id.sendKeys(treatment.getFacilityID());
+		facility_name.sendKeys(treatment.getFacilityName());
+		doctor.sendKeys(treatment.getDoctor());
+		enrollment_id.sendKeys(treatment.getEnrollmentID());
 	}
 
-	public ProgramManagementPage modifyProgramEnrollment(Program treatment){
+	public ProgramManagementPage editProgramEnrollment(Program treatment){
 
 		WebElement programToModify = findProgram(treatment);
 		programToModify.findElement(By.cssSelector("[value='Edit']")).click();
@@ -67,14 +86,26 @@ public class ProgramManagementPage extends BahmniPage{
 		return PageFactory.getProgramManagementPage();
 	}
 
-	protected void doModifyEnrollmentDetails(WebElement programToModify, Program treatment) {
+	public ProgramManagementPage endProgramEnrollment(Program treatment){
 
+		WebElement programToModify = findProgram(treatment);
+		programToModify.findElement(By.cssSelector("[value='Edit']")).click();
+		selectOutome(programToModify,treatment);
+		programToModify.findElement(By.cssSelector("[value='Save']")).click();
+
+		return PageFactory.getProgramManagementPage();
+	}
+
+	protected void doModifyEnrollmentDetails(WebElement programToModify, Program treatment) {
+		activ_enrollmentID.clear();
+		activ_enrollmentID.sendKeys(treatment.getEnrollmentID()+"123");
+	}
+
+	protected void selectOutome(WebElement programToModify, Program treatment) {
 		if(treatment.getTreatmentStatus()!=null){
 			WebElement outcome = programToModify.findElement(By.cssSelector("[ng-model='patientProgram.outcomeData']"));
 			new Select(outcome).selectByVisibleText(treatment.getTreatmentStatus());
 		}
-
-		//TODO: Write modification for DateOfRegistration
 	}
 
 	private WebElement findProgram(Program treatment){
@@ -86,14 +117,11 @@ public class ProgramManagementPage extends BahmniPage{
 		throw new RuntimeException("The program with name ["+treatment.getName()+"] doesn't exist");
 	}
 
-	public void clickTreatmentDashboard(Program treatment){
+	public ProgramManagementPage clickTreatmentDashboard(Program treatment){
 		WebElement programWidget = findProgram(treatment);
 		programWidget.findElement(By.id("dashboard-link")).click();
+		return PageFactory.getProgramManagementPage();
 
-	}
-
-	public void endProgram(Program treatment){
-		//TODO: write logic for endingPrograms
 	}
 
 //	public void endProgramEnrolled(String ProgramName) throws InterruptedException, IOException{
@@ -104,9 +132,9 @@ public class ProgramManagementPage extends BahmniPage{
 //		Common.waitForSpinner();
 //	}
 	
-	public boolean isPatientEnrolledToProgram(Program treatment) {
-		WebElement programName = activeProgramContainer.findElement(By.cssSelector(".programName"));
-		return isProgramAvailable(treatment);
+	public Boolean isPatientEnrolledToProgram(Program treatment) {
+		return (activeProgramContainer.findElement(By.cssSelector(".programName")).getText()
+				.toString().contains(treatment.getName()));
 	}
 
 	protected boolean isProgramAvailable(Program treatment) {
@@ -126,7 +154,7 @@ public class ProgramManagementPage extends BahmniPage{
 			return false;
 	}
 	
-	public boolean hasEndedProgram(String ProgramName) throws InterruptedException, IOException{
+	public boolean isProgramEnded(String ProgramName) throws InterruptedException, IOException{
 		if(Common.Webdriver.findElement(By.cssSelector(".inactive-program-container")).getText()
 				.toString().contains(ProgramName))
 			return true;

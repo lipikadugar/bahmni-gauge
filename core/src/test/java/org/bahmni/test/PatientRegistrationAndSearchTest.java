@@ -12,11 +12,11 @@ import java.util.Random;
  * Created by dharmens on 6/30/16.
  */
 
-public class PatientRegistrationAndSearchTest extends Startup {
+public class PatientRegistrationAndSearchTest {
 
 	@Ignore
 	@Test
-	public void registerNewPatient(){
+	public void shoudldBeAbleToRegisterNewPatient(){
 		RegistrationFirstPage registrationFirstPage = BahmniTestCase.start()
 				.login()
 				.clickRegistrationApp()
@@ -26,7 +26,7 @@ public class PatientRegistrationAndSearchTest extends Startup {
 	}
 
 	@Test
-	public void searchPatient(){
+	public void shoudldBeAbleToSearchPatient(){
 		RegistrationFirstPage registrationFirstPage = BahmniTestCase.start()
 				.login()
 				.clickRegistrationApp()

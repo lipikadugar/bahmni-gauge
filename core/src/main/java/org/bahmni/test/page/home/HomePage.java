@@ -3,6 +3,7 @@ package org.bahmni.test.page.home;
 import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
 import org.bahmni.test.page.PageFactory;
+import org.bahmni.test.page.clinical.PatientListingPage;
 import org.bahmni.test.page.program.ProgramManagementPage;
 import org.bahmni.test.page.registration.RegistrationSearch;
 import org.openqa.selenium.WebElement;
@@ -13,12 +14,12 @@ public class HomePage extends BahmniPage {
 
 	@FindBy(how= How.CSS, using = "i.fa-user")
     public WebElement registration;
-
-	@FindBy(how= How.CSS, using = "i.icon-bahmni-program")
-	public WebElement programs;
 	
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-admin")
     public WebElement admin;
+
+	@FindBy(how= How.CSS, using = "i.icon-bahmni-clinical")
+	public WebElement clinical;
 	
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-reports")
     public WebElement exports;
@@ -46,15 +47,16 @@ public class HomePage extends BahmniPage {
     	Common.waitForSpinner();
     	admin.click();
     }
+
+	public PatientListingPage clickClinicalApp() throws InterruptedException {
+		Common.waitForSpinner();
+		clinical.click();
+		return PageFactory.getPatientListingPage();
+	}
     
     public void clickExportsApp() throws InterruptedException {
     	Common.waitForSpinner();
     	exports.click();
-    }
-    
-    public void clickProgramsApp() throws InterruptedException {
-    	Common.waitForSpinner();
-    	programs.click();
     }
 
 	public void logout(){

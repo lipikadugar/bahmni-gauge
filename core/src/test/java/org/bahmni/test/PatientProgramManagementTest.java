@@ -11,19 +11,21 @@ import org.junit.Test;
 
 import java.util.Random;
 
+import static org.junit.Assert.assertTrue;
+
 /**
  * Created by dharmens on 6/30/16.
  */
 
-public class PatientProgramManagementTest {
+public class PatientProgramManagementTest extends Startup {
 
-    RegistrationFirstPage registrationFirstPage = null;
     HomePage homePage = null;
+    Program program;
 
 
     @Ignore
     @Test
-    public void registerNewPatient(){
+    public void registerNewPatient() throws InterruptedException{
         RegistrationFirstPage registrationFirstPage = BahmniTestCase.start()
                 .login()
                 .clickRegistrationApp()
@@ -34,32 +36,26 @@ public class PatientProgramManagementTest {
 
     @Test
     public void enrollPatientToProgram(){
-        Program program = new Program("Second-line TB treatment register", "01/01/2015");
+        program = new Program("Second-line TB treatment register", "01/01/2015", "F1234", "TestLocation", "Mohan", "EN1234");
 
-        ProgramManagementPage programManagementPage = (ProgramManagementPage)((HomePage)homePage)
+        Boolean programManagementPage = (Boolean)((HomePage)homePage)
                 .clickProgramsApp()
-                .enrollPatientToProgram(program);
-
-        assertTrue(programManagementPage.isPatientEnrolledToProgram(program));
-
-
+                .enrollPatientToProgram(program)
+                .isPatientEnrolledToProgram(program);
     }
 
     @Test
     public void editProgramAttributes(){
-        RegistrationFirstPage registrationFirstPage = BahmniTestCase.start()
-                .login()
-                .clickRegistrationApp()
-                .searchByIdentifier("IND","20020")
-                .getFirstResult();
+        Boolean programManagementPage = (Boolean)((HomePage)homePage)
+                .clickProgramsApp()
+                .editProgramEnrollment(program)
+                .isPatientEnrolledToProgram(program);
     }
 
     @Test
     public void endPatientProgram(){
-        RegistrationFirstPage registrationFirstPage = BahmniTestCase.start()
-                .login()
-                .clickRegistrationApp()
-                .searchByIdentifier("IND","20020")
-                .getFirstResult();
+        ProgramManagementPage programManagementPage = (ProgramManagementPage)((HomePage)homePage)
+                .clickProgramsApp()
+                .endProgramEnrollment(program);
     }
 }
