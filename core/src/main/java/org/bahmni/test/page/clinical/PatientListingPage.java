@@ -1,16 +1,18 @@
 package org.bahmni.test.page.clinical;
 
 import org.bahmni.test.Common;
+import org.bahmni.test.page.BahmniPage;
+import org.bahmni.test.page.PageFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
+
 
 import java.io.IOException;
 import java.util.List;
 
-public class PatientListingPage extends Common {
+public class PatientListingPage extends BahmniPage {
 
 	@FindBy(how= How.CSS, using = ".tabs .tab-item")
     public List<WebElement> tab;
@@ -24,10 +26,7 @@ public class PatientListingPage extends Common {
     @FindBy(how= How.CSS, using = ".patient-list-table")
     public WebElement patient_table;
     
-    Common app = new Common();
-    
     public PatientListingPage(){
-    	PageFactory.initElements(Common.Webdriver,this);
     }
     
     public WebElement findTab(String Tab){
@@ -59,10 +58,12 @@ public class PatientListingPage extends Common {
     		}
     	}
     }
-  
-    public void searchSelectPatientFromTable(String PatientID) throws IOException, InterruptedException{
+
+    public DashboardPage searchSelectPatientFromTab(String Tab, String PatientID) throws IOException, InterruptedException{
     	Common.waitForSpinner();
-    	enterPatientIDOrName(PatientID);	//app.getJsonKeyValue("patient", "ID")
-    	selectPatient(PatientID);	
+		clickTab(Tab);
+    	enterPatientIDOrName(PatientID);
+    	selectPatient(PatientID);
+		return PageFactory.getDashboardPage();
     }
 }

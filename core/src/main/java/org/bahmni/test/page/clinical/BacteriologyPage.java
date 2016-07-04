@@ -1,6 +1,8 @@
 package org.bahmni.test.page.clinical;
 
 import org.bahmni.test.Common;
+import org.bahmni.test.page.BahmniPage;
+import org.bahmni.test.page.clinical.domain.BacteriologySample;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class BacteriologyPage {
+public class BacteriologyPage extends BahmniPage {
 	
 	@FindBy(how= How.CSS, using = "#sample-date")
     public WebElement sample_date;
@@ -53,65 +55,51 @@ public class BacteriologyPage {
     	}
     }
     
-    public void enterSampleDate(String date) throws InterruptedException {
-    	sample_date.sendKeys(date);
-    }
-    
-    public void enterSampleID(String sample) throws InterruptedException {
-    	sample_id.sendKeys(sample);
-    }
-    
-    public void createSample(String date, String type, String sample) throws InterruptedException {
+    public ConsultationPage addSample(BacteriologySample sample) throws InterruptedException {
     	Common.waitForSpinner();
-    	clickButton(type);
-    	sample_id.sendKeys(sample);
-    	sample_date.sendKeys(date);
+    	clickButton(sample.getType());
+    	sample_id.sendKeys(sample.getId());
+    	sample_date.sendKeys(sample.getDate());
     	Thread.sleep(1000);
-    	ConsultationPage consultationPage = PageFactory.initElements(Common.Webdriver,ConsultationPage.class);
-    	consultationPage.clickSave();
     	Common.waitForSpinner();
+		return org.bahmni.test.page.PageFactory.getConsultationPage();
     }
     
-    public void editSample(String date, String type, String sample) throws InterruptedException {
+    public ConsultationPage editSample(BacteriologySample sample) throws InterruptedException {
     	Common.waitForSpinner();
     	edit.click();
     	sample_date.clear();
-    	sample_date.sendKeys(date);
+    	sample_date.sendKeys(sample.getDate());
     	Thread.sleep(1000);
-    	clickButton(type);
+    	clickButton(sample.getType());
     	sample_id.clear();
-    	sample_id.sendKeys(sample);
- 
-    	ConsultationPage consultationPage = PageFactory.initElements(Common.Webdriver,ConsultationPage.class);
-    	consultationPage.clickSave();
+    	sample_id.sendKeys(sample.getId());
     	Common.waitForSpinner();
+		return org.bahmni.test.page.PageFactory.getConsultationPage();
     }
     
-    public void deleteSample(String date, String type, String sample) throws InterruptedException {
+    public ConsultationPage deleteSample(BacteriologySample sample) throws InterruptedException {
     	Common.waitForSpinner();
-    	WebElement delete_item = lookForBacteriologyResult(date,type,sample).findElement(By.cssSelector(".fa-remove"));
+    	WebElement delete_item = lookForBacteriologyResult(sample).findElement(By.cssSelector(".fa-remove"));
     	delete_item.click();
     	Thread.sleep(1000);
     	Common.Webdriver.switchTo().alert().accept();
     	Common.waitForSpinner();
-    	
-    	ConsultationPage consultationPage = PageFactory.initElements(Common.Webdriver,ConsultationPage.class);
-    	consultationPage.clickSave();
-    	Common.waitForSpinner();
+		return org.bahmni.test.page.PageFactory.getConsultationPage();
     }
     
-    public boolean isSampleExists(String Sample, String SampleID){
+    public boolean isSampleExists(BacteriologySample sample){
     	for(int i=0;i<=saved_specimen.size()-1;i++){
-    		if(saved_specimen.get(i).getText().contains(Sample) && saved_specimen.get(i).getText().contains(SampleID)){
+    		if(saved_specimen.get(i).getText().contains(sample.getSample()) && saved_specimen.get(i).getText().contains(sample.getId())){
     			return true;
     		}
     	}
     	return false;
     }
     
-    public WebElement lookForBacteriologyResult(String date, String type, String sample) {
+    public WebElement lookForBacteriologyResult(BacteriologySample sample) {
     	for(int i=0;i<=saved_specimen.size();i++){
-    		if(saved_specimen.get(i).getText().contains(date) && saved_specimen.get(i).getText().contains(sample))
+    		if(saved_specimen.get(i).getText().contains(sample.getDate()) && saved_specimen.get(i).getText().contains(sample.getSample()))
     			return saved_specimen.get(i);
     	}
     	return null;
