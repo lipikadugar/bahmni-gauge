@@ -1,0 +1,431 @@
+17:09:15.432 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Register the patient to following program <programDetails>" hasInlineTable:false > 
+17:09:15.433 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Register the patient to following program {}" parameterizedStepValue:"Register the patient to following program <programDetails>" parameters:"programDetails" > > 
+17:09:15.436 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Login with username <username> and password <password>" hasInlineTable:false > 
+17:09:15.437 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Login with username {} and password {}" parameterizedStepValue:"Login with username <username> and password <password>" parameters:"username" parameters:"password" > > 
+17:09:15.437 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Search previously created patient with exact identifier" hasInlineTable:false > 
+17:09:15.437 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Search previously created patient with exact identifier" parameterizedStepValue:"Search previously created patient with exact identifier" > > 
+17:09:15.437 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on treatment enrollment" hasInlineTable:false > 
+17:09:15.437 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on treatment enrollment" parameterizedStepValue:"Click on treatment enrollment" > > 
+17:09:15.438 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"The word <word> has <expectedCount> vowels." hasInlineTable:false > 
+17:09:15.438 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"The word {} has {} vowels." parameterizedStepValue:"The word <word> has <expectedCount> vowels." parameters:"word" parameters:"expectedCount" > > 
+17:09:15.438 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Go to Home page" hasInlineTable:false > 
+17:09:15.438 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Go to Home page" parameterizedStepValue:"Go to Home page" > > 
+17:09:15.438 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the login page" hasInlineTable:false > 
+17:09:15.438 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the login page" parameterizedStepValue:"On the login page" > > 
+17:09:15.439 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on registration app" hasInlineTable:false > 
+17:09:15.439 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on registration app" parameterizedStepValue:"Click on registration app" > > 
+17:09:15.439 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the new patient creation page" hasInlineTable:false > 
+17:09:15.439 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the new patient creation page" parameterizedStepValue:"On the new patient creation page" > > 
+17:09:15.439 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient edit page is opened for previously created patient" hasInlineTable:false > 
+17:09:15.439 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient edit page is opened for previously created patient" parameterizedStepValue:"Ensure that the patient edit page is opened for previously created patient" > > 
+17:09:15.440 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on search patient link" hasInlineTable:false > 
+17:09:15.440 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on search patient link" parameterizedStepValue:"Click on search patient link" > > 
+17:09:15.440 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Almost all words have vowels <wordsTable>" hasInlineTable:false > 
+17:09:15.440 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Almost all words have vowels {}" parameterizedStepValue:"Almost all words have vowels <wordsTable>" parameters:"wordsTable" > > 
+17:09:15.440 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on create new patient link" hasInlineTable:false > 
+17:09:15.440 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on create new patient link" parameterizedStepValue:"Click on create new patient link" > > 
+17:09:15.441 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient is registered to mentioned program" hasInlineTable:false > 
+17:09:15.441 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient is registered to mentioned program" parameterizedStepValue:"Ensure that the patient is registered to mentioned program" > > 
+17:09:15.441 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create the following patient <table>" hasInlineTable:false > 
+17:09:15.441 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create the following patient {}" parameterizedStepValue:"Create the following patient <table>" parameters:"table" > > 
+17:09:15.442 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Vowels in English language are <vowelString>." hasInlineTable:false > 
+17:09:15.442 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Vowels in English language are {}." parameterizedStepValue:"Vowels in English language are <vowelString>." parameters:"vowelString" > > 
+17:10:13.960 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Register the patient to following program <programDetails>" hasInlineTable:false > 
+17:10:13.961 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Register the patient to following program {}" parameterizedStepValue:"Register the patient to following program <programDetails>" parameters:"programDetails" > > 
+17:10:13.964 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Login with username <username> and password <password>" hasInlineTable:false > 
+17:10:13.965 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Login with username {} and password {}" parameterizedStepValue:"Login with username <username> and password <password>" parameters:"username" parameters:"password" > > 
+17:10:13.965 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Search previously created patient with exact identifier" hasInlineTable:false > 
+17:10:13.965 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Search previously created patient with exact identifier" parameterizedStepValue:"Search previously created patient with exact identifier" > > 
+17:10:13.965 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on treatment enrollment" hasInlineTable:false > 
+17:10:13.966 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on treatment enrollment" parameterizedStepValue:"Click on treatment enrollment" > > 
+17:10:13.967 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"The word <word> has <expectedCount> vowels." hasInlineTable:false > 
+17:10:13.967 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"The word {} has {} vowels." parameterizedStepValue:"The word <word> has <expectedCount> vowels." parameters:"word" parameters:"expectedCount" > > 
+17:10:13.967 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Go to Home page" hasInlineTable:false > 
+17:10:13.967 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Go to Home page" parameterizedStepValue:"Go to Home page" > > 
+17:10:13.968 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the login page" hasInlineTable:false > 
+17:10:13.968 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the login page" parameterizedStepValue:"On the login page" > > 
+17:10:13.968 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on registration app" hasInlineTable:false > 
+17:10:13.968 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on registration app" parameterizedStepValue:"Click on registration app" > > 
+17:10:13.968 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the new patient creation page" hasInlineTable:false > 
+17:10:13.968 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the new patient creation page" parameterizedStepValue:"On the new patient creation page" > > 
+17:10:13.969 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient edit page is opened for previously created patient" hasInlineTable:false > 
+17:10:13.969 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient edit page is opened for previously created patient" parameterizedStepValue:"Ensure that the patient edit page is opened for previously created patient" > > 
+17:10:13.969 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on search patient link" hasInlineTable:false > 
+17:10:13.969 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on search patient link" parameterizedStepValue:"Click on search patient link" > > 
+17:10:13.969 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Almost all words have vowels <wordsTable>" hasInlineTable:false > 
+17:10:13.969 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Almost all words have vowels {}" parameterizedStepValue:"Almost all words have vowels <wordsTable>" parameters:"wordsTable" > > 
+17:10:13.970 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on create new patient link" hasInlineTable:false > 
+17:10:13.970 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on create new patient link" parameterizedStepValue:"Click on create new patient link" > > 
+17:10:13.970 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient is registered to mentioned program" hasInlineTable:false > 
+17:10:13.970 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient is registered to mentioned program" parameterizedStepValue:"Ensure that the patient is registered to mentioned program" > > 
+17:10:13.970 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create the following patient <table>" hasInlineTable:false > 
+17:10:13.970 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create the following patient {}" parameterizedStepValue:"Create the following patient <table>" parameters:"table" > > 
+17:10:13.971 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Vowels in English language are <vowelString>." hasInlineTable:false > 
+17:10:13.971 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Vowels in English language are {}." parameterizedStepValue:"Vowels in English language are <vowelString>." parameters:"vowelString" > > 
+17:12:30.375 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Register the patient to following program <programDetails>" hasInlineTable:false > 
+17:12:30.375 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Register the patient to following program {}" parameterizedStepValue:"Register the patient to following program <programDetails>" parameters:"programDetails" > > 
+17:12:30.379 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Login with username <username> and password <password>" hasInlineTable:false > 
+17:12:30.379 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Login with username {} and password {}" parameterizedStepValue:"Login with username <username> and password <password>" parameters:"username" parameters:"password" > > 
+17:12:30.379 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Search previously created patient with exact identifier" hasInlineTable:false > 
+17:12:30.379 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Search previously created patient with exact identifier" parameterizedStepValue:"Search previously created patient with exact identifier" > > 
+17:12:30.380 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on treatment enrollment" hasInlineTable:false > 
+17:12:30.380 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on treatment enrollment" parameterizedStepValue:"Click on treatment enrollment" > > 
+17:12:30.380 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"The word <word> has <expectedCount> vowels." hasInlineTable:false > 
+17:12:30.380 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"The word {} has {} vowels." parameterizedStepValue:"The word <word> has <expectedCount> vowels." parameters:"word" parameters:"expectedCount" > > 
+17:12:30.380 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Go to Home page" hasInlineTable:false > 
+17:12:30.380 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Go to Home page" parameterizedStepValue:"Go to Home page" > > 
+17:12:30.381 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the login page" hasInlineTable:false > 
+17:12:30.381 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the login page" parameterizedStepValue:"On the login page" > > 
+17:12:30.381 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on registration app" hasInlineTable:false > 
+17:12:30.381 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on registration app" parameterizedStepValue:"Click on registration app" > > 
+17:12:30.381 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the new patient creation page" hasInlineTable:false > 
+17:12:30.381 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the new patient creation page" parameterizedStepValue:"On the new patient creation page" > > 
+17:12:30.382 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient edit page is opened for previously created patient" hasInlineTable:false > 
+17:12:30.382 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient edit page is opened for previously created patient" parameterizedStepValue:"Ensure that the patient edit page is opened for previously created patient" > > 
+17:12:30.382 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on search patient link" hasInlineTable:false > 
+17:12:30.382 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on search patient link" parameterizedStepValue:"Click on search patient link" > > 
+17:12:30.382 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Almost all words have vowels <wordsTable>" hasInlineTable:false > 
+17:12:30.382 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Almost all words have vowels {}" parameterizedStepValue:"Almost all words have vowels <wordsTable>" parameters:"wordsTable" > > 
+17:12:30.383 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on create new patient link" hasInlineTable:false > 
+17:12:30.383 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on create new patient link" parameterizedStepValue:"Click on create new patient link" > > 
+17:12:30.383 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient is registered to mentioned program" hasInlineTable:false > 
+17:12:30.383 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient is registered to mentioned program" parameterizedStepValue:"Ensure that the patient is registered to mentioned program" > > 
+17:12:30.383 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create the following patient <table>" hasInlineTable:false > 
+17:12:30.383 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create the following patient {}" parameterizedStepValue:"Create the following patient <table>" parameters:"table" > > 
+17:12:30.385 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Vowels in English language are <vowelString>." hasInlineTable:false > 
+17:12:30.385 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Vowels in English language are {}." parameterizedStepValue:"Vowels in English language are <vowelString>." parameters:"vowelString" > > 
+09:05:51.511 Watching directory: /Users/bharatak/bahmni-code/bahmni-fat/specs
+09:05:51.514 Found 4 files
+09:05:51.515 Watching directory: /Users/bharatak/bahmni-code/bahmni-fat/specs/concepts
+09:05:51.515 Found 1 files
+09:05:51.517 Watching directory: /Users/bharatak/bahmni-code/bahmni-fat/specs/core
+09:05:51.517 Found 1 files
+09:05:51.520 Watching directory: /Users/bharatak/bahmni-code/bahmni-fat/specs/endtb
+09:05:51.520 Found 2 files
+09:05:51.520 Initializing concepts cache with 1 concepts
+09:05:51.520 Adding concepts from /Users/bharatak/bahmni-code/bahmni-fat/specs/concepts/newpatient.cpt
+09:05:51.523 Initializing specs cache with 4 specs
+09:05:51.524 Adding specs from /Users/bharatak/bahmni-code/bahmni-fat/specs/endtb/enrollPatientsToTreatment.spec
+09:05:51.524 Adding specs from /Users/bharatak/bahmni-code/bahmni-fat/specs/example.spec
+09:05:51.524 Adding specs from /Users/bharatak/bahmni-code/bahmni-fat/specs/core/login.spec
+09:05:51.524 Adding specs from /Users/bharatak/bahmni-code/bahmni-fat/specs/endtb/login.spec
+09:05:51.524 Initializing steps cache with 27 steps
+09:06:03.467 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create a random patient" hasInlineTable:false > 
+09:06:03.470 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create a random patient" parameterizedStepValue:"Create a random patient" > > 
+09:06:03.472 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create a random patient" hasInlineTable:false > 
+09:06:03.472 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create a random patient" parameterizedStepValue:"Create a random patient" > > 
+09:06:03.627 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on treatment enrollment" hasInlineTable:false > 
+09:06:03.627 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on treatment enrollment" parameterizedStepValue:"Click on treatment enrollment" > > 
+09:06:03.627 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on treatment enrollment" hasInlineTable:false > 
+09:06:03.628 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on treatment enrollment" parameterizedStepValue:"Click on treatment enrollment" > > 
+09:06:03.629 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Register the patient to following program <programDetails>" hasInlineTable:false > 
+09:06:03.629 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Register the patient to following program {}" parameterizedStepValue:"Register the patient to following program <programDetails>" parameters:"programDetails" > > 
+09:06:03.629 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Register the patient to following program <programDetails>" hasInlineTable:false > 
+09:06:03.629 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Register the patient to following program {}" parameterizedStepValue:"Register the patient to following program <programDetails>" parameters:"programDetails" > > 
+09:06:03.630 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient is registered to mentioned program" hasInlineTable:false > 
+09:06:03.630 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient is registered to mentioned program" parameterizedStepValue:"Ensure that the patient is registered to mentioned program" > > 
+09:06:03.630 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient is registered to mentioned program" hasInlineTable:false > 
+09:06:03.630 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient is registered to mentioned program" parameterizedStepValue:"Ensure that the patient is registered to mentioned program" > > 
+09:06:03.633 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Vowels in English language are <vowelString>." hasInlineTable:false > 
+09:06:03.633 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Vowels in English language are {}." parameterizedStepValue:"Vowels in English language are <vowelString>." parameters:"vowelString" > > 
+09:06:03.634 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"The word <word> has <expectedCount> vowels." hasInlineTable:false > 
+09:06:03.634 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"The word {} has {} vowels." parameterizedStepValue:"The word <word> has <expectedCount> vowels." parameters:"word" parameters:"expectedCount" > > 
+09:06:03.635 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Almost all words have vowels <wordsTable>" hasInlineTable:false > 
+09:06:03.635 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Almost all words have vowels {}" parameterizedStepValue:"Almost all words have vowels <wordsTable>" parameters:"wordsTable" > > 
+09:06:03.635 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the new patient creation page" hasInlineTable:false > 
+09:06:03.636 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the new patient creation page" parameterizedStepValue:"On the new patient creation page" > > 
+09:06:03.636 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"The word <word> has <expectedCount> vowels." hasInlineTable:false > 
+09:06:03.636 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"The word {} has {} vowels." parameterizedStepValue:"The word <word> has <expectedCount> vowels." parameters:"word" parameters:"expectedCount" > > 
+09:06:03.636 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create the following patient <table>" hasInlineTable:false > 
+09:06:03.636 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create the following patient {}" parameterizedStepValue:"Create the following patient <table>" parameters:"table" > > 
+09:06:03.636 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create the following patient <table>" hasInlineTable:false > 
+09:06:03.636 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create the following patient {}" parameterizedStepValue:"Create the following patient <table>" parameters:"table" > > 
+09:06:03.636 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on search patient link" hasInlineTable:false > 
+09:06:03.636 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on search patient link" parameterizedStepValue:"Click on search patient link" > > 
+09:06:03.637 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient edit page is opened for previously created patient" hasInlineTable:false > 
+09:06:03.637 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient edit page is opened for previously created patient" parameterizedStepValue:"Ensure that the patient edit page is opened for previously created patient" > > 
+09:06:03.637 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on search patient link" hasInlineTable:false > 
+09:06:03.637 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on search patient link" parameterizedStepValue:"Click on search patient link" > > 
+09:06:03.637 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the login page" hasInlineTable:false > 
+09:06:03.637 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the login page" parameterizedStepValue:"On the login page" > > 
+09:06:03.637 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the login page" hasInlineTable:false > 
+09:06:03.638 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the login page" parameterizedStepValue:"On the login page" > > 
+09:06:03.638 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Login with username <username> and password <password>" hasInlineTable:false > 
+09:06:03.638 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Login with username {} and password {}" parameterizedStepValue:"Login with username <username> and password <password>" parameters:"username" parameters:"password" > > 
+09:06:03.638 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Go to Home page" hasInlineTable:false > 
+09:06:03.638 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Go to Home page" parameterizedStepValue:"Go to Home page" > > 
+09:06:03.638 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Login with username <username> and password <password>" hasInlineTable:false > 
+09:06:03.638 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Login with username {} and password {}" parameterizedStepValue:"Login with username <username> and password <password>" parameters:"username" parameters:"password" > > 
+09:06:03.638 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on registration app" hasInlineTable:false > 
+09:06:03.639 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on registration app" parameterizedStepValue:"Click on registration app" > > 
+09:06:03.640 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on create new patient link" hasInlineTable:false > 
+09:06:03.640 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on create new patient link" parameterizedStepValue:"Click on create new patient link" > > 
+09:06:03.640 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on registration app" hasInlineTable:false > 
+09:06:03.640 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on registration app" parameterizedStepValue:"Click on registration app" > > 
+09:06:03.641 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Search previously created patient with exact identifier" hasInlineTable:false > 
+09:06:03.641 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Search previously created patient with exact identifier" parameterizedStepValue:"Search previously created patient with exact identifier" > > 
+09:06:03.641 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Search previously created patient with exact identifier" hasInlineTable:false > 
+09:06:03.641 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Search previously created patient with exact identifier" parameterizedStepValue:"Search previously created patient with exact identifier" > > 
+09:06:03.655 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Almost all words have vowels <wordsTable>" hasInlineTable:false > 
+09:06:03.655 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Almost all words have vowels {}" parameterizedStepValue:"Almost all words have vowels <wordsTable>" parameters:"wordsTable" > > 
+09:06:03.661 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Go to Home page" hasInlineTable:false > 
+09:06:03.661 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Go to Home page" parameterizedStepValue:"Go to Home page" > > 
+09:06:03.662 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient edit page is opened for previously created patient" hasInlineTable:false > 
+09:06:03.662 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient edit page is opened for previously created patient" parameterizedStepValue:"Ensure that the patient edit page is opened for previously created patient" > > 
+09:06:03.672 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Register the patient to following program <programDetails>" hasInlineTable:false > 
+09:06:03.672 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Register the patient to following program {}" parameterizedStepValue:"Register the patient to following program <programDetails>" parameters:"programDetails" > > 
+09:06:03.672 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Vowels in English language are <vowelString>." hasInlineTable:false > 
+09:06:03.673 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Vowels in English language are {}." parameterizedStepValue:"Vowels in English language are <vowelString>." parameters:"vowelString" > > 
+09:06:03.673 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"The word <word> has <expectedCount> vowels." hasInlineTable:false > 
+09:06:03.673 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"The word {} has {} vowels." parameterizedStepValue:"The word <word> has <expectedCount> vowels." parameters:"word" parameters:"expectedCount" > > 
+09:06:03.673 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on create new patient link" hasInlineTable:false > 
+09:06:03.673 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on create new patient link" parameterizedStepValue:"Click on create new patient link" > > 
+09:06:03.674 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the login page" hasInlineTable:false > 
+09:06:03.674 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the login page" parameterizedStepValue:"On the login page" > > 
+09:06:03.674 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create the following patient <table>" hasInlineTable:false > 
+09:06:03.674 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create the following patient {}" parameterizedStepValue:"Create the following patient <table>" parameters:"table" > > 
+09:06:03.674 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient is registered to mentioned program" hasInlineTable:false > 
+09:06:03.675 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient is registered to mentioned program" parameterizedStepValue:"Ensure that the patient is registered to mentioned program" > > 
+09:06:03.675 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on search patient link" hasInlineTable:false > 
+09:06:03.675 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on search patient link" parameterizedStepValue:"Click on search patient link" > > 
+09:06:03.675 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Login with username <username> and password <password>" hasInlineTable:false > 
+09:06:03.675 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Login with username {} and password {}" parameterizedStepValue:"Login with username <username> and password <password>" parameters:"username" parameters:"password" > > 
+09:06:03.676 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on treatment enrollment" hasInlineTable:false > 
+09:06:03.676 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on treatment enrollment" parameterizedStepValue:"Click on treatment enrollment" > > 
+09:06:03.676 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on registration app" hasInlineTable:false > 
+09:06:03.676 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on registration app" parameterizedStepValue:"Click on registration app" > > 
+09:06:03.676 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Search previously created patient with exact identifier" hasInlineTable:false > 
+09:06:03.676 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Search previously created patient with exact identifier" parameterizedStepValue:"Search previously created patient with exact identifier" > > 
+09:06:03.678 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the new patient creation page" hasInlineTable:false > 
+09:06:03.678 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the new patient creation page" parameterizedStepValue:"On the new patient creation page" > > 
+09:06:05.708 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:" Create a random patient" hasInlineTable:false > 
+09:06:05.708 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create a random patient" parameterizedStepValue:"Create a random patient" > > 
+09:06:05.710 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Register the patient to following program" hasInlineTable:true > 
+09:06:05.710 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Register the patient to following program {}" parameterizedStepValue:"Register the patient to following program <table>" parameters:"table" > > 
+09:08:31.593 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Register the patient to following program <programDetails>" hasInlineTable:false > 
+09:08:31.595 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Register the patient to following program {}" parameterizedStepValue:"Register the patient to following program <programDetails>" parameters:"programDetails" > > 
+09:08:31.598 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Login with username <username> and password <password>" hasInlineTable:false > 
+09:08:31.598 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Login with username {} and password {}" parameterizedStepValue:"Login with username <username> and password <password>" parameters:"username" parameters:"password" > > 
+09:08:31.599 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Search previously created patient with exact identifier" hasInlineTable:false > 
+09:08:31.599 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Search previously created patient with exact identifier" parameterizedStepValue:"Search previously created patient with exact identifier" > > 
+09:08:31.599 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on treatment enrollment" hasInlineTable:false > 
+09:08:31.599 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on treatment enrollment" parameterizedStepValue:"Click on treatment enrollment" > > 
+09:08:31.599 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"The word <word> has <expectedCount> vowels." hasInlineTable:false > 
+09:08:31.599 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"The word {} has {} vowels." parameterizedStepValue:"The word <word> has <expectedCount> vowels." parameters:"word" parameters:"expectedCount" > > 
+09:08:31.600 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Go to Home page" hasInlineTable:false > 
+09:08:31.600 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Go to Home page" parameterizedStepValue:"Go to Home page" > > 
+09:08:31.600 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the login page" hasInlineTable:false > 
+09:08:31.600 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the login page" parameterizedStepValue:"On the login page" > > 
+09:08:31.600 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on registration app" hasInlineTable:false > 
+09:08:31.600 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on registration app" parameterizedStepValue:"Click on registration app" > > 
+09:08:31.601 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the new patient creation page" hasInlineTable:false > 
+09:08:31.601 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the new patient creation page" parameterizedStepValue:"On the new patient creation page" > > 
+09:08:31.601 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient edit page is opened for previously created patient" hasInlineTable:false > 
+09:08:31.601 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient edit page is opened for previously created patient" parameterizedStepValue:"Ensure that the patient edit page is opened for previously created patient" > > 
+09:08:31.601 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on search patient link" hasInlineTable:false > 
+09:08:31.602 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on search patient link" parameterizedStepValue:"Click on search patient link" > > 
+09:08:31.602 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Almost all words have vowels <wordsTable>" hasInlineTable:false > 
+09:08:31.602 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Almost all words have vowels {}" parameterizedStepValue:"Almost all words have vowels <wordsTable>" parameters:"wordsTable" > > 
+09:08:31.602 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on create new patient link" hasInlineTable:false > 
+09:08:31.602 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on create new patient link" parameterizedStepValue:"Click on create new patient link" > > 
+09:08:31.603 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient is registered to mentioned program" hasInlineTable:false > 
+09:08:31.603 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient is registered to mentioned program" parameterizedStepValue:"Ensure that the patient is registered to mentioned program" > > 
+09:08:31.603 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create the following patient <table>" hasInlineTable:false > 
+09:08:31.603 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create the following patient {}" parameterizedStepValue:"Create the following patient <table>" parameters:"table" > > 
+09:08:31.604 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Vowels in English language are <vowelString>." hasInlineTable:false > 
+09:08:31.604 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Vowels in English language are {}." parameterizedStepValue:"Vowels in English language are <vowelString>." parameters:"vowelString" > > 
+09:09:21.222 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Register the patient to following program <programDetails>" hasInlineTable:false > 
+09:09:21.223 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Register the patient to following program {}" parameterizedStepValue:"Register the patient to following program <programDetails>" parameters:"programDetails" > > 
+09:09:21.226 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Login with username <username> and password <password>" hasInlineTable:false > 
+09:09:21.227 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Login with username {} and password {}" parameterizedStepValue:"Login with username <username> and password <password>" parameters:"username" parameters:"password" > > 
+09:09:21.228 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Search previously created patient with exact identifier" hasInlineTable:false > 
+09:09:21.228 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Search previously created patient with exact identifier" parameterizedStepValue:"Search previously created patient with exact identifier" > > 
+09:09:21.229 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on treatment enrollment" hasInlineTable:false > 
+09:09:21.229 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on treatment enrollment" parameterizedStepValue:"Click on treatment enrollment" > > 
+09:09:21.229 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"The word <word> has <expectedCount> vowels." hasInlineTable:false > 
+09:09:21.229 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"The word {} has {} vowels." parameterizedStepValue:"The word <word> has <expectedCount> vowels." parameters:"word" parameters:"expectedCount" > > 
+09:09:21.229 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Go to Home page" hasInlineTable:false > 
+09:09:21.229 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Go to Home page" parameterizedStepValue:"Go to Home page" > > 
+09:09:21.230 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the login page" hasInlineTable:false > 
+09:09:21.230 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the login page" parameterizedStepValue:"On the login page" > > 
+09:09:21.230 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on registration app" hasInlineTable:false > 
+09:09:21.230 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on registration app" parameterizedStepValue:"Click on registration app" > > 
+09:09:21.230 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the new patient creation page" hasInlineTable:false > 
+09:09:21.230 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the new patient creation page" parameterizedStepValue:"On the new patient creation page" > > 
+09:09:21.231 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient edit page is opened for previously created patient" hasInlineTable:false > 
+09:09:21.231 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient edit page is opened for previously created patient" parameterizedStepValue:"Ensure that the patient edit page is opened for previously created patient" > > 
+09:09:21.231 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on search patient link" hasInlineTable:false > 
+09:09:21.231 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on search patient link" parameterizedStepValue:"Click on search patient link" > > 
+09:09:21.231 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Almost all words have vowels <wordsTable>" hasInlineTable:false > 
+09:09:21.231 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Almost all words have vowels {}" parameterizedStepValue:"Almost all words have vowels <wordsTable>" parameters:"wordsTable" > > 
+09:09:21.232 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on create new patient link" hasInlineTable:false > 
+09:09:21.232 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on create new patient link" parameterizedStepValue:"Click on create new patient link" > > 
+09:09:21.232 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient is registered to mentioned program" hasInlineTable:false > 
+09:09:21.232 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient is registered to mentioned program" parameterizedStepValue:"Ensure that the patient is registered to mentioned program" > > 
+09:09:21.232 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create the following patient <table>" hasInlineTable:false > 
+09:09:21.233 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create the following patient {}" parameterizedStepValue:"Create the following patient <table>" parameters:"table" > > 
+09:09:21.233 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Vowels in English language are <vowelString>." hasInlineTable:false > 
+09:09:21.233 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Vowels in English language are {}." parameterizedStepValue:"Vowels in English language are <vowelString>." parameters:"vowelString" > > 
+09:12:35.823 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create the following patient" hasInlineTable:true > 
+09:12:35.823 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create the following patient {}" parameterizedStepValue:"Create the following patient <table>" parameters:"table" > > 
+09:12:36.110 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Login with username \"superman\" and password \"Admin123\"" hasInlineTable:false > 
+09:12:36.110 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Login with username {} and password {}" parameterizedStepValue:"Login with username <superman> and password <Admin123>" parameters:"superman" parameters:"Admin123" > > 
+09:12:37.007 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Vowels in English language are \"aeiou\"." hasInlineTable:false > 
+09:12:37.007 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Vowels in English language are {}." parameterizedStepValue:"Vowels in English language are <aeiou>." parameters:"aeiou" > > 
+09:12:37.008 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"The word \"gauge\" has \"3\" vowels." hasInlineTable:false > 
+09:12:37.008 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"The word {} has {} vowels." parameterizedStepValue:"The word <gauge> has <3> vowels." parameters:"gauge" parameters:"3" > > 
+09:12:37.008 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Almost all words have vowels" hasInlineTable:true > 
+09:12:37.008 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Almost all words have vowels {}" parameterizedStepValue:"Almost all words have vowels <table>" parameters:"table" > > 
+09:12:37.010 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On MAC, run the following commands" hasInlineTable:false > 
+09:12:37.010 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On MAC, run the following commands" parameterizedStepValue:"On MAC, run the following commands" > > 
+09:12:37.010 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"For running the tests, run the command" hasInlineTable:false > 
+09:12:37.010 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"For running the tests, run the command" parameterizedStepValue:"For running the tests, run the command" > > 
+09:12:37.010 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Install Language Runner  plugins using the following commands" hasInlineTable:false > 
+09:12:37.010 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Install Language Runner  plugins using the following commands" parameterizedStepValue:"Install Language Runner  plugins using the following commands" > > 
+09:12:37.011 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"For installation of Gauge, follow the wiki instructions [here](http://getgauge.io/documentation/user/current/installations/operating_system/install_on_mac.html)" hasInlineTable:false > 
+09:12:37.011 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"For installation of Gauge, follow the wiki instructions [here](http://getgauge.io/documentation/user/current/installations/operating_system/install_on_mac.html)" parameterizedStepValue:"For installation of Gauge, follow the wiki instructions [here](http://getgauge.io/documentation/user/current/installations/operating_system/install_on_mac.html)" > > 
+09:12:37.011 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"* Click on create new patient link" hasInlineTable:false > 
+09:12:37.011 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"* Click on create new patient link" parameterizedStepValue:"* Click on create new patient link" > > 
+09:12:37.012 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"* Create the following patient" hasInlineTable:true > 
+09:12:37.012 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"* Create the following patient {}" parameterizedStepValue:"* Create the following patient <table>" parameters:"table" > > 
+09:12:37.012 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"* Click on registration app" hasInlineTable:false > 
+09:12:37.012 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"* Click on registration app" parameterizedStepValue:"* Click on registration app" > > 
+09:12:37.012 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"* On the login page" hasInlineTable:false > 
+09:12:37.012 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"* On the login page" parameterizedStepValue:"* On the login page" > > 
+09:12:37.012 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"* Login with username \"superman\" and password \"Admin123\"" hasInlineTable:false > 
+09:12:37.013 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"* Login with username {} and password {}" parameterizedStepValue:"* Login with username <superman> and password <Admin123>" parameters:"superman" parameters:"Admin123" > > 
+10:41:38.315 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Register the patient to following program <programDetails>" hasInlineTable:false > 
+10:41:38.316 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Register the patient to following program {}" parameterizedStepValue:"Register the patient to following program <programDetails>" parameters:"programDetails" > > 
+10:41:38.319 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Login with username <username> and password <password>" hasInlineTable:false > 
+10:41:38.319 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Login with username {} and password {}" parameterizedStepValue:"Login with username <username> and password <password>" parameters:"username" parameters:"password" > > 
+10:41:38.320 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Search previously created patient with exact identifier" hasInlineTable:false > 
+10:41:38.320 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Search previously created patient with exact identifier" parameterizedStepValue:"Search previously created patient with exact identifier" > > 
+10:41:38.320 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on treatment enrollment" hasInlineTable:false > 
+10:41:38.320 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on treatment enrollment" parameterizedStepValue:"Click on treatment enrollment" > > 
+10:41:38.320 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"The word <word> has <expectedCount> vowels." hasInlineTable:false > 
+10:41:38.321 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"The word {} has {} vowels." parameterizedStepValue:"The word <word> has <expectedCount> vowels." parameters:"word" parameters:"expectedCount" > > 
+10:41:38.321 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Go to Home page" hasInlineTable:false > 
+10:41:38.321 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Go to Home page" parameterizedStepValue:"Go to Home page" > > 
+10:41:38.321 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the login page" hasInlineTable:false > 
+10:41:38.321 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the login page" parameterizedStepValue:"On the login page" > > 
+10:41:38.322 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on registration app" hasInlineTable:false > 
+10:41:38.322 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on registration app" parameterizedStepValue:"Click on registration app" > > 
+10:41:38.322 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the new patient creation page" hasInlineTable:false > 
+10:41:38.322 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the new patient creation page" parameterizedStepValue:"On the new patient creation page" > > 
+10:41:38.322 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient edit page is opened for previously created patient" hasInlineTable:false > 
+10:41:38.322 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient edit page is opened for previously created patient" parameterizedStepValue:"Ensure that the patient edit page is opened for previously created patient" > > 
+10:41:38.323 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on search patient link" hasInlineTable:false > 
+10:41:38.323 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on search patient link" parameterizedStepValue:"Click on search patient link" > > 
+10:41:38.323 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Almost all words have vowels <wordsTable>" hasInlineTable:false > 
+10:41:38.323 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Almost all words have vowels {}" parameterizedStepValue:"Almost all words have vowels <wordsTable>" parameters:"wordsTable" > > 
+10:41:38.323 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on create new patient link" hasInlineTable:false > 
+10:41:38.323 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on create new patient link" parameterizedStepValue:"Click on create new patient link" > > 
+10:41:38.324 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient is registered to mentioned program" hasInlineTable:false > 
+10:41:38.324 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient is registered to mentioned program" parameterizedStepValue:"Ensure that the patient is registered to mentioned program" > > 
+10:41:38.324 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create the following patient <table>" hasInlineTable:false > 
+10:41:38.324 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create the following patient {}" parameterizedStepValue:"Create the following patient <table>" parameters:"table" > > 
+10:41:38.325 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Vowels in English language are <vowelString>." hasInlineTable:false > 
+10:41:38.325 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Vowels in English language are {}." parameterizedStepValue:"Vowels in English language are <vowelString>." parameters:"vowelString" > > 
+10:46:46.285 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Register the patient to following program <programDetails>" hasInlineTable:false > 
+10:46:46.285 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Register the patient to following program {}" parameterizedStepValue:"Register the patient to following program <programDetails>" parameters:"programDetails" > > 
+10:46:46.289 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Login with username <username> and password <password>" hasInlineTable:false > 
+10:46:46.289 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Login with username {} and password {}" parameterizedStepValue:"Login with username <username> and password <password>" parameters:"username" parameters:"password" > > 
+10:46:46.290 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Search previously created patient with exact identifier" hasInlineTable:false > 
+10:46:46.290 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Search previously created patient with exact identifier" parameterizedStepValue:"Search previously created patient with exact identifier" > > 
+10:46:46.290 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on treatment enrollment" hasInlineTable:false > 
+10:46:46.290 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on treatment enrollment" parameterizedStepValue:"Click on treatment enrollment" > > 
+10:46:46.290 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"The word <word> has <expectedCount> vowels." hasInlineTable:false > 
+10:46:46.290 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"The word {} has {} vowels." parameterizedStepValue:"The word <word> has <expectedCount> vowels." parameters:"word" parameters:"expectedCount" > > 
+10:46:46.291 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Go to Home page" hasInlineTable:false > 
+10:46:46.291 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Go to Home page" parameterizedStepValue:"Go to Home page" > > 
+10:46:46.291 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the login page" hasInlineTable:false > 
+10:46:46.291 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the login page" parameterizedStepValue:"On the login page" > > 
+10:46:46.291 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on registration app" hasInlineTable:false > 
+10:46:46.291 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on registration app" parameterizedStepValue:"Click on registration app" > > 
+10:46:46.292 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the new patient creation page" hasInlineTable:false > 
+10:46:46.292 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the new patient creation page" parameterizedStepValue:"On the new patient creation page" > > 
+10:46:46.292 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient edit page is opened for previously created patient" hasInlineTable:false > 
+10:46:46.292 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient edit page is opened for previously created patient" parameterizedStepValue:"Ensure that the patient edit page is opened for previously created patient" > > 
+10:46:46.292 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on search patient link" hasInlineTable:false > 
+10:46:46.292 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on search patient link" parameterizedStepValue:"Click on search patient link" > > 
+10:46:46.293 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Almost all words have vowels <wordsTable>" hasInlineTable:false > 
+10:46:46.293 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Almost all words have vowels {}" parameterizedStepValue:"Almost all words have vowels <wordsTable>" parameters:"wordsTable" > > 
+10:46:46.293 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on create new patient link" hasInlineTable:false > 
+10:46:46.293 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on create new patient link" parameterizedStepValue:"Click on create new patient link" > > 
+10:46:46.293 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient is registered to mentioned program" hasInlineTable:false > 
+10:46:46.293 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient is registered to mentioned program" parameterizedStepValue:"Ensure that the patient is registered to mentioned program" > > 
+10:46:46.294 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create the following patient <table>" hasInlineTable:false > 
+10:46:46.294 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create the following patient {}" parameterizedStepValue:"Create the following patient <table>" parameters:"table" > > 
+10:46:46.295 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Vowels in English language are <vowelString>." hasInlineTable:false > 
+10:46:46.295 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Vowels in English language are {}." parameterizedStepValue:"Vowels in English language are <vowelString>." parameters:"vowelString" > > 
+11:02:50.951 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Register the patient to following program <programDetails>" hasInlineTable:false > 
+11:02:50.953 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Register the patient to following program {}" parameterizedStepValue:"Register the patient to following program <programDetails>" parameters:"programDetails" > > 
+11:02:50.956 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Login with username <username> and password <password>" hasInlineTable:false > 
+11:02:50.956 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Login with username {} and password {}" parameterizedStepValue:"Login with username <username> and password <password>" parameters:"username" parameters:"password" > > 
+11:02:50.957 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Search previously created patient with exact identifier" hasInlineTable:false > 
+11:02:50.957 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Search previously created patient with exact identifier" parameterizedStepValue:"Search previously created patient with exact identifier" > > 
+11:02:50.957 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on treatment enrollment" hasInlineTable:false > 
+11:02:50.957 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on treatment enrollment" parameterizedStepValue:"Click on treatment enrollment" > > 
+11:02:50.957 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"The word <word> has <expectedCount> vowels." hasInlineTable:false > 
+11:02:50.957 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"The word {} has {} vowels." parameterizedStepValue:"The word <word> has <expectedCount> vowels." parameters:"word" parameters:"expectedCount" > > 
+11:02:50.958 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Go to Home page" hasInlineTable:false > 
+11:02:50.958 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Go to Home page" parameterizedStepValue:"Go to Home page" > > 
+11:02:50.958 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the login page" hasInlineTable:false > 
+11:02:50.958 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the login page" parameterizedStepValue:"On the login page" > > 
+11:02:50.958 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on registration app" hasInlineTable:false > 
+11:02:50.958 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on registration app" parameterizedStepValue:"Click on registration app" > > 
+11:02:50.959 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"On the new patient creation page" hasInlineTable:false > 
+11:02:50.959 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"On the new patient creation page" parameterizedStepValue:"On the new patient creation page" > > 
+11:02:50.959 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient edit page is opened for previously created patient" hasInlineTable:false > 
+11:02:50.959 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient edit page is opened for previously created patient" parameterizedStepValue:"Ensure that the patient edit page is opened for previously created patient" > > 
+11:02:50.959 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on search patient link" hasInlineTable:false > 
+11:02:50.960 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on search patient link" parameterizedStepValue:"Click on search patient link" > > 
+11:02:50.960 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Almost all words have vowels <wordsTable>" hasInlineTable:false > 
+11:02:50.960 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Almost all words have vowels {}" parameterizedStepValue:"Almost all words have vowels <wordsTable>" parameters:"wordsTable" > > 
+11:02:50.960 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Click on create new patient link" hasInlineTable:false > 
+11:02:50.960 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Click on create new patient link" parameterizedStepValue:"Click on create new patient link" > > 
+11:02:50.961 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Ensure that the patient is registered to mentioned program" hasInlineTable:false > 
+11:02:50.961 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Ensure that the patient is registered to mentioned program" parameterizedStepValue:"Ensure that the patient is registered to mentioned program" > > 
+11:02:50.961 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Create the following patient <table>" hasInlineTable:false > 
+11:02:50.961 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Create the following patient {}" parameterizedStepValue:"Create the following patient <table>" parameters:"table" > > 
+11:02:50.963 Api Request Received: messageType:GetStepValueRequest messageId:4 stepValueRequest:<stepText:"Vowels in English language are <vowelString>." hasInlineTable:false > 
+11:02:50.963 Sending API response: messageType:GetStepValueResponse messageId:4 stepValueResponse:<stepValue:<stepValue:"Vowels in English language are {}." parameterizedStepValue:"Vowels in English language are <vowelString>." parameters:"vowelString" > > 
+22:42:14.158 Concept file removed: /Users/bharatak/bahmni-code/bahmni-fat/specs/concepts/newpatient.cpt
+22:42:14.159 Spec file removed: /Users/bharatak/bahmni-code/bahmni-fat/specs/core/login.spec
+22:42:14.160 Spec file removed: /Users/bharatak/bahmni-code/bahmni-fat/specs/endtb/login.spec
+22:42:14.161 Spec file removed: /Users/bharatak/bahmni-code/bahmni-fat/specs/example.spec
+22:55:06.479 Watching directory: /Users/bharatak/bahmni-code/bahmni-gauge/specs
+22:55:06.479 Found 4 files
+22:55:06.479 Watching directory: /Users/bharatak/bahmni-code/bahmni-gauge/specs/concepts
+22:55:06.479 Found 1 files
+22:55:06.479 Watching directory: /Users/bharatak/bahmni-code/bahmni-gauge/specs/core
+22:55:06.479 Found 1 files
+22:55:06.479 Watching directory: /Users/bharatak/bahmni-code/bahmni-gauge/specs/endtb
+22:55:06.479 Found 2 files
+22:55:06.480 Initializing concepts cache with 1 concepts
+22:55:06.480 Adding concepts from /Users/bharatak/bahmni-code/bahmni-gauge/specs/concepts/newpatient.cpt
+22:55:06.483 Initializing specs cache with 4 specs
+22:55:06.483 Adding specs from /Users/bharatak/bahmni-code/bahmni-gauge/specs/example.spec
+22:55:06.483 Adding specs from /Users/bharatak/bahmni-code/bahmni-gauge/specs/endtb/enrollPatientsToTreatment.spec
+22:55:06.483 Adding specs from /Users/bharatak/bahmni-code/bahmni-gauge/specs/core/login.spec
+22:55:06.483 Adding specs from /Users/bharatak/bahmni-code/bahmni-gauge/specs/endtb/login.spec
+22:55:06.483 Initializing steps cache with 27 steps
+22:56:24.888 Watching directory: /Users/bharatak/bahmni-code/bahmni-gauge/specs
+22:56:24.888 Found 4 files
+22:56:24.888 Watching directory: /Users/bharatak/bahmni-code/bahmni-gauge/specs/concepts
+22:56:24.888 Found 1 files
+22:56:24.888 Watching directory: /Users/bharatak/bahmni-code/bahmni-gauge/specs/core
+22:56:24.888 Found 1 files
+22:56:24.889 Watching directory: /Users/bharatak/bahmni-code/bahmni-gauge/specs/endtb
+22:56:24.889 Found 2 files
+22:56:24.890 Initializing concepts cache with 1 concepts
+22:56:24.890 Adding concepts from /Users/bharatak/bahmni-code/bahmni-gauge/specs/concepts/newpatient.cpt
+22:56:24.892 Initializing specs cache with 4 specs
+22:56:24.892 Adding specs from /Users/bharatak/bahmni-code/bahmni-gauge/specs/endtb/enrollPatientsToTreatment.spec
+22:56:24.892 Adding specs from /Users/bharatak/bahmni-code/bahmni-gauge/specs/example.spec
+22:56:24.892 Adding specs from /Users/bharatak/bahmni-code/bahmni-gauge/specs/endtb/login.spec
+22:56:24.892 Adding specs from /Users/bharatak/bahmni-code/bahmni-gauge/specs/core/login.spec
+22:56:24.892 Initializing steps cache with 27 steps
+09:34:39.535 Concept file removed: /Users/bharatak/bahmni-code/bahmni-gauge/specs/concepts/newpatient.cpt
+09:34:39.536 Spec file removed: /Users/bharatak/bahmni-code/bahmni-gauge/specs/core/login.spec
+09:34:39.537 Spec file removed: /Users/bharatak/bahmni-code/bahmni-gauge/specs/example.spec

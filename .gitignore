@@ -7,3 +7,7 @@ target
 *.iml
 */build/
 *.xmi
+logs/
+.gauge/*
+reports/
+gauge_bin/
