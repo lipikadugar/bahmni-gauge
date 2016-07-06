@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
+import org.junit.Assert;
 
 import java.util.List;
 
@@ -84,10 +85,9 @@ public class RegistrationSearch extends BahmniPage{
 		return org.bahmni.test.page.PageFactory.getRegistrationFirstPage();
 	}
 
-	public void verifySearchResultForPatient(String patientFirstName) {
-		enterName(patientFirstName);
+	public void verifySearchResults() {
 		Common.waitForSpinner();
-//		Assert.assertTrue(isPatientInResult(patientFirstName));
+		Assert.assertNotNull(gridSearchResults);
 	}
 
 	private Boolean isPatientInResult(String patientFirstName) {

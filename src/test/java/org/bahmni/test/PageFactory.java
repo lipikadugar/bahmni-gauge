@@ -1,6 +1,7 @@
 package org.bahmni.test;
 
 import org.bahmni.test.page.BahmniPage;
+import org.bahmni.test.page.clinical.PatientListingPage;
 import org.bahmni.test.page.home.HomePage;
 import org.bahmni.test.page.login.LoginPage;
 import org.bahmni.test.page.program.ProgramManagamentPage;
@@ -24,6 +25,7 @@ public class PageFactory {
 	private static final String REGISTRATION_FIRST_PAGE = "registration.page1";
 	private static final String REGISTRATION_VISIT_PAGE = "registration.visitPage";
 	private static final String PROGRAMS_PAGE = "programs";
+	private static final String PATIENT_LISTING_PAGE = "patient.listing";
 
 	private static Properties props = new Properties();
 
@@ -89,5 +91,9 @@ public class PageFactory {
 	
 	public static RegistrationVisitDetailsPage getRegistrationVisitDetailsPage() {
 		return (RegistrationVisitDetailsPage) getPage(REGISTRATION_VISIT_PAGE);
+	}
+
+	public static PatientListingPage getPatientListingPage() {
+		return (PatientListingPage) getPage(PATIENT_LISTING_PAGE);
 	}
 }

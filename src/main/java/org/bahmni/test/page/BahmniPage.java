@@ -7,7 +7,7 @@ import org.bahmni.test.page.registration.domain.Patient;
 
 public class BahmniPage {
 
-	protected static String BASE_URL = "https://mybahmni.org/bahmni";
+	protected static String BASE_URL = "https://endtb.twhosted.com/bahmni";
 
 	public static final String PATIENT_KEY = "patient";
 	public static final String PROGRAM_KEY = "program";

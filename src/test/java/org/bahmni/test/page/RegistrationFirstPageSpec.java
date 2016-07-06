@@ -36,7 +36,7 @@ public class RegistrationFirstPageSpec {
 		}
 
 		RegistrationFirstPage registrationFirstPage = org.bahmni.test.PageFactory.getRegistrationFirstPage();
-		Patient patient = registrationFirstPage.transformTableRowToPatient(rows.get(0),columnNames);
+		Patient patient = registrationFirstPage.transformTableRowToPatient(rows.get(0), columnNames);
 		registrationFirstPage.storePatientInSpecStore(patient);
 		registrationFirstPage.registerPatient(patient);
 	}
@@ -47,10 +47,21 @@ public class RegistrationFirstPageSpec {
 		registrationFirstPage.navigateToSearchPage();
 	}
 
+	@Step("Validate that the patient edit page is opened for previously created patient")
+	public void validateThePatientPageIsOpened() {
+		RegistrationFirstPage registrationFirstPage = org.bahmni.test.PageFactory.getRegistrationFirstPage();
+		registrationFirstPage.verifyPatientWithIdentifierAndName();
+	}
+
 	@Step("Ensure that the patient edit page is opened for previously created patient")
 	public void ensureThePatientPageIsOpened() {
 		RegistrationFirstPage registrationFirstPage = org.bahmni.test.PageFactory.getRegistrationFirstPage();
 		registrationFirstPage.verifyPatientWithIdentifierAndName();
 	}
 
+	@Step("Start a visit <visit>")
+	public void startPatientVisit(String visit) throws InterruptedException {
+		RegistrationFirstPage registrationFirstPage = org.bahmni.test.PageFactory.getRegistrationFirstPage();
+		registrationFirstPage.startVisit(visit);
+	}
 }

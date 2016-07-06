@@ -1,10 +1,13 @@
 package org.bahmni.test;
 
+import org.bahmni.test.page.BahmniPage;
+import org.bahmni.test.page.home.HomePage;
 import org.openqa.selenium.chrome.ChromeDriver;
+import com.thoughtworks.gauge.Step;
 
 import java.util.ArrayList;
 
-public class Common {
+public class Common extends BahmniPage {
 
 	public static ChromeDriver Webdriver;
 	public static String URL = "https://172.18.2.27";

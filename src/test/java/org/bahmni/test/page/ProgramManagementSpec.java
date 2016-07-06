@@ -20,6 +20,12 @@ public class ProgramManagementSpec {
 		ProgramManagamentPage programManagamentPage = org.bahmni.test.PageFactory.getProgramManagementPage();
 		Program programDetails = programManagamentPage.getProgramFromSpecStore();
 		programManagamentPage.isPatientEnrolledToProgram(programDetails);
+	}
 
+	@Step("Edit attribute to registration <registration> and facility <facility>")
+	public void editAttributesEnrolledToTheProgram(String registration, String facility) {
+		ProgramManagamentPage programManagamentPage = org.bahmni.test.PageFactory.getProgramManagementPage();
+		Program programDetails = programManagamentPage.getProgramFromSpecStore();
+		programManagamentPage.editProgramAttributes(programDetails,registration,facility);
 	}
 }

@@ -6,8 +6,9 @@ import org.bahmni.test.PageFactory;
 import org.bahmni.test.page.home.HomePage;
 import org.openqa.selenium.WebDriver;
 
-public class HomeSpec {
+public class HomeSpec extends BahmniPage {
 	private final WebDriver driver;
+	HomePage homePage;
 
 	public HomeSpec(){
 		this.driver = DriverFactory.getDriver();
@@ -21,7 +22,19 @@ public class HomeSpec {
 
 	@Step("Click on registration app")
 	public void goToRegistrationPage(){
-		HomePage homePage = PageFactory.getHomePage();
+		homePage = PageFactory.getHomePage();
 		homePage.clickRegistrationApp();
+	}
+
+	@Step("Click on programs app")
+	public void goToProgramsPage(){
+		homePage = PageFactory.getHomePage();
+		homePage.clickProgramsApp();
+	}
+
+	@Step("Click on clinical app")
+	public void goToClinicalPage(){
+		homePage = PageFactory.getHomePage();
+		homePage.clickClinicalApp();
 	}
 }

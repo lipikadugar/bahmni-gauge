@@ -45,6 +45,18 @@ public class ProgramManagamentPage extends BahmniPage {
 	@FindBy(how = How.CSS, using = ".active-program-container")
 	public WebElement activeProgramContainer;
 
+	@FindBy(how= How.CSS, using = "[id='Facility Name']")
+	public WebElement facility_name;
+
+	@FindBy(how= How.CSS, using = "[id='Sample attribute3']")
+	public WebElement facility_id;
+
+	@FindBy(how= How.CSS, using = "#Doctor")
+	public WebElement doctor;
+
+	@FindBy(how= How.CSS, using = "#Id_Number")
+	public WebElement registration_id;
+
 	public ProgramManagamentPage() {
 	}
 
@@ -145,5 +157,18 @@ public class ProgramManagamentPage extends BahmniPage {
 		String dateOfRegistration = rows.get(0).getCell(columnNames.get(1));
 
 		return new Program(programName,dateOfRegistration);
+	}
+
+	public void editProgramAttributes(Program treatment, String registration, String facility) {
+		WebElement programToModify = findProgram(treatment);
+		programToModify.findElement(By.cssSelector("[value='Edit']")).click();
+		editProgram(registration, facility);
+		programToModify.findElement(By.cssSelector("[value='Save']")).click();
+	}
+
+	public ProgramManagamentPage editProgram(String registration, String facility) {
+		facility_name.sendKeys(facility);
+		registration_id.sendKeys(registration);
+		return this;
 	}
 }

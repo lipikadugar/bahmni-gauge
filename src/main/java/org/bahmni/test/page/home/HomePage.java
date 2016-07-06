@@ -15,6 +15,9 @@ public class HomePage extends BahmniPage {
 	
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-documents")
     public WebElement patientDocuments;
+
+	@FindBy(how= How.CSS, using = "i.icon-bahmni-clinical")
+	public WebElement clinical;
 	
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-admin")
     public WebElement admin;
@@ -33,10 +36,15 @@ public class HomePage extends BahmniPage {
     	registration.click();
     }
     
-    public void clickPatientRecords() throws InterruptedException {
+    public void clickPatientRecords(){
     	Common.waitForSpinner();
     	patientDocuments.click();
     }
+
+	public void clickClinicalApp(){
+		Common.waitForSpinner();
+		clinical.click();
+	}
     
     public void clickAdminApp() throws InterruptedException {
     	Common.waitForSpinner();
@@ -48,8 +56,8 @@ public class HomePage extends BahmniPage {
     	exports.click();
     }
     
-    public void clickProgramsApp() throws InterruptedException {
-    	Common.waitForSpinner();
+    public void clickProgramsApp(){
+		Common.waitForSpinner();
     	programs.click();
     }
 
