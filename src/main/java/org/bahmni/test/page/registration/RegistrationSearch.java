@@ -1,6 +1,5 @@
 package org.bahmni.test.page.registration;
 
-import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -8,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
-import org.junit.Assert;
 
 import java.util.List;
 
@@ -49,9 +47,8 @@ public class RegistrationSearch extends BahmniPage{
     	iconHome.click();
     }
     
-    public RegistrationFirstPage clickCreateNew() {
+    public void clickCreateNew() {
     	iconCreateNew.click();
-	    return org.bahmni.test.page.PageFactory.getRegistrationFirstPage();
     }
 
     public void enterName(String name) {
@@ -71,23 +68,16 @@ public class RegistrationSearch extends BahmniPage{
 		}
 	}
 
-	public RegistrationSearch searchByIdentifier(String prefix, String id){
+	public void searchByIdentifier(String prefix, String id){
 		selectPrefix(prefix);
 
 		txtRegistration.sendKeys(id);
 		btnIdentifierSearch.click();
-	    return org.bahmni.test.page.PageFactory.getRegistrationSearchPage();
     }
 
-	public RegistrationFirstPage getFirstResult() {
+	public void getFirstResult() {
 		gridSearchResults.findElements(By.tagName("a")).get(0).click();
-		
-		return org.bahmni.test.page.PageFactory.getRegistrationFirstPage();
-	}
 
-	public void verifySearchResults() {
-		Common.waitForSpinner();
-		Assert.assertNotNull(gridSearchResults);
 	}
 
 	private Boolean isPatientInResult(String patientFirstName) {
@@ -98,5 +88,8 @@ public class RegistrationSearch extends BahmniPage{
 		}
 		return false;
 	}
-	
+
+	public void verifySearchResults() {
+		//TODO: add verifying search results
+	}
 }

@@ -1,11 +1,8 @@
 package org.bahmni.test.page.registration;
 
 import com.thoughtworks.gauge.TableRow;
-import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
-import org.bahmni.test.page.PageFactory;
 import org.bahmni.test.page.registration.domain.Patient;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -59,20 +56,20 @@ public class RegistrationFirstPage extends BahmniPage{
 		save.click();
 	}
 	
-	public RegistrationVisitDetailsPage startVisit(String Visit) throws InterruptedException {
-		Common.waitForSpinner();
-		Common.Webdriver.findElement(By.cssSelector("div[option-click = 'visitControl.startVisit'] .toggle-button.fa.fa-caret-down")).click();
-		
-		for (WebElement visit: btnVisit){
-			if (visit.getText().contains(Visit)){
-				visit.click();
-				Common.waitForSpinner();
-				return PageFactory.getRegistrationVisitDetailsPage();
-			}
-			
-		}
-		return null;
-	}
+//	public RegistrationVisitDetailsPage startVisit(String Visit) throws InterruptedException {
+//		Common.waitForSpinner();
+//		Common.Webdriver.findElement(By.cssSelector("div[option-click = 'visitControl.startVisit'] .toggle-button.fa.fa-caret-down")).click();
+//
+//		for (WebElement visit: btnVisit){
+//			if (visit.getText().contains(Visit)){
+//				visit.click();
+//				Common.waitForSpinner();
+//				return PageFactory.getRegistrationVisitDetailsPage();
+//			}
+//
+//		}
+//		return null;
+//	}
 
 	public void registerPatient(Patient patient){
 		doActions(patient);
@@ -104,5 +101,9 @@ public class RegistrationFirstPage extends BahmniPage{
 				row.getCell(columnNames.get(2)), row.getCell(columnNames.get(3)), new Date(), 50);
 
 		return patient;
+	}
+
+	public void startVisit(String visit){
+		//TODO: add startVisit
 	}
 }

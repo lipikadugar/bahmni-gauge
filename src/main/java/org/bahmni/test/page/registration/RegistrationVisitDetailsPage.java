@@ -1,9 +1,6 @@
 package org.bahmni.test.page.registration;
 
-import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
-import org.bahmni.test.page.PageFactory;
-import org.bahmni.test.page.home.HomePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -37,44 +34,5 @@ public class RegistrationVisitDetailsPage extends BahmniPage{
 	@FindBy(how= How.CSS, using = ".fa-search")
 	public WebElement searchLink;
 
-
-	public RegistrationVisitDetailsPage enterVisitDetails(String Height, String Weight, String Fees, String Comments) {
-		height.sendKeys(Height);
-		weight.sendKeys(Weight);
-		fees.sendKeys(Fees);
-		comments.sendKeys(Comments);
-		return clickSave();
-	}
-	
-	public RegistrationVisitDetailsPage clickSave(){
-		saveButton.click();
-		Common.waitForSpinner();
-		return PageFactory.getRegistrationVisitDetailsPage();
-	}
-	
-	public HomePage navigateToHome(){
-		homeButton.click();
-		Common.waitForSpinner();
-		return PageFactory.getHomePage();
-	}
-	
-	public RegistrationFirstPage goToPatientPage(){
-		backButton.click();
-		Common.waitForSpinner();
-		return PageFactory.getRegistrationFirstPage();
-	}
-	
-	public RegistrationSearch closeVisit(){
-		closeVisit.click();
-		Common.waitForSpinner();
-		return PageFactory.getRegistrationSearchPage();
-	}
-	
-	public RegistrationSearch navigateToPatientSearchPage(){
-		searchLink.click();
-		Common.waitForSpinner();
-		return PageFactory.getRegistrationSearchPage();
-		
-	}
 
 }

@@ -1,9 +1,4 @@
 import com.thoughtworks.gauge.Step;
-import com.thoughtworks.gauge.Table;
-import com.thoughtworks.gauge.TableRow;
-import org.bahmni.test.Common;
-import org.bahmni.test.page.home.HomePage;
-import org.bahmni.test.page.registration.RegistrationFirstPage;
 
 import java.util.HashSet;
 
@@ -21,14 +16,12 @@ public class CommonStepImplementation {
         }
     }
 
-    @Step({"Navigate to dashboard","Navigate to the dashboard page"})
+    @Step({"Navigate to dashboard"})
     public void navigateToDashboard() throws InterruptedException {
-        Common.navigateToDashboard();
     }
 
     @Step("Navigate to Registration search page")
     public void navigateToRegistrationSearchPage() throws InterruptedException {
-        Common.navigateToSearchPage();
     }
 
 }

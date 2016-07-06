@@ -2,10 +2,8 @@ package org.bahmni.test.page.program;
 
 import com.thoughtworks.gauge.Table;
 import com.thoughtworks.gauge.TableRow;
-import org.bahmni.test.Common;
 import org.bahmni.test.TestSpecException;
 import org.bahmni.test.page.BahmniPage;
-import org.bahmni.test.page.PageFactory;
 import org.bahmni.test.page.program.domain.Program;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -72,14 +70,12 @@ public class ProgramManagamentPage extends BahmniPage {
 		start_date.sendKeys(treatment.getDateOfRegistration());
 	}
 
-	public ProgramManagamentPage modifyProgramEnrollment(Program treatment) {
+	public void modifyProgramEnrollment(Program treatment) {
 
 		WebElement programToModify = findProgram(treatment);
 		programToModify.findElement(By.cssSelector("[value='Edit']")).click();
 		doModifyEnrollmentDetails(programToModify, treatment);
 		programToModify.findElement(By.cssSelector("[value='Save']")).click();
-
-		return PageFactory.getProgramManagementPage();
 	}
 
 	protected void doModifyEnrollmentDetails(WebElement programToModify, Program treatment) {
@@ -111,14 +107,6 @@ public class ProgramManagamentPage extends BahmniPage {
 		//TODO: write logic for endingPrograms
 	}
 
-	//	public void endProgramEnrolled(String ProgramName) throws InterruptedException, IOException{
-	//		Common.waitForSpinner();
-	//		editProgram(ProgramName);
-	//		selectTreatmentStatus(ProgramName, "Non Active");
-	//		saveProgram(ProgramName);
-	//		Common.waitForSpinner();
-	//	}
-
 	public boolean isPatientEnrolledToProgram(Program treatment) {
 		WebElement programName = activeProgramContainer.findElement(By.cssSelector(".programName"));
 		return isProgramAvailable(treatment, programName);
@@ -126,20 +114,6 @@ public class ProgramManagamentPage extends BahmniPage {
 
 	protected boolean isProgramAvailable(Program treatment, WebElement programName) {
 		if (programName != null && programName.getText().contains(treatment.getName()))
-			return true;
-		else
-			return false;
-	}
-
-	public boolean hasAttribute(String Attribute) throws InterruptedException, IOException {
-		if (Common.Webdriver.findElement(By.cssSelector(".active-program-container")).getText().toString().contains(Attribute))
-			return true;
-		else
-			return false;
-	}
-
-	public boolean hasEndedProgram(String ProgramName) throws InterruptedException, IOException {
-		if (Common.Webdriver.findElement(By.cssSelector(".inactive-program-container")).getText().toString().contains(ProgramName))
 			return true;
 		else
 			return false;

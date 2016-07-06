@@ -1,6 +1,5 @@
 package org.bahmni.test.page.home;
 
-import org.bahmni.test.Common;
 import org.bahmni.test.page.BahmniPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,15 +15,12 @@ public class HomePage extends BahmniPage {
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-documents")
     public WebElement patientDocuments;
 
-	@FindBy(how= How.CSS, using = "i.icon-bahmni-clinical")
-	public WebElement clinical;
-	
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-admin")
     public WebElement admin;
-	
+
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-reports")
     public WebElement exports;
-	
+
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-program")
     public WebElement programs;
 
@@ -35,29 +31,21 @@ public class HomePage extends BahmniPage {
     public void clickRegistrationApp(){
     	registration.click();
     }
-    
-    public void clickPatientRecords(){
-    	Common.waitForSpinner();
+
+    public void clickClinicalApp() {
     	patientDocuments.click();
     }
 
-	public void clickClinicalApp(){
-		Common.waitForSpinner();
-		clinical.click();
-	}
-    
-    public void clickAdminApp() throws InterruptedException {
-    	Common.waitForSpinner();
+
+	public void clickAdminApp() {
     	admin.click();
     }
-    
-    public void clickExportsApp() throws InterruptedException {
-    	Common.waitForSpinner();
+
+    public void clickExportsApp(){
     	exports.click();
     }
-    
+
     public void clickProgramsApp(){
-		Common.waitForSpinner();
     	programs.click();
     }
 

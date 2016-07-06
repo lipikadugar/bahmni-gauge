@@ -1,10 +1,8 @@
 package org.bahmni.test.page.program;
 
-import org.bahmni.test.Common;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.Select;
 
 public class TreatmentPage {
 	
@@ -62,72 +60,5 @@ public class TreatmentPage {
 	@FindBy(how= How.CSS, using = ".refill-btn")
     public WebElement refill_drug_btn;
 	
-	Common app = new Common();
-
-	public TreatmentPage(){
-    }
-
-	public void addDrug(String DrugName) throws InterruptedException {
-		Common.waitForSpinner();
-		  drug_name.sendKeys(DrugName);
-		  Thread.sleep(2000);
-		  drug_autocomplete.click();
-	 }
-	
-	 public void selectUnits(String Unit) throws InterruptedException {
-		 Common.waitForSpinner();
-		 Select units = new Select(dose_unit);
-		 units.selectByVisibleText(Unit);
-	 }
-	 
-	 public void selectFrequency(String Frequency) throws InterruptedException {
-		 Common.waitForSpinner();
-		 Select units = new Select(frequency);
-		 units.selectByVisibleText(Frequency);
-	 }
-	 
-	 public void selectRoute(String Route) throws InterruptedException {
-		 Common.waitForSpinner();
-		 Select units = new Select(route);
-		 units.selectByVisibleText(Route);
-		 
-	 }
-	 
-	 public void savePrecription() throws InterruptedException {
-		 Common.waitForSpinner();
-		  save_btn.click();
-	 }
-//
-//	 public void prescribeDrugToPatient(String DrugName) throws InterruptedException, IOException {
-//		 Common.waitForSpinner();
-//		 addDrug(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Name"));
-//		 dose.sendKeys(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Dose"));
-//		 selectUnits(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Unit"));
-//		 selectFrequency(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Frequency"));
-//		 selectRoute(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Route"));
-//		 duration.sendKeys(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Duration"));
-//		 start_date.sendKeys(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","StartDate"));
-//		 add_btn.click();
-//	 }
-//
-//	 public void prescribeFreeTextDrugToPatient(String DrugName) throws InterruptedException, IOException {
-//		 Common.waitForSpinner();
-//		 drug_name.sendKeys(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Name"));
-//		 accept_btn.click();
-//		 dose.sendKeys(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Dose"));
-//		 selectUnits(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Unit"));
-//		 selectFrequency(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Frequency"));
-//		 selectRoute(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Route"));
-//		 duration.sendKeys(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","Duration"));
-//		 start_date.sendKeys(app.getJsonKeyValue("patient/Treatment/"+DrugName+"","StartDate"));
-//		 add_btn.click();
-//	 }
-	 
-	public boolean hasText(String Drug){
-		if(treatment_section.getText().contains(Drug))
-			return true;
-		else
-			return false;
-	 }
 
 }
