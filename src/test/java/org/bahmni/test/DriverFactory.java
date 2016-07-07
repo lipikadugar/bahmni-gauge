@@ -17,7 +17,7 @@ public class DriverFactory {
 
 	@BeforeSuite
 	public void setup() {
-		ChromeDriverManager.getInstance().setup();
+		ChromeDriverManager.getInstance().setup("2.19");
 		driver = new ChromeDriver();
 		driver.manage().window().setSize(new Dimension(1440, 900));
 	}
