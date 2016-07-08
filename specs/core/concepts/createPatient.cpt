@@ -1,0 +1,9 @@
+# Create a new patient
+
+* On the login page
+* Login with username "superman" and password "Admin123"
+* Click on registration app
+* Click on create new patient link
+* Create the following patient
+    |ID_PREFIX|FirstName|Last Name|Gender|Date Of Birth|Age|Address1|
+    |GAN|Test|Patient|Male|20/01/2011|50|Bilaspur|
