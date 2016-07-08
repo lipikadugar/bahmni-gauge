@@ -35,7 +35,7 @@ public class BacteriologyPage {
 	
 	@FindBy(how= How.CSS, using = ".savedSpecimens-container .fa-remove")
     public WebElement delete;
-	
+
     public void expandResults() throws InterruptedException {
     	results.click();
     }

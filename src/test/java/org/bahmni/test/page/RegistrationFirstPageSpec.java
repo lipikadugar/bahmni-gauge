@@ -4,6 +4,7 @@ import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.Table;
 import com.thoughtworks.gauge.TableRow;
 import org.bahmni.test.DriverFactory;
+import org.bahmni.test.Tasks;
 import org.bahmni.test.TestSpecException;
 import org.bahmni.test.page.registration.RegistrationFirstPage;
 import org.bahmni.test.page.registration.domain.Patient;
@@ -38,6 +39,8 @@ public class RegistrationFirstPageSpec {
 		RegistrationFirstPage registrationFirstPage = org.bahmni.test.PageFactory.getRegistrationFirstPage();
 		Patient patient = registrationFirstPage.transformTableRowToPatient(rows.get(0), columnNames);
 		registrationFirstPage.storePatientInSpecStore(patient);
+		Tasks task = new Tasks();
+		task.waitForSpinner();
 		registrationFirstPage.registerPatient(patient);
 	}
 
@@ -63,5 +66,11 @@ public class RegistrationFirstPageSpec {
 	public void startPatientVisit(String visit) throws InterruptedException {
 		RegistrationFirstPage registrationFirstPage = org.bahmni.test.PageFactory.getRegistrationFirstPage();
 		registrationFirstPage.startVisit(visit);
+	}
+
+	@Step("Select check to enter patient ID manually")
+	public void selectCheckToEnterPatientID() {
+		RegistrationFirstPage registrationFirstPage = org.bahmni.test.PageFactory.getRegistrationFirstPage();
+		registrationFirstPage.selectEnterPatientID();
 	}
 }

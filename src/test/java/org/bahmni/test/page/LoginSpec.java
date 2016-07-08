@@ -3,6 +3,7 @@ package org.bahmni.test.page;
 import com.thoughtworks.gauge.Step;
 import org.bahmni.test.DriverFactory;
 import org.bahmni.test.PageFactory;
+import org.bahmni.test.page.home.HomePage;
 import org.bahmni.test.page.login.LoginPage;
 import org.openqa.selenium.WebDriver;
 

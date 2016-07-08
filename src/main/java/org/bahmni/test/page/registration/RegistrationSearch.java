@@ -18,7 +18,7 @@ public class RegistrationSearch extends BahmniPage{
 	@FindBy(how= How.CSS, using = ".fa-search")
     public WebElement iconSearch;
 	
-	@FindBy(how= How.CSS, using = ".fa-plus")
+	@FindBy(how= How.CSS, using = "i.fa-plus")
     public WebElement iconCreateNew;
 	
 	@FindBy(how= How.CSS, using = "#registrationNumber")

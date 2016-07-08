@@ -9,7 +9,8 @@ public class HomePage extends BahmniPage {
 
 	public static final String URL = BASE_URL.concat("home/index.html#/dashboard");
 
-	@FindBy(how= How.CSS, using = "i.icon-bahmni-registration")
+	//@FindBy(how= How.CSS, using = "i.icon-bahmni-registration")
+	@FindBy(how= How.CSS, using = "i.fa-user")
     public WebElement registration;
 	
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-documents")
@@ -24,9 +25,15 @@ public class HomePage extends BahmniPage {
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-program")
     public WebElement programs;
 
-	//TODO: logout doesn't recognize
-	@FindBy(how= How.XPATH, using = "#view-content > div > header > div > ul > li:nth-child(3) > a > span")
+	@FindBy(how= How.CSS, using = ".btn-user-info")
+	public WebElement user_info;
+
+	@FindBy(how= How.CSS, using = "i.fa-power-off")
 	public WebElement logout;
+
+//	//TODO: logout doesn't recognize
+//	@FindBy(how= How.XPATH, using = "#view-content > div > header > div > ul > li:nth-child(3) > a > span")
+//	public WebElement logout;
 
     public void clickRegistrationApp(){
     	registration.click();
@@ -41,6 +48,11 @@ public class HomePage extends BahmniPage {
     	admin.click();
     }
 
+	public void logout() {
+		user_info.click();
+		logout.click();
+	}
+
     public void clickExportsApp(){
     	exports.click();
     }
@@ -49,7 +61,4 @@ public class HomePage extends BahmniPage {
     	programs.click();
     }
 
-	public void logout(){
-		logout.click();
-	}
 }

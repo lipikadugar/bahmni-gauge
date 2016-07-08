@@ -4,17 +4,17 @@ Created by dharmens on 7/5/16
 
 This is an executable specification file which follows markdown syntax.
 Every heading in this file denotes a scenario. Every bulleted point denotes a step.
-     
-Create a new Patient, Search and validate the details
------------------------------------------------------
 
-* Create a random patient
-* Click on search patient link
-* Search previously created patient with exact identifier
+Create new Patient and validate the details
+---------------------------------------------------
+
+* Create a new patient
 * Validate that the patient edit page is opened for previously created patient
+* Logout the user
 
 
-Search and validate the details
+@Smoke
+Regular Search and validate the details
 -------------------------------
 
 * On the login page

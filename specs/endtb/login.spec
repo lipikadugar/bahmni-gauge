@@ -15,4 +15,5 @@ Login to the App
 * Click on search patient link
 * Search previously created patient with exact identifier
 * Ensure that the patient edit page is opened for previously created patient
+* Logout the user
 

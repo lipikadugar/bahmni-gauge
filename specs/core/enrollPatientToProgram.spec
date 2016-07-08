@@ -10,13 +10,15 @@ Create Patient and Enrollment of Patient to Program
 ---------------------------------------------------
 
 * On the login page
-  * Login with username "superman" and password "Admin123"
-  * Click on registration app
-  * Click on create new patient link
-  * Create the following patient
-      |EMR_ID_PREFIX|FirstName|Last Name|Gender|Date Of Birth|Address1|nationalIdentificationNumber|
-      |GAN|Program|Test|Male|20/01/2011|Bilaspur|13898|
+* Login with username "superman" and password "Admin123"
+* Click on registration app
+* Click on create new patient link
+* Create the following patient
+   |ID_PREFIX|FirstName|Last Name|Gender|Date Of Birth|Age|Address1|
+   |GAN|Test|Patient|Male|20/01/2011|50|Bilaspur|
 * Navigate to dashboard
+* Logout the user
+* Login with username "superman" and password "Admin123"
 * Click on programs app
 * Select the existing patient from patient listing page under tab "All"
 * Register the patient to following program
@@ -25,20 +27,20 @@ Create Patient and Enrollment of Patient to Program
 * Ensure that the patient is registered to mentioned program
 
 
-Editing of Program Attributes
------------------------------
+//Editing of Program Attributes
+//-----------------------------
+//
+//* Navigate to dashboard
+//* Click on programs app
+//* Select the existing patient from patient listing page under tab "All"
+//* Edit attribute to registration "DEF" and facility "Facility1, City1, Country1"
+//* Ensure that the patient is registered to mentioned program
 
-* Navigate to dashboard
-* Click on programs app
-* Select the existing patient from patient listing page under tab "All"
-* Edit attribute to registration "DEF" and facility "Facility1, City1, Country1"
-* Ensure that the patient is registered to mentioned program
-
-End the Program Enrolled for Patient
-------------------------------------
-
-* Navigate to the dashboard page
-* Click on programs app
-* Select the existing patient from patient listing page under tab "All"
-* End the program "TB Program"
-* Ensure that the patient is registered to mentioned program
+//End the Program Enrolled for Patient
+//------------------------------------
+//
+//* Navigate to dashboard
+//* Click on programs app
+//* Select the existing patient from patient listing page under tab "All"
+//* End the program "TB Program"
+//* Ensure that the patient is registered to mentioned program

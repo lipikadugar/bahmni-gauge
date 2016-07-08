@@ -25,7 +25,7 @@ public class PageFactory {
 	private static final String REGISTRATION_FIRST_PAGE = "registration.page1";
 	private static final String REGISTRATION_VISIT_PAGE = "registration.visitPage";
 	private static final String PROGRAMS_PAGE = "programs";
-	private static final String PATIENT_LISTING_PAGE = "patient.listing";
+	private static final String PATIENT_LISTING_PAGE = "patient.listing.page";
 
 	private static Properties props = new Properties();
 
