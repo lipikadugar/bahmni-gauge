@@ -12,7 +12,7 @@ public class RegistrationSearchSpec {
 		registrationSearch.clickCreateNew();
 	}
 
-	@Step("Click on search patient link")
+	@Step({"Click on search patient link","Navigate to Registration search page"})
 	public void clickOnSearch() {
 		RegistrationSearch registrationSearch = org.bahmni.test.PageFactory.getRegistrationSearchPage();
 		registrationSearch.clickSearch();

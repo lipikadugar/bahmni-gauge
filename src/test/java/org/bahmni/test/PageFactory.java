@@ -9,7 +9,6 @@ import org.bahmni.test.page.registration.RegistrationFirstPage;
 import org.bahmni.test.page.registration.RegistrationSearch;
 import org.bahmni.test.page.registration.RegistrationVisitDetailsPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -50,7 +49,7 @@ public class PageFactory {
 
 		try {
 			BahmniPage bahmniPage = (BahmniPage) org.openqa.selenium.support.PageFactory.initElements(DriverFactory.getDriver(), Class.forName((String) props.get(key)));
-			waitForSpinner(DriverFactory.getDriver());
+			waitForSpinner();
 			return bahmniPage;
 		}
 		catch (ClassNotFoundException e) {
@@ -58,10 +57,10 @@ public class PageFactory {
 		}
 	}
 
-	public static void waitForSpinner(WebDriver driver) {
+	public static void waitForSpinner() {
 		try {
 			Thread.sleep(1000);
-			WebDriverWait wait = new WebDriverWait(driver, 60);
+			WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 60);
 			Boolean spinner = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#overlay")));
 		}
 		catch (InterruptedException e) {

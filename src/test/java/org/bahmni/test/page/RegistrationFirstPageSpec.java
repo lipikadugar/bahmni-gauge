@@ -4,7 +4,7 @@ import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.Table;
 import com.thoughtworks.gauge.TableRow;
 import org.bahmni.test.DriverFactory;
-import org.bahmni.test.Tasks;
+import org.bahmni.test.PageFactory;
 import org.bahmni.test.TestSpecException;
 import org.bahmni.test.page.registration.RegistrationFirstPage;
 import org.bahmni.test.page.registration.domain.Patient;
@@ -39,8 +39,8 @@ public class RegistrationFirstPageSpec {
 		RegistrationFirstPage registrationFirstPage = org.bahmni.test.PageFactory.getRegistrationFirstPage();
 		Patient patient = registrationFirstPage.transformTableRowToPatient(rows.get(0), columnNames);
 		registrationFirstPage.storePatientInSpecStore(patient);
-		Tasks task = new Tasks();
-		task.waitForSpinner();
+		//TODO: why is this required?
+		PageFactory.waitForSpinner();
 		registrationFirstPage.registerPatient(patient);
 	}
 

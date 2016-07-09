@@ -4,20 +4,18 @@ package org.bahmni.test.page;
 import com.thoughtworks.gauge.Step;
 import org.bahmni.test.DriverFactory;
 import org.bahmni.test.PageFactory;
-import org.bahmni.test.Tasks;
 import org.bahmni.test.page.home.HomePage;
 import org.openqa.selenium.WebDriver;
 
 public class HomeSpec extends BahmniPage {
 	private final WebDriver driver;
 	HomePage homePage;
-	Tasks tasks;
 
 	public HomeSpec(){
 		this.driver = DriverFactory.getDriver();
 	}
 
-	@Step("Go to Home page")
+	@Step("Navigate to dashboard")
 	public void navigateToHomePage() {
 		driver.get(HomePage.URL);
 	}
@@ -27,8 +25,7 @@ public class HomeSpec extends BahmniPage {
 	public void goToRegistrationPage(){
 		homePage = PageFactory.getHomePage();
 		homePage.clickRegistrationApp();
-		tasks =  new Tasks();
-		tasks.waitForSpinner();
+		PageFactory.waitForSpinner();
 	}
 
 	@Step("Click on programs app")
@@ -45,8 +42,8 @@ public class HomeSpec extends BahmniPage {
 
 	@Step("Logout the user")
 	public void logout(){
-		tasks = new Tasks();
-		tasks.navigateToDashboard();
+		navigateToHomePage();
+		PageFactory.waitForSpinner();
 		homePage = PageFactory.getHomePage();
 		homePage.logout();
 	}

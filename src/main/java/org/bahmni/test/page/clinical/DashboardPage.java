@@ -11,7 +11,4 @@ public class DashboardPage {
 	
 	@FindBy(how= How.CSS, using = ".bacteriology-dashboard")
     public WebElement bacteriology_results;
-    
-    
-
 }
