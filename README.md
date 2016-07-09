@@ -10,8 +10,8 @@ Installation instructions
     gauge --install html-report
 
 * For running the tests, run the command
-    export implementation_name=<implementation_name>
-    export url=<environment_url>
+    export bahmni_gauge_impl_name=<implementation_name>
+    export bahmni_gauge_env_url=<environment_url>
     mvn -DspecsDir=<location_of_specs> clean install
     mvn -DspecsDir=~/bahmni-code/endtb-config/openmrs/automatedTests clean install
 

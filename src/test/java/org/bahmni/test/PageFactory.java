@@ -21,14 +21,13 @@ public class PageFactory {
 	private static final String HOME = "home";
 	private static final String REGISTRATION_SEARCH = "registration.search";
 	private static final String REGISTRATION_FIRST_PAGE = "registration.page1";
-	private static final String REGISTRATION_VISIT_PAGE = "registration.visitPage";
 	private static final String PROGRAMS_PAGE = "programs";
 	private static final String PATIENT_LISTING_PAGE = "patient.listing.page";
 
 	private static Properties props = new Properties();
 
 	static{
-		String implementationName = System.getenv("implementation_name");
+		String implementationName = System.getenv("bahmni_gauge_impl_name");
 		String fileName = implementationName == null ? "page.properties": implementationName + "-page.properties";
 		InputStream is = ClassLoader.getSystemResourceAsStream(fileName);
 		try {
@@ -36,14 +35,14 @@ public class PageFactory {
 		}
 		catch (IOException e) {
 			e.printStackTrace();
-			throw new RuntimeException("Unable to locate page.properties");
+			throw new TestSpecException("Unable to locate page.properties");
 		}
 
 	}
 
 	public static BahmniPage getPage(String key){
 		if(!props.containsKey(key)){
-			throw new RuntimeException("The page key ["+key+"] is not defined in page.properties file");
+			throw new TestSpecException("The page key ["+key+"] is not defined in page.properties file");
 		}
 
 		try {
@@ -52,7 +51,7 @@ public class PageFactory {
 			return bahmniPage;
 		}
 		catch (ClassNotFoundException e) {
-			throw new RuntimeException("The class defined in page.properites file ["+props.get(key)+"] not available");
+			throw new TestSpecException("The class defined in page.properites file ["+props.get(key)+"] not available");
 		}
 	}
 

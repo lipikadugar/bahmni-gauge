@@ -7,7 +7,7 @@ import org.bahmni.test.page.registration.domain.Patient;
 
 public class BahmniPage {
 
-	protected static String BASE_URL = System.getenv("url");
+	protected static String BASE_URL = System.getenv("bahmni_gauge_env_url");
 
 	public static final String PATIENT_KEY = "patient";
 	public static final String PROGRAM_KEY = "program";

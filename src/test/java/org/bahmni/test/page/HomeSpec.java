@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HomeSpec extends BahmniPage {
 	private final WebDriver driver;
-	HomePage homePage;
+	private HomePage homePage;
 
 	public HomeSpec(){
 		this.driver = DriverFactory.getDriver();

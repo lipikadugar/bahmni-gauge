@@ -90,7 +90,7 @@ public class ProgramManagamentPage extends BahmniPage {
 				return allActivePrograms.get(i);
 			}
 		}
-		throw new RuntimeException("The program with name [" + treatment.getName() + "] doesn't exist");
+		throw new TestSpecException("The program with name [" + treatment.getName() + "] doesn't exist");
 	}
 
 	public void clickTreatmentDashboard(Program treatment) {
