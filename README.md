@@ -3,14 +3,15 @@ Automation Test Suite using Gauge Framework
 
 Installation instructions
 --------------------------
-* For installation of Gauge, follow the wiki instructions [here](http://getgauge.io/documentation/user/current/installations/operating_system/install_on_mac.html)
-* On MAC, run the following commands
-    brew update
-    brew install gauge
-* Install Language Runner  plugins using the following commands
+* Download Gauge from this [link](http://getgauge.io/get-started/).
+
+* Install core plugins using the following commands
     gauge --install java
     gauge --install html-report
 
 * For running the tests, run the command
-    mvn gauge:execute
+    export implementation_name=<implementation_name>
+    export url=<environment_url>
+    mvn -DspecsDir=<location_of_specs> clean install
+    mvn -DspecsDir=~/bahmni-code/endtb-config/openmrs/automatedTests clean install
 

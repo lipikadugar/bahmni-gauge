@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
+
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 public class RegistrationFirstPage extends BahmniPage {
 
@@ -86,7 +86,7 @@ public class RegistrationFirstPage extends BahmniPage {
 	}
 
 	public void verifyPatientWithIdentifierAndName() {
-		Patient patient = getPatientFromSpecStore();
+//		Patient patient = getPatientFromSpecStore();
 		//TODO: Find a way to identify the identifier in edit mode with correct selector
 		//TODO: write a correct assertion
 //		Assert.assertTrue(familyName.getText().equals(lastName) && txtPatientName.getText().equals(firstName));
@@ -98,7 +98,7 @@ public class RegistrationFirstPage extends BahmniPage {
 
 	public Patient transformTableRowToPatient(TableRow row, List<String> columnNames) {
 		//String randomPatientId = "EMR"+new Random().nextInt();
-		Patient patient = new Patient("", row.getCell(columnNames.get(1)),
+		Patient patient = new Patient("","", row.getCell(columnNames.get(1)),
 				row.getCell(columnNames.get(2)), row.getCell(columnNames.get(3)), new Date(), 50,row.getCell(columnNames.get(6)));
 
 		return patient;

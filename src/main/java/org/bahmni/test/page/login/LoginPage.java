@@ -25,9 +25,6 @@ public class LoginPage extends BahmniPage{
     @FindBy(how= How.CSS, using = ".confirm")
     public WebElement btnLogin;
 
-    public LoginPage(){
-    }
-
 	public void login(){
 		login("superman","Admin123","Registration Desk","en");
 	}

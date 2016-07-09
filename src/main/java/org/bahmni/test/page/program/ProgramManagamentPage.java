@@ -11,7 +11,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 
-import java.io.IOException;
 import java.util.List;
 
 public class ProgramManagamentPage extends BahmniPage {
@@ -54,9 +53,6 @@ public class ProgramManagamentPage extends BahmniPage {
 
 	@FindBy(how= How.CSS, using = "#Id_Number")
 	public WebElement registration_id;
-
-	public ProgramManagamentPage() {
-	}
 
 	public ProgramManagamentPage enrollPatientToProgram(Program treatment) {
 		doActions(treatment);

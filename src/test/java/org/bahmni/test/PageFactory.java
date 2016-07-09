@@ -7,7 +7,6 @@ import org.bahmni.test.page.login.LoginPage;
 import org.bahmni.test.page.program.ProgramManagamentPage;
 import org.bahmni.test.page.registration.RegistrationFirstPage;
 import org.bahmni.test.page.registration.RegistrationSearch;
-import org.bahmni.test.page.registration.RegistrationVisitDetailsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -61,7 +60,7 @@ public class PageFactory {
 		try {
 			Thread.sleep(1000);
 			WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 60);
-			Boolean spinner = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#overlay")));
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#overlay")));
 		}
 		catch (InterruptedException e) {
 			e.printStackTrace();
@@ -86,10 +85,6 @@ public class PageFactory {
 
 	public static ProgramManagamentPage getProgramManagementPage() {
 		return (ProgramManagamentPage) getPage(PROGRAMS_PAGE);
-	}
-	
-	public static RegistrationVisitDetailsPage getRegistrationVisitDetailsPage() {
-		return (RegistrationVisitDetailsPage) getPage(REGISTRATION_VISIT_PAGE);
 	}
 
 	public static PatientListingPage getPatientListingPage() {

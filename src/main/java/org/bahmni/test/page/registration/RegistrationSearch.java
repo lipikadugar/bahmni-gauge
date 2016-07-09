@@ -35,9 +35,6 @@ public class RegistrationSearch extends BahmniPage{
 	
 	@FindBy(how= How.CSS, using = ".registraition-search-results-container > table")
     public WebElement gridSearchResults;
-	
-	public RegistrationSearch(){
-	}
 
     public void clickSearch() {
     	iconSearch.click();
@@ -79,16 +76,7 @@ public class RegistrationSearch extends BahmniPage{
 		gridSearchResults.findElements(By.tagName("a")).get(0).click();
 
 	}
-
-	private Boolean isPatientInResult(String patientFirstName) {
-		List<WebElement> patientListRows = gridSearchResults.findElements(By.xpath(".//tr"));
-		for (WebElement element : patientListRows){
-			String name = element.getText();
-			if (name.contains(patientFirstName)) {return true;}
-		}
-		return false;
-	}
-
+	
 	public void verifySearchResults() {
 		//TODO: add verifying search results
 	}

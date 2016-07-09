@@ -13,7 +13,7 @@ public class Patient {
 	private String village;
 
 	public Patient(String prefix,String idNumber, String firstName, String lastName, String gender, Date dateOfBirth, int age, String village) {
-		this.prefix = "";
+		this.prefix = prefix;
 		this.idNumber = idNumber;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -23,12 +23,8 @@ public class Patient {
 		this.village = village;
 	}
 
-	public Patient(String idNumber, String firstName, String lastName, String gender, Date dateOfBirth, int age, String nationalIdentificationNumber) {
-		this("",idNumber,firstName,lastName,gender,dateOfBirth,age,nationalIdentificationNumber);
-	}
-
 	public Patient(String firstName, String lastName, String gender, Date dateOfBirth, int age, String village) {
-		this("",firstName,lastName,gender,dateOfBirth,age,village);
+		this("","",firstName,lastName,gender,dateOfBirth,age,village);
 	}
 
 	public String getPrefix() {
