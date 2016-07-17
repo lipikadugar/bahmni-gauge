@@ -99,10 +99,6 @@ public class ProgramManagamentPage extends BahmniPage {
 
 	}
 
-	public void endProgram(Program treatment) {
-		//TODO: write logic for endingPrograms
-	}
-
 	public boolean isPatientEnrolledToProgram(Program treatment) {
 		WebElement programName = activeProgramContainer.findElement(By.cssSelector(".programName"));
 		return isProgramAvailable(treatment, programName);
@@ -133,6 +129,14 @@ public class ProgramManagamentPage extends BahmniPage {
 		WebElement programToModify = findProgram(treatment);
 		programToModify.findElement(By.cssSelector("[value='Edit']")).click();
 		editProgram(registration, facility);
+		programToModify.findElement(By.cssSelector("[value='Save']")).click();
+	}
+
+	public void endProgram(Program treatment) {
+		WebElement programToModify = findProgram(treatment);
+		programToModify.findElement(By.cssSelector("[value='Edit']")).click();
+		WebElement outcome = programToModify.findElement(By.cssSelector("[ng-model='patientProgram.outcomeData']"));
+		new Select(outcome).selectByVisibleText(treatment.getTreatmentStatus());
 		programToModify.findElement(By.cssSelector("[value='Save']")).click();
 	}
 

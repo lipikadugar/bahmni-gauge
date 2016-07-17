@@ -1,6 +1,7 @@
 package org.bahmni.test.page.registration;
 
 import com.thoughtworks.gauge.TableRow;
+import org.bahmni.endtb.page.registration.domain.EndTBPatient;
 import org.bahmni.test.page.BahmniPage;
 import org.bahmni.test.page.registration.domain.Patient;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class RegistrationFirstPage extends BahmniPage {
 
@@ -57,16 +59,27 @@ public class RegistrationFirstPage extends BahmniPage {
 	@FindBy(how = How.CSS, using = "#registrationNumber")
 	public WebElement enterID;
 
+	@FindBy(how = How.CSS, using = ".fa-home")
+	public WebElement homepage;
+
+	@FindBy(how= How.CSS, using = ".btn-user-info")
+	public WebElement user_info;
+
+	@FindBy(how= How.CSS, using = "i.fa-power-off")
+	public WebElement logout;
+
 	public void clickSave() {
 		save.click();
 	}
 
 	public void registerPatient(Patient patient) {
+		if (txtRegistrationNumber.isDisplayed()) {
+			txtRegistrationNumber.sendKeys(patient.getIdNumber());
+		}
 		txtPatientName.sendKeys(patient.getFirstName());
 		familyName.sendKeys(patient.getLastName());
 		new Select(gender).selectByVisibleText(patient.getGender());
 		ageYears.sendKeys(patient.getAge());
-		village.sendKeys(patient.getVillage());
 		clickSave();
 	}
 
@@ -97,8 +110,8 @@ public class RegistrationFirstPage extends BahmniPage {
 	}
 
 	public Patient transformTableRowToPatient(TableRow row, List<String> columnNames) {
-		//String randomPatientId = "EMR"+new Random().nextInt();
-		Patient patient = new Patient("","", row.getCell(columnNames.get(1)),
+		String randomPatientId = "EMR"+ new Random().nextInt();
+		EndTBPatient patient = new EndTBPatient(randomPatientId, row.getCell(columnNames.get(1)),
 				row.getCell(columnNames.get(2)), row.getCell(columnNames.get(3)), new Date(), 50,row.getCell(columnNames.get(6)));
 
 		return patient;
@@ -106,5 +119,10 @@ public class RegistrationFirstPage extends BahmniPage {
 
 	public void startVisit(String visit) {
 		//TODO: add startVisit
+	}
+
+	public void logout(){
+		user_info.click();
+		logout.click();
 	}
 }

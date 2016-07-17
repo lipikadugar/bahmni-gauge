@@ -1,8 +1,10 @@
 Enroll Patients To Treatment
 ============================
 
-Create a patient and enroll to a treatment
+CREATE A PATIENT AND ENROLL TO THE TREATMENT
 -------------------------------------------
+
+Tags: Smoke, Sanity
 
 * Create a random patient
 * Click on treatment enrollment

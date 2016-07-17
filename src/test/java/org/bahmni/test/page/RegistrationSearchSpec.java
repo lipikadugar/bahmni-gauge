@@ -1,10 +1,17 @@
 package org.bahmni.test.page;
 
+import com.thoughtworks.gauge.BeforeClassSteps;
 import com.thoughtworks.gauge.Step;
+import org.bahmni.test.DriverFactory;
 import org.bahmni.test.page.registration.RegistrationSearch;
 import org.bahmni.test.page.registration.domain.Patient;
 
 public class RegistrationSearchSpec {
+
+	@BeforeClassSteps
+	public void waitForAppReady(){
+		new BahmniPage().waitForSpinner(DriverFactory.getDriver());
+	}
 
 	@Step("Click on create new patient link")
 	public void clickOnCreateNew() {

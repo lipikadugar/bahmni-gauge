@@ -1,6 +1,8 @@
 package org.bahmni.test;
 
+import org.bahmni.endtb.page.clinical.BaselinePage;
 import org.bahmni.test.page.BahmniPage;
+import org.bahmni.test.page.clinical.ObservationsPage;
 import org.bahmni.test.page.clinical.PatientListingPage;
 import org.bahmni.test.page.home.HomePage;
 import org.bahmni.test.page.login.LoginPage;
@@ -23,6 +25,8 @@ public class PageFactory {
 	private static final String REGISTRATION_FIRST_PAGE = "registration.page1";
 	private static final String PROGRAMS_PAGE = "programs";
 	private static final String PATIENT_LISTING_PAGE = "patient.listing.page";
+	private static final String OBSERVATIONS_PAGE = "observations.page";
+	private static final String BASELINE_PAGE = "baseline.pge";
 
 	private static Properties props = new Properties();
 
@@ -47,22 +51,10 @@ public class PageFactory {
 
 		try {
 			BahmniPage bahmniPage = (BahmniPage) org.openqa.selenium.support.PageFactory.initElements(DriverFactory.getDriver(), Class.forName((String) props.get(key)));
-			waitForSpinner();
 			return bahmniPage;
 		}
 		catch (ClassNotFoundException e) {
 			throw new TestSpecException("The class defined in page.properites file ["+props.get(key)+"] not available");
-		}
-	}
-
-	public static void waitForSpinner() {
-		try {
-			Thread.sleep(1000);
-			WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 60);
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#overlay")));
-		}
-		catch (InterruptedException e) {
-			e.printStackTrace();
 		}
 	}
 
@@ -89,4 +81,7 @@ public class PageFactory {
 	public static PatientListingPage getPatientListingPage() {
 		return (PatientListingPage) getPage(PATIENT_LISTING_PAGE);
 	}
+
+	public static ObservationsPage getObservationsPage(){ return (ObservationsPage) getPage(OBSERVATIONS_PAGE);}
+	public static BaselinePage getBaselinePage(){ return (BaselinePage) getPage(BASELINE_PAGE);}
 }

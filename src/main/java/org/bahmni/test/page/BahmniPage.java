@@ -4,6 +4,10 @@ import com.thoughtworks.gauge.datastore.DataStore;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import org.bahmni.test.page.program.domain.Program;
 import org.bahmni.test.page.registration.domain.Patient;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BahmniPage {
 
@@ -25,6 +29,17 @@ public class BahmniPage {
 	public void storeProgramInSpecStore(Program program){
 		DataStore specStore = DataStoreFactory.getSpecDataStore();
 		specStore.put(PROGRAM_KEY, program);
+	}
+
+	public void waitForSpinner(WebDriver driver) {
+		try {
+			Thread.sleep(1000);
+			WebDriverWait wait = new WebDriverWait(driver, 60);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#overlay")));
+		}
+		catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Program getProgramFromSpecStore(){

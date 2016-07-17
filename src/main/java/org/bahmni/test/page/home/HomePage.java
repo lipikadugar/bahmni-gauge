@@ -7,10 +7,10 @@ import org.openqa.selenium.support.How;
 
 public class HomePage extends BahmniPage {
 
-	public static final String URL = BASE_URL.concat("home/index.html#/dashboard");
+	public static final String URL = BASE_URL.concat("/bahmni/home/index.html#/dashboard");
 
 	//@FindBy(how= How.CSS, using = "i.icon-bahmni-registration")
-	@FindBy(how= How.CSS, using = "i.fa-user")
+	@FindBy(how= How.CSS, using = "i.icon-bahmni-registration")
     public WebElement registration;
 	
 	@FindBy(how= How.CSS, using = "i.icon-bahmni-documents")

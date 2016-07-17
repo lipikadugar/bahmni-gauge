@@ -1,10 +1,12 @@
 package org.bahmni.test.page;
 
 
+import com.thoughtworks.gauge.BeforeClassSteps;
 import com.thoughtworks.gauge.Step;
 import org.bahmni.test.DriverFactory;
 import org.bahmni.test.PageFactory;
 import org.bahmni.test.page.home.HomePage;
+import org.bahmni.test.page.registration.RegistrationFirstPage;
 import org.openqa.selenium.WebDriver;
 
 public class HomeSpec extends BahmniPage {
@@ -13,6 +15,11 @@ public class HomeSpec extends BahmniPage {
 
 	public HomeSpec(){
 		this.driver = DriverFactory.getDriver();
+	}
+
+	@BeforeClassSteps
+	public void waitForAppReady(){
+		new BahmniPage().waitForSpinner(driver);
 	}
 
 	@Step("Navigate to dashboard")
@@ -25,7 +32,7 @@ public class HomeSpec extends BahmniPage {
 	public void goToRegistrationPage(){
 		homePage = PageFactory.getHomePage();
 		homePage.clickRegistrationApp();
-		PageFactory.waitForSpinner();
+		new BahmniPage().waitForSpinner(driver);
 	}
 
 	@Step("Click on programs app")
@@ -42,10 +49,8 @@ public class HomeSpec extends BahmniPage {
 
 	@Step("Logout the user")
 	public void logout(){
-		navigateToHomePage();
-		PageFactory.waitForSpinner();
-		homePage = PageFactory.getHomePage();
-		homePage.logout();
+		RegistrationFirstPage registrationPage = PageFactory.getRegistrationFirstPage();
+		registrationPage.logout();
 	}
 
 }

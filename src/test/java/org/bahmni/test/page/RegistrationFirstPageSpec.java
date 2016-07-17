@@ -1,5 +1,6 @@
 package org.bahmni.test.page;
 
+import com.thoughtworks.gauge.BeforeClassSteps;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.Table;
 import com.thoughtworks.gauge.TableRow;
@@ -22,6 +23,11 @@ public class RegistrationFirstPageSpec {
 		this.driver = DriverFactory.getDriver();
 	}
 
+	@BeforeClassSteps
+	public void waitForAppReady(){
+		new BahmniPage().waitForSpinner(driver);
+	}
+
 	@Step("On the new patient creation page")
 	public void navigateToPatientCreatePage() {
 		driver.get(RegistrationFirstPage.URL);
@@ -39,8 +45,6 @@ public class RegistrationFirstPageSpec {
 		RegistrationFirstPage registrationFirstPage = org.bahmni.test.PageFactory.getRegistrationFirstPage();
 		Patient patient = registrationFirstPage.transformTableRowToPatient(rows.get(0), columnNames);
 		registrationFirstPage.storePatientInSpecStore(patient);
-		//TODO: why is this required?
-		PageFactory.waitForSpinner();
 		registrationFirstPage.registerPatient(patient);
 	}
 

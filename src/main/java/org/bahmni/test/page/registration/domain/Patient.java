@@ -27,6 +27,10 @@ public class Patient {
 		this("","",firstName,lastName,gender,dateOfBirth,age,village);
 	}
 
+	public Patient(String idNumber,String firstName, String lastName, String gender, Date dateOfBirth, int age, String village) {
+		this("",idNumber,firstName,lastName,gender,dateOfBirth,age,village);
+	}
+
 	public String getPrefix() {
 		return prefix;
 	}

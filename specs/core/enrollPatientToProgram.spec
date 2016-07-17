@@ -1,5 +1,5 @@
-Specification Heading
-=====================
+Program Enrollemnt, Editing of Program Attributes and End the Program
+=====================================================================
 Created by dharmens on 7/5/16
 
 This is an executable specification file which follows markdown syntax.
@@ -27,20 +27,21 @@ Create Patient and Enrollment of Patient to Program
 * Ensure that the patient is registered to mentioned program
 
 
-//Editing of Program Attributes
-//-----------------------------
-//
-//* Navigate to dashboard
-//* Click on programs app
-//* Select the existing patient from patient listing page under tab "All"
-//* Edit attribute to registration "DEF" and facility "Facility1, City1, Country1"
-//* Ensure that the patient is registered to mentioned program
+Editing of Program Attributes
+-----------------------------
 
-//End the Program Enrolled for Patient
-//------------------------------------
-//
-//* Navigate to dashboard
-//* Click on programs app
-//* Select the existing patient from patient listing page under tab "All"
-//* End the program "TB Program"
-//* Ensure that the patient is registered to mentioned program
+* Navigate to dashboard
+* Click on programs app
+* Select the existing patient from patient listing page under tab "All"
+* Edit attribute to registration "DEF" and facility "Facility1, City1, Country1"
+* Ensure that the patient is registered to mentioned program
+
+
+End the Program Enrolled for Patient
+------------------------------------
+
+* Navigate to dashboard
+* Click on programs app
+* Select the existing patient from patient listing page under tab "All"
+* End the program "TB Program"
+* Ensure that the patient is registered to mentioned program
